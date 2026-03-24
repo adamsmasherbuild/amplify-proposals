@@ -40,886 +40,901 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
 .sidebar::-webkit-scrollbar-thumb{background:var(--charcoal-soft);}
 
 .s-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;}
-.s-tagline{font-size:9.5px;color:var(--text-muted);letter-spacing:0.2em;text-transform:uppercase;margin-top:3px;margin-bottom:28px;}
-.s-divider{height:1px;background:rgba(200,168,75,0.1);margin:18px 0;}
+.s-tagline{font-size:10px;letter-spacing:0.15em;color:var(--text-muted);text-transform:uppercase;margin-top:4px;}
+.s-divider{height:1px;background:var(--border-soft);margin:20px 0;}
 
-.s-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);opacity:0.75;margin-bottom:10px;margin-top:4px;}
+.s-section-label{font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;font-weight:500;}
 
-.s-client{display:flex;flex-direction:column;gap:5px;margin-bottom:6px;}
-.s-client input{background:var(--charcoal-mid);border:1px solid rgba(200,168,75,0.12);border-radius:5px;padding:8px 10px;color:var(--white);font-size:12px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
-.s-client input::placeholder{color:rgba(253,250,244,0.25);}
-.s-client input:focus{border-color:rgba(200,168,75,0.4);}
+.nav-btn{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border-radius:6px;border:none;background:transparent;color:var(--cream-dark);cursor:pointer;font-size:12.5px;font-family:'DM Sans',sans-serif;text-align:left;transition:all 0.18s;}
+.nav-btn:hover{background:var(--charcoal-soft);color:var(--white);}
+.nav-btn.active{background:var(--gold-dim);color:var(--gold-light);border:1px solid var(--border);}
+.nav-btn .icon{width:16px;height:16px;opacity:0.7;flex-shrink:0;}
+.nav-btn.active .icon{opacity:1;}
 
-.s-step-list{display:flex;flex-direction:column;gap:3px;flex:1;}
-.s-step{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:5px;cursor:pointer;transition:background .18s;border:1px solid transparent;position:relative;}
-.s-step:hover{background:rgba(200,168,75,0.06);}
-.s-step.active{background:rgba(200,168,75,0.1);border-color:rgba(200,168,75,0.18);}
-.s-step.completed .s-step-num{background:var(--gold);color:var(--charcoal);}
-.s-step-num{width:22px;height:22px;border-radius:50%;background:var(--charcoal-soft);color:var(--text-muted);font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
-.s-step.active .s-step-num{background:rgba(200,168,75,0.2);color:var(--gold);}
-.s-step-info{flex:1;min-width:0;}
-.s-step-title{font-size:11.5px;color:var(--white);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.s-step.active .s-step-title{color:var(--gold-light);}
-.s-step-sub{font-size:10px;color:var(--text-muted);margin-top:1px;}
-.s-step-check{font-size:11px;color:var(--gold);opacity:0;}
-.s-step.completed .s-step-check{opacity:1;}
-
-.s-actions{margin-top:auto;padding-top:20px;display:flex;flex-direction:column;gap:8px;}
-.btn-primary{background:var(--gold);color:var(--charcoal);border:none;border-radius:5px;padding:10px 16px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:0.04em;transition:opacity .2s;}
-.btn-primary:hover{opacity:0.88;}
-.btn-ghost{background:transparent;color:var(--text-muted);border:1px solid rgba(200,168,75,0.15);border-radius:5px;padding:9px 16px;font-size:11.5px;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:0.04em;transition:all .2s;}
-.btn-ghost:hover{color:var(--gold);border-color:rgba(200,168,75,0.3);}
+.s-spacer{flex:1;}
+.s-footer{font-size:10px;color:var(--text-muted);line-height:1.6;}
 
 /* MAIN */
-.main{display:flex;flex-direction:column;min-height:100vh;}
+.main{background:var(--cream);overflow-y:auto;}
 
-/* TOP BAR */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 36px;border-bottom:1px solid var(--border-soft);background:var(--white);position:sticky;top:0;z-index:10;}
-.tb-breadcrumb{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--text-muted);}
-.tb-breadcrumb span{color:var(--text-body);}
-.tb-right{display:flex;align-items:center;gap:12px;}
-.tb-progress{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-muted);}
-.tb-prog-bar{width:80px;height:3px;background:var(--cream-dark);border-radius:2px;overflow:hidden;}
-.tb-prog-fill{height:100%;background:var(--gold);border-radius:2px;transition:width .4s ease;}
-.tb-save{font-size:10.5px;color:var(--text-muted);display:flex;align-items:center;gap:4px;}
+/* TOPBAR */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:var(--white);border-bottom:1px solid var(--border-soft);position:sticky;top:0;z-index:10;}
+.topbar-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--charcoal);}
+.topbar-actions{display:flex;gap:10px;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:var(--r);font-size:12.5px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all 0.18s;border:1px solid transparent;}
+.btn-ghost{background:transparent;border-color:var(--border);color:var(--text-body);}
+.btn-ghost:hover{background:var(--cream-dark);border-color:var(--gold);}
+.btn-primary{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
+.btn-primary:hover{background:var(--gold-light);}
+.btn-sm{padding:6px 12px;font-size:11.5px;}
 
 /* CONTENT AREA */
-.content{flex:1;padding:36px;max-width:860px;}
+.content{padding:28px 32px;}
 
-.step-panel{display:none;}
-.step-panel.active{display:block;}
+/* PAGE */
+.page{display:none;}
+.page.active{display:block;}
 
-.step-header{margin-bottom:28px;}
-.step-num-badge{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
-.step-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--charcoal);letter-spacing:-0.01em;line-height:1.2;}
-.step-desc{font-size:12.5px;color:var(--text-muted);margin-top:6px;line-height:1.6;max-width:580px;}
+/* PROPOSAL GRID */
+.proposal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:20px;}
 
 /* CARD */
-.card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:22px 24px;margin-bottom:16px;box-shadow:var(--shadow-sm);}
-.card-title{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-.card-title::after{content:'';flex:1;height:1px;background:var(--border-soft);}
+.card{background:var(--white);border:1px solid var(--border-soft);border-radius:10px;padding:20px;cursor:pointer;transition:all 0.2s;}
+.card:hover{border-color:var(--border);box-shadow:var(--shadow-sm);}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--charcoal);}
+.card-meta{font-size:11px;color:var(--text-muted);margin-top:3px;}
+.badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:20px;font-size:10.5px;font-weight:500;}
+.badge-draft{background:rgba(140,130,120,0.12);color:var(--text-muted);}
+.badge-sent{background:rgba(200,168,75,0.15);color:#A07820;}
+.badge-accepted{background:rgba(60,140,80,0.12);color:#2E7A40;}
 
-/* FORM ELEMENTS */
-.field-group{display:grid;gap:12px;margin-bottom:4px;}
-.field-group.cols-2{grid-template-columns:1fr 1fr;}
-.field-group.cols-3{grid-template-columns:1fr 1fr 1fr;}
-.field{display:flex;flex-direction:column;gap:5px;}
-.field label{font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);}
-.field input,.field textarea,.field select{background:var(--cream);border:1px solid var(--border);border-radius:5px;padding:9px 11px;font-size:12.5px;color:var(--charcoal);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;width:100%;}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,168,75,0.08);}
-.field textarea{resize:vertical;min-height:80px;line-height:1.55;}
-.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238C8278' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;}
+/* SECTION HEADER */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;}
+.section-sub{font-size:12px;color:var(--text-muted);margin-top:2px;}
 
-/* TOGGLE GROUP */
-.toggle-group{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px;}
-.toggle-btn{padding:6px 13px;border:1px solid var(--border);border-radius:4px;font-size:11.5px;color:var(--text-muted);cursor:pointer;background:var(--cream);transition:all .18s;font-family:'DM Sans',sans-serif;}
-.toggle-btn:hover{border-color:var(--gold);color:var(--charcoal);}
-.toggle-btn.active{background:var(--gold-pale);border-color:var(--gold);color:var(--charcoal);font-weight:500;}
+/* BUILDER LAYOUT */
+.builder-layout{display:grid;grid-template-columns:1fr 380px;gap:24px;margin-top:20px;}
 
-/* DELIVERABLE ROWS */
-.deliv-list{display:flex;flex-direction:column;gap:8px;}
-.deliv-row{display:grid;grid-template-columns:1fr 90px 90px 28px;gap:8px;align-items:center;}
-.deliv-row input{background:var(--cream);border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--charcoal);outline:none;}
-.deliv-row input:focus{border-color:var(--gold);}
-.deliv-remove{width:28px;height:28px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;border-radius:4px;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .18s;}
-.deliv-remove:hover{background:rgba(200,168,75,0.1);color:var(--charcoal);}
-.add-row-btn{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--gold);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;padding:6px 0;margin-top:4px;transition:opacity .18s;}
-.add-row-btn:hover{opacity:0.75;}
+/* FORM PANEL */
+.form-panel{display:flex;flex-direction:column;gap:16px;}
+.form-card{background:var(--white);border:1px solid var(--border-soft);border-radius:10px;padding:22px;}
+.form-card-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--charcoal);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-group.full{grid-column:1/-1;}
+label{font-size:11.5px;font-weight:500;color:var(--text-body);letter-spacing:0.02em;}
+input,select,textarea{font-family:'DM Sans',sans-serif;font-size:13px;padding:9px 12px;border:1px solid var(--border);border-radius:6px;background:var(--cream);color:var(--charcoal);outline:none;transition:border 0.15s;width:100%;}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);background:var(--white);}
+textarea{resize:vertical;min-height:80px;}
+select{cursor:pointer;}
 
-/* PRICING SUMMARY */
-.price-summary{background:var(--charcoal);border-radius:var(--r);padding:20px 22px;margin-top:16px;}
-.price-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:12.5px;color:rgba(253,250,244,0.6);}
-.price-row.total{border-top:1px solid rgba(200,168,75,0.2);margin-top:8px;padding-top:12px;color:var(--gold-light);font-size:14px;font-weight:500;}
-.price-row span:last-child{font-variant-numeric:tabular-nums;}
+/* SERVICES */
+.services-list{display:flex;flex-direction:column;gap:8px;}
+.service-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--cream);border:1px solid var(--border-soft);border-radius:7px;}
+.service-item input[type="checkbox"]{width:15px;height:15px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;}
+.service-label{flex:1;font-size:12.5px;color:var(--text-body);}
+.service-price{font-size:12px;color:var(--text-muted);font-weight:500;}
 
-/* TIMELINE */
-.timeline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:4px;}
-.timeline-phase{background:var(--cream);border:1px solid var(--border);border-radius:5px;padding:12px;text-align:center;}
-.tp-week{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;}
-.tp-name{font-size:11.5px;color:var(--charcoal);font-weight:500;}
-.tp-dur{font-size:10.5px;color:var(--gold);margin-top:3px;}
-
-/* GUARANTEE PICKER */
-.guarantee-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.g-card{border:1px solid var(--border);border-radius:5px;padding:14px;cursor:pointer;transition:all .2s;background:var(--cream);}
-.g-card:hover{border-color:var(--gold);}
-.g-card.active{background:var(--gold-pale);border-color:var(--gold);}
-.g-icon{font-size:18px;margin-bottom:6px;}
-.g-name{font-size:11.5px;font-weight:500;color:var(--charcoal);margin-bottom:3px;}
-.g-desc{font-size:10.5px;color:var(--text-muted);line-height:1.4;}
-
-/* SOCIAL PROOF */
-.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.proof-card{border:1px solid var(--border);border-radius:5px;padding:14px;background:var(--cream);}
-.proof-card label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:6px;}
-.proof-card input,.proof-card textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:4px 0;font-size:12px;color:var(--charcoal);font-family:'DM Sans',sans-serif;outline:none;}
-.proof-card textarea{resize:none;height:52px;line-height:1.5;}
+/* CUSTOM SERVICE */
+.custom-service-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;}
+.custom-service-row input{font-size:12.5px;}
+.btn-icon{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:6px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text-muted);transition:all 0.15s;}
+.btn-icon:hover{border-color:var(--gold);color:var(--gold);}
 
 /* PREVIEW PANEL */
-.preview-wrap{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-md);}
-.preview-toolbar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--cream-dark);border-bottom:1px solid var(--border-soft);}
-.preview-dots{display:flex;gap:5px;}
-.preview-dots span{width:9px;height:9px;border-radius:50%;background:var(--border);}
-.preview-zoom{font-size:10.5px;color:var(--text-muted);}
-.preview-body{padding:32px 40px;font-size:12px;line-height:1.7;color:var(--text-body);max-height:520px;overflow-y:auto;}
+.preview-panel{position:sticky;top:80px;height:fit-content;}
+.preview-card{background:var(--white);border:1px solid var(--border-soft);border-radius:10px;overflow:hidden;}
+.preview-header{background:var(--charcoal);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;}
+.preview-header-title{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;}
+.preview-body{padding:20px;max-height:calc(100vh - 200px);overflow-y:auto;}
 .preview-body::-webkit-scrollbar{width:3px;}
 .preview-body::-webkit-scrollbar-thumb{background:var(--border);}
 
-/* PROPOSAL PREVIEW STYLES */
-.pv-header{border-bottom:2px solid var(--gold);padding-bottom:20px;margin-bottom:24px;}
-.pv-logo{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;}
-.pv-title{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--charcoal);line-height:1.2;margin-bottom:6px;}
-.pv-meta{font-size:11px;color:var(--text-muted);}
-.pv-section{margin-bottom:20px;}
-.pv-section-label{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-.pv-body{font-size:12px;color:var(--text-body);line-height:1.65;}
-.pv-table{width:100%;border-collapse:collapse;margin-top:6px;}
-.pv-table th{text-align:left;font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--border-soft);}
-.pv-table td{padding:8px 0;font-size:12px;color:var(--text-body);border-bottom:1px solid var(--border-soft);}
-.pv-table td:last-child,.pv-table th:last-child{text-align:right;}
-.pv-total-row td{font-weight:500;color:var(--charcoal);font-size:13px;border-top:2px solid var(--gold);border-bottom:none;}
-.pv-guarantee{background:var(--gold-pale);border-left:3px solid var(--gold);padding:12px 14px;border-radius:0 4px 4px 0;font-size:11.5px;color:var(--text-body);}
+/* PROPOSAL PREVIEW DOC */
+.doc-header{text-align:center;padding-bottom:20px;border-bottom:1px solid var(--border-soft);margin-bottom:20px;}
+.doc-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;}
+.doc-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--charcoal);margin-top:8px;}
+.doc-subtitle{font-size:11px;color:var(--text-muted);margin-top:3px;}
+.doc-section{margin-bottom:18px;}
+.doc-section-title{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;}
+.doc-info-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border-soft);font-size:12px;}
+.doc-info-label{color:var(--text-muted);}
+.doc-info-value{color:var(--charcoal);font-weight:500;}
+.doc-line-items{width:100%;border-collapse:collapse;}
+.doc-line-items th{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--border-soft);text-align:left;}
+.doc-line-items th:last-child{text-align:right;}
+.doc-line-items td{font-size:12px;padding:7px 0;border-bottom:1px solid var(--border-soft);color:var(--text-body);}
+.doc-line-items td:last-child{text-align:right;font-weight:500;color:var(--charcoal);}
+.doc-total-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0 0;margin-top:4px;}
+.doc-total-label{font-size:12px;font-weight:600;color:var(--charcoal);}
+.doc-total-value{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--gold);}
+.doc-note{font-size:11.5px;color:var(--text-body);line-height:1.6;padding:12px;background:var(--cream);border-radius:6px;border-left:2px solid var(--gold);}
+.doc-footer{text-align:center;padding-top:16px;border-top:1px solid var(--border-soft);font-size:10.5px;color:var(--text-muted);}
 
-/* EXPORT OPTIONS */
-.export-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.export-card{border:1px solid var(--border);border-radius:var(--r);padding:20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--cream);}
-.export-card:hover{border-color:var(--gold);box-shadow:var(--shadow-sm);}
-.export-icon{font-size:24px;margin-bottom:8px;}
-.export-name{font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:3px;}
-.export-desc{font-size:10.5px;color:var(--text-muted);}
+/* CLIENTS PAGE */
+.clients-table{width:100%;border-collapse:collapse;margin-top:16px;}
+.clients-table th{font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);padding:10px 14px;border-bottom:1px solid var(--border-soft);text-align:left;background:var(--white);}
+.clients-table td{font-size:12.5px;padding:12px 14px;border-bottom:1px solid var(--border-soft);color:var(--text-body);background:var(--white);}
+.clients-table tr:hover td{background:var(--cream);}
+.client-name{font-weight:500;color:var(--charcoal);}
+.client-email{font-size:11.5px;color:var(--text-muted);}
 
-/* NOTIFICATION */
-.notif{position:fixed;bottom:24px;right:24px;background:var(--charcoal);color:var(--white);padding:12px 18px;border-radius:6px;font-size:12px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);transform:translateY(80px);opacity:0;transition:all .3s;z-index:100;}
-.notif.show{transform:translateY(0);opacity:1;}
-.notif-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+/* SETTINGS */
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.settings-card{background:var(--white);border:1px solid var(--border-soft);border-radius:10px;padding:22px;}
+.settings-card-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;margin-bottom:16px;}
+.settings-form{display:flex;flex-direction:column;gap:12px;}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(24,24,26,0.5);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--white);border-radius:12px;padding:28px;width:440px;max-width:90vw;box-shadow:var(--shadow-lg);}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:20px;}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--charcoal);color:var(--white);padding:12px 20px;border-radius:8px;font-size:13px;box-shadow:var(--shadow-md);z-index:200;transform:translateY(20px);opacity:0;transition:all 0.3s;pointer-events:none;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.stat-card{background:var(--white);border:1px solid var(--border-soft);border-radius:10px;padding:18px 20px;}
+.stat-value{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--charcoal);}
+.stat-label{font-size:11px;color:var(--text-muted);margin-top:3px;letter-spacing:0.05em;}
+.stat-change{font-size:11px;margin-top:6px;}
+.stat-up{color:#2E7A40;}
+.stat-down{color:#C0392B;}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:60px 20px;color:var(--text-muted);}
+.empty-state-icon{font-size:36px;margin-bottom:14px;opacity:0.4;}
+.empty-state-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--text-body);margin-bottom:6px;}
+.empty-state-sub{font-size:12.5px;}
 
 /* RESPONSIVE */
 @media(max-width:900px){
   .shell{grid-template-columns:1fr;}
-  .sidebar{position:relative;height:auto;}
-  .field-group.cols-3{grid-template-columns:1fr 1fr;}
-  .export-grid{grid-template-columns:1fr 1fr;}
+  .sidebar{display:none;}
+  .builder-layout{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .settings-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
 <div class="shell">
-
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="s-logo">Amplify</div>
-    <div class="s-tagline">Proposal Builder</div>
-
-    <div class="s-label">Client</div>
-    <div class="s-client">
-      <input type="text" id="clientName" placeholder="Client name" oninput="updateMeta()">
-      <input type="text" id="projectType" placeholder="Project type" oninput="updateMeta()">
-    </div>
-
+    <div class="s-tagline">Proposal Studio</div>
     <div class="s-divider"></div>
-    <div class="s-label">Steps</div>
-
-    <nav class="s-step-list" id="stepList"></nav>
-
-    <div class="s-actions">
-      <button class="btn-primary" onclick="nextStep()">Continue →</button>
-      <button class="btn-ghost" onclick="showNotif('Draft saved')">Save Draft</button>
+    <div class="s-section-label">Workspace</div>
+    <button class="nav-btn active" onclick="showPage('dashboard',this)">
+      <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+      Dashboard
+    </button>
+    <button class="nav-btn" onclick="showPage('proposals',this)">
+      <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z"/><path d="M5 6h6M5 8h6M5 10h4"/></svg>
+      Proposals
+    </button>
+    <button class="nav-btn" onclick="showPage('builder',this)">
+      <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v12M2 8h12"/></svg>
+      New Proposal
+    </button>
+    <button class="nav-btn" onclick="showPage('clients',this)">
+      <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="3"/><path d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5"/></svg>
+      Clients
+    </button>
+    <div class="s-divider"></div>
+    <div class="s-section-label">Account</div>
+    <button class="nav-btn" onclick="showPage('settings',this)">
+      <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.42 1.42M11.53 11.53l1.42 1.42M3.05 12.95l1.42-1.42M11.53 4.47l1.42-1.42"/></svg>
+      Settings
+    </button>
+    <div class="s-spacer"></div>
+    <div class="s-footer">
+      AMPLIFY v1.0<br>
+      Proposal Studio
     </div>
   </aside>
 
   <!-- MAIN -->
-  <div class="main">
-
-    <!-- TOP BAR -->
+  <main class="main">
     <div class="topbar">
-      <div class="tb-breadcrumb">Proposals <span>/ New Proposal</span></div>
-      <div class="tb-right">
-        <div class="tb-progress">
-          <div class="tb-prog-bar"><div class="tb-prog-fill" id="progFill" style="width:14%"></div></div>
-          <span id="progText">1 of 7</span>
-        </div>
-        <div class="tb-save" id="autoSave">● Autosaved</div>
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <div class="topbar-actions">
+        <button class="btn btn-ghost btn-sm" onclick="showPage('builder', document.querySelector('.nav-btn:nth-child(4)'))">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg>
+          New Proposal
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="showToast('Settings saved')">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L6 9M13 2H9M13 2V6"/><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9"/></svg>
+          Export
+        </button>
       </div>
     </div>
 
-    <!-- STEP PANELS -->
-    <div class="content" id="contentArea">
+    <div class="content">
 
-      <!-- STEP 1: CLIENT & PROJECT -->
-      <div class="step-panel active" data-step="1">
-        <div class="step-header">
-          <div class="step-num-badge">Step 01 — Foundation</div>
-          <h1 class="step-title">Client & Project Details</h1>
-          <p class="step-desc">Set the foundation for your proposal. These details shape the entire document.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Client Information</div>
-          <div class="field-group cols-2">
-            <div class="field">
-              <label>Client / Company Name</label>
-              <input type="text" id="f_client" placeholder="e.g. Meridian Co." oninput="syncSidebar()">
-            </div>
-            <div class="field">
-              <label>Industry</label>
-              <input type="text" id="f_industry" placeholder="e.g. SaaS, E-commerce">
-            </div>
+      <!-- DASHBOARD -->
+      <div class="page active" id="page-dashboard">
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-value">12</div>
+            <div class="stat-label">Total Proposals</div>
+            <div class="stat-change stat-up">↑ 3 this month</div>
           </div>
-          <div class="field-group cols-2" style="margin-top:10px">
-            <div class="field">
-              <label>Contact Name</label>
-              <input type="text" id="f_contact" placeholder="Decision maker's name">
-            </div>
-            <div class="field">
-              <label>Contact Email</label>
-              <input type="email" id="f_email" placeholder="email@company.com">
-            </div>
+          <div class="stat-card">
+            <div class="stat-value">$24,800</div>
+            <div class="stat-label">Proposed Value</div>
+            <div class="stat-change stat-up">↑ $4,200 vs last month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">67%</div>
+            <div class="stat-label">Close Rate</div>
+            <div class="stat-change stat-down">↓ 5% vs last month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">8</div>
+            <div class="stat-label">Active Clients</div>
+            <div class="stat-change stat-up">↑ 2 new</div>
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-title">Project Overview</div>
-          <div class="field-group">
-            <div class="field">
-              <label>Project Title</label>
-              <input type="text" id="f_projectTitle" placeholder="e.g. Q4 Growth Campaign" oninput="syncSidebar()">
-            </div>
+        <div class="section-header">
+          <div>
+            <div class="section-title">Recent Proposals</div>
+            <div class="section-sub">Your latest work</div>
           </div>
-          <div class="field-group cols-2" style="margin-top:10px">
-            <div class="field">
-              <label>Service Category</label>
-              <select id="f_serviceCategory">
-                <option value="">Select category</option>
-                <option>Brand Strategy</option>
-                <option>Content Marketing</option>
-                <option>Paid Advertising</option>
-                <option>SEO & Organic Growth</option>
-                <option>Social Media Management</option>
-                <option>Email Marketing</option>
-                <option>Web Design & Development</option>
-                <option>Video Production</option>
-                <option>Full-Service Retainer</option>
-              </select>
-            </div>
-            <div class="field">
-              <label>Engagement Type</label>
-              <div class="toggle-group" id="engType">
-                <button class="toggle-btn active" onclick="setToggle(this,'engType')">Project</button>
-                <button class="toggle-btn" onclick="setToggle(this,'engType')">Retainer</button>
-                <button class="toggle-btn" onclick="setToggle(this,'engType')">Hybrid</button>
+          <button class="btn btn-ghost btn-sm" onclick="showPage('proposals',document.querySelectorAll('.nav-btn')[1])">View all</button>
+        </div>
+
+        <div class="proposal-grid" id="dashboard-proposals"></div>
+      </div>
+
+      <!-- PROPOSALS -->
+      <div class="page" id="page-proposals">
+        <div class="section-header">
+          <div>
+            <div class="section-title">All Proposals</div>
+            <div class="section-sub">Manage and track your proposals</div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="showPage('builder',document.querySelectorAll('.nav-btn')[2])">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg>
+            New
+          </button>
+        </div>
+        <div class="proposal-grid" id="all-proposals"></div>
+      </div>
+
+      <!-- BUILDER -->
+      <div class="page" id="page-builder">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Proposal Builder</div>
+            <div class="section-sub">Craft your proposal</div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-ghost btn-sm" onclick="resetBuilder()">Reset</button>
+            <button class="btn btn-primary btn-sm" onclick="saveProposal()">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L6 9M13 2H9M13 2V6"/><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9"/></svg>
+              Save Proposal
+            </button>
+          </div>
+        </div>
+
+        <div class="builder-layout">
+          <div class="form-panel">
+
+            <!-- CLIENT INFO -->
+            <div class="form-card">
+              <div class="form-card-title">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="3"/><path d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5"/></svg>
+                Client Information
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Client Name</label>
+                  <input type="text" id="client-name" placeholder="e.g. Aria Ventures" oninput="updatePreview()">
+                </div>
+                <div class="form-group">
+                  <label>Contact Email</label>
+                  <input type="email" id="client-email" placeholder="hello@example.com" oninput="updatePreview()">
+                </div>
+                <div class="form-group">
+                  <label>Company / Brand</label>
+                  <input type="text" id="client-company" placeholder="Company name" oninput="updatePreview()">
+                </div>
+                <div class="form-group">
+                  <label>Industry</label>
+                  <select id="client-industry" onchange="updatePreview()">
+                    <option value="">Select industry</option>
+                    <option>Fashion & Beauty</option>
+                    <option>Health & Wellness</option>
+                    <option>Food & Beverage</option>
+                    <option>Technology</option>
+                    <option>Finance</option>
+                    <option>Real Estate</option>
+                    <option>Entertainment</option>
+                    <option>Lifestyle</option>
+                    <option>Other</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="field" style="margin-top:10px">
-            <label>Project Brief / Background</label>
-            <textarea id="f_brief" placeholder="Describe the client's situation, goals, and what you've learned from discovery..."></textarea>
-          </div>
-        </div>
-      </div>
 
-      <!-- STEP 2: PROBLEM & OPPORTUNITY -->
-      <div class="step-panel" data-step="2">
-        <div class="step-header">
-          <div class="step-num-badge">Step 02 — Diagnosis</div>
-          <h1 class="step-title">Problem & Opportunity</h1>
-          <p class="step-desc">Frame the client's challenge in a way that makes your solution inevitable.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Current Situation</div>
-          <div class="field">
-            <label>Core Problem Statement</label>
-            <textarea id="f_problem" placeholder="What is the primary challenge the client faces? Be specific and use their language..." style="min-height:100px"></textarea>
-          </div>
-          <div class="field" style="margin-top:10px">
-            <label>Root Causes</label>
-            <textarea id="f_rootCause" placeholder="Why is this problem happening? What's driving it?"></textarea>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Opportunity</div>
-          <div class="field">
-            <label>Upside / What's Possible</label>
-            <textarea id="f_opportunity" placeholder="Paint the picture of success. What becomes possible when this is solved?" style="min-height:90px"></textarea>
-          </div>
-          <div class="field-group cols-2" style="margin-top:10px">
-            <div class="field">
-              <label>Cost of Inaction</label>
-              <input type="text" id="f_coi" placeholder="e.g. $50K/mo in lost leads">
+            <!-- PROPOSAL DETAILS -->
+            <div class="form-card">
+              <div class="form-card-title">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z"/><path d="M5 6h6M5 8h6M5 10h4"/></svg>
+                Proposal Details
+              </div>
+              <div class="form-row">
+                <div class="form-group full">
+                  <label>Proposal Title</label>
+                  <input type="text" id="proposal-title" placeholder="e.g. Brand Partnership — Q3 Campaign" oninput="updatePreview()">
+                </div>
+                <div class="form-group">
+                  <label>Valid Until</label>
+                  <input type="date" id="valid-until" onchange="updatePreview()">
+                </div>
+                <div class="form-group">
+                  <label>Delivery Timeline</label>
+                  <select id="timeline" onchange="updatePreview()">
+                    <option value="">Select timeline</option>
+                    <option>1 week</option>
+                    <option>2 weeks</option>
+                    <option>1 month</option>
+                    <option>2 months</option>
+                    <option>3 months</option>
+                    <option>Ongoing</option>
+                  </select>
+                </div>
+                <div class="form-group full">
+                  <label>Campaign / Project Overview</label>
+                  <textarea id="overview" rows="3" placeholder="Briefly describe the campaign goals, scope, or key deliverables..." oninput="updatePreview()"></textarea>
+                </div>
+              </div>
             </div>
-            <div class="field">
-              <label>Urgency Factor</label>
-              <select id="f_urgency">
-                <option>Low — Long-term initiative</option>
-                <option>Medium — Q-end priority</option>
-                <option selected>High — Immediate need</option>
-                <option>Critical — Revenue at risk</option>
-              </select>
+
+            <!-- SERVICES -->
+            <div class="form-card">
+              <div class="form-card-title">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h12M2 12h8"/></svg>
+                Services & Deliverables
+              </div>
+              <div class="services-list" id="services-list">
+                <!-- Populated by JS -->
+              </div>
+              <div style="margin-top:14px;">
+                <div class="s-section-label" style="margin-bottom:8px;">Add Custom Item</div>
+                <div class="custom-service-row">
+                  <input type="text" id="custom-name" placeholder="Service name">
+                  <input type="number" id="custom-price" placeholder="Price" style="width:90px;">
+                  <button class="btn-icon" onclick="addCustomService()" title="Add">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg>
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card-title">Key Insights</div>
-          <div class="field">
-            <label>What you discovered in discovery that most agencies miss</label>
-            <textarea id="f_insight" placeholder="Your unique perspective on their situation — this is your authority signal..."></textarea>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 3: YOUR APPROACH -->
-      <div class="step-panel" data-step="3">
-        <div class="step-header">
-          <div class="step-num-badge">Step 03 — Methodology</div>
-          <h1 class="step-title">Your Approach</h1>
-          <p class="step-desc">Show your thinking. Clients buy the process, not just the output.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Strategic Framework</div>
-          <div class="field">
-            <label>Your Named Approach / Framework</label>
-            <input type="text" id="f_framework" placeholder='e.g. "The Amplify Growth System" or "3-Phase Authority Method"'>
-          </div>
-          <div class="field" style="margin-top:10px">
-            <label>How It Works (Overview)</label>
-            <textarea id="f_approach" placeholder="Describe your methodology in clear, confident language. Why does this approach work?" style="min-height:110px"></textarea>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Phase Breakdown</div>
-          <div class="field-group cols-3">
-            <div class="field">
-              <label>Phase 1 Name</label>
-              <input type="text" id="f_p1" placeholder="e.g. Audit & Strategy">
+            <!-- TERMS -->
+            <div class="form-card">
+              <div class="form-card-title">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v4l3 3"/><circle cx="8" cy="8" r="6"/></svg>
+                Terms & Notes
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Payment Terms</label>
+                  <select id="payment-terms" onchange="updatePreview()">
+                    <option>50% upfront, 50% on delivery</option>
+                    <option>100% upfront</option>
+                    <option>Net 30</option>
+                    <option>Net 15</option>
+                    <option>Monthly retainer</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Currency</label>
+                  <select id="currency" onchange="updatePreview()">
+                    <option value="$">USD ($)</option>
+                    <option value="€">EUR (€)</option>
+                    <option value="£">GBP (£)</option>
+                    <option value="A$">AUD (A$)</option>
+                    <option value="C$">CAD (C$)</option>
+                  </select>
+                </div>
+                <div class="form-group full">
+                  <label>Additional Notes</label>
+                  <textarea id="notes" rows="3" placeholder="Revisions policy, usage rights, exclusivity clauses..." oninput="updatePreview()"></textarea>
+                </div>
+              </div>
             </div>
-            <div class="field">
-              <label>Phase 2 Name</label>
-              <input type="text" id="f_p2" placeholder="e.g. Build & Launch">
-            </div>
-            <div class="field">
-              <label>Phase 3 Name</label>
-              <input type="text" id="f_p3" placeholder="e.g. Optimize & Scale">
-            </div>
-          </div>
-          <div class="field" style="margin-top:10px">
-            <label>What Makes This Different</label>
-            <textarea id="f_diff" placeholder="How is your approach distinct from what other agencies do?"></textarea>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card-title">Tools & Platforms</div>
-          <div class="field">
-            <label>Key tools / tech stack you'll use</label>
-            <input type="text" id="f_tools" placeholder="e.g. HubSpot, Google Ads, Figma, Notion, Loom...">
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 4: SCOPE & DELIVERABLES -->
-      <div class="step-panel" data-step="4">
-        <div class="step-header">
-          <div class="step-num-badge">Step 04 — Scope</div>
-          <h1 class="step-title">Scope & Deliverables</h1>
-          <p class="step-desc">Define exactly what's included — clarity here prevents scope creep and builds confidence.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Deliverables</div>
-          <div class="deliv-list" id="delivList">
-            <div class="deliv-row" style="padding-bottom:6px;border-bottom:1px solid var(--border-soft)">
-              <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Deliverable</span>
-              <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Qty</span>
-              <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Unit Price</span>
-              <span></span>
-            </div>
-          </div>
-          <button class="add-row-btn" onclick="addDelivRow()">+ Add Deliverable</button>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Scope Boundaries</div>
-          <div class="field-group cols-2">
-            <div class="field">
-              <label>What's Included</label>
-              <textarea id="f_included" placeholder="Be explicit. List everything covered..." style="min-height:90px"></textarea>
-            </div>
-            <div class="field">
-              <label>What's Not Included</label>
-              <textarea id="f_excluded" placeholder="Ad spend, third-party tools, revisions beyond 2 rounds..." style="min-height:90px"></textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Assumptions & Dependencies</div>
-          <div class="field">
-            <textarea id="f_assumptions" placeholder="What do you need from the client? Access, assets, approvals, timely feedback..."></textarea>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 5: PRICING -->
-      <div class="step-panel" data-step="5">
-        <div class="step-header">
-          <div class="step-num-badge">Step 05 — Investment</div>
-          <h1 class="step-title">Pricing & Investment</h1>
-          <p class="step-desc">Position the fee as an investment, not a cost. Structure matters.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Pricing Model</div>
-          <div class="toggle-group" id="pricingModel">
-            <button class="toggle-btn active" onclick="setToggle(this,'pricingModel');updatePricing()">Fixed Project</button>
-            <button class="toggle-btn" onclick="setToggle(this,'pricingModel');updatePricing()">Monthly Retainer</button>
-            <button class="toggle-btn" onclick="setToggle(this,'pricingModel');updatePricing()">Milestone-Based</button>
-            <button class="toggle-btn" onclick="setToggle(this,'pricingModel');updatePricing()">Performance</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Fee Structure</div>
-          <div class="field-group cols-3">
-            <div class="field">
-              <label>Base Fee ($)</label>
-              <input type="number" id="f_baseFee" placeholder="0" oninput="updatePricing()">
-            </div>
-            <div class="field">
-              <label>Setup / Onboarding ($)</label>
-              <input type="number" id="f_setupFee" placeholder="0" oninput="updatePricing()">
-            </div>
-            <div class="field">
-              <label>Discount ($)</label>
-              <input type="number" id="f_discount" placeholder="0" oninput="updatePricing()">
-            </div>
           </div>
 
-          <div class="price-summary" id="priceSummary">
-            <div class="price-row"><span>Base Fee</span><span id="ps_base">$0</span></div>
-            <div class="price-row"><span>Setup / Onboarding</span><span id="ps_setup">$0</span></div>
-            <div class="price-row"><span>Discount</span><span id="ps_disc">–$0</span></div>
-            <div class="price-row total"><span>Total Investment</span><span id="ps_total">$0</span></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Payment Terms</div>
-          <div class="field-group cols-2">
-            <div class="field">
-              <label>Payment Schedule</label>
-              <select id="f_paySchedule">
-                <option>50% upfront, 50% on completion</option>
-                <option>100% upfront</option>
-                <option>Monthly invoicing</option>
-                <option>Milestone-based</option>
-                <option>Net 30</option>
-              </select>
-            </div>
-            <div class="field">
-              <label>Preferred Payment Method</label>
-              <select id="f_payMethod">
-                <option>Bank Transfer / ACH</option>
-                <option>Credit Card</option>
-                <option>Stripe Invoice</option>
-                <option>Check</option>
-              </select>
-            </div>
-          </div>
-          <div class="field" style="margin-top:10px">
-            <label>Value Framing (optional)</label>
-            <textarea id="f_valueFrame" placeholder='e.g. "Based on industry benchmarks, this campaign is projected to generate $180K in new revenue over 6 months — a 6x return on your investment."'></textarea>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 6: TIMELINE & GUARANTEE -->
-      <div class="step-panel" data-step="6">
-        <div class="step-header">
-          <div class="step-num-badge">Step 06 — Confidence</div>
-          <h1 class="step-title">Timeline & Guarantee</h1>
-          <p class="step-desc">Give clients a clear picture of what happens when — and back it with a guarantee.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Project Timeline</div>
-          <div class="field-group cols-2">
-            <div class="field">
-              <label>Proposed Start Date</label>
-              <input type="date" id="f_startDate">
-            </div>
-            <div class="field">
-              <label>Estimated Completion</label>
-              <input type="date" id="f_endDate">
-            </div>
-          </div>
-          <div class="timeline-grid" style="margin-top:14px" id="timelineGrid">
-            <div class="timeline-phase">
-              <div class="tp-week">Week 1–2</div>
-              <div class="tp-name" id="tp1"><span style="color:var(--text-muted)">Phase 1</span></div>
-              <div class="tp-dur">Discovery</div>
-            </div>
-            <div class="timeline-phase">
-              <div class="tp-week">Week 3–5</div>
-              <div class="tp-name" id="tp2"><span style="color:var(--text-muted)">Phase 2</span></div>
-              <div class="tp-dur">Build</div>
-            </div>
-            <div class="timeline-phase">
-              <div class="tp-week">Week 6–8</div>
-              <div class="tp-name" id="tp3"><span style="color:var(--text-muted)">Phase 3</span></div>
-              <div class="tp-dur">Launch</div>
-            </div>
-            <div class="timeline-phase">
-              <div class="tp-week">Ongoing</div>
-              <div class="tp-name">Optimize</div>
-              <div class="tp-dur">Continuous</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Guarantee</div>
-          <div class="guarantee-grid">
-            <div class="g-card active" onclick="selectGuarantee(this)">
-              <div class="g-icon">🎯</div>
-              <div class="g-name">Results Guarantee</div>
-              <div class="g-desc">Specific metric or we work free until hit</div>
-            </div>
-            <div class="g-card" onclick="selectGuarantee(this)">
-              <div class="g-icon">💰</div>
-              <div class="g-name">Money-Back</div>
-              <div class="g-desc">Full refund if not satisfied after 30 days</div>
-            </div>
-            <div class="g-card" onclick="selectGuarantee(this)">
-              <div class="g-icon">🔄</div>
-              <div class="g-name">Revision Guarantee</div>
-              <div class="g-desc">Unlimited revisions until you love it</div>
-            </div>
-            <div class="g-card" onclick="selectGuarantee(this)">
-              <div class="g-icon">📈</div>
-              <div class="g-name">ROI Guarantee</div>
-              <div class="g-desc">3x ROI within 90 days or next month free</div>
-            </div>
-            <div class="g-card" onclick="selectGuarantee(this)">
-              <div class="g-icon">⚡</div>
-              <div class="g-name">Speed Guarantee</div>
-              <div class="g-desc">On-time delivery or discount on next invoice</div>
-            </div>
-            <div class="g-card" onclick="selectGuarantee(this)">
-              <div class="g-icon">🚫</div>
-              <div class="g-name">No Guarantee</div>
-              <div class="g-desc">Skip — let the work speak for itself</div>
-            </div>
-          </div>
-          <div class="field" style="margin-top:12px">
-            <label>Custom Guarantee Terms</label>
-            <textarea id="f_guaranteeTerms" placeholder="Describe your specific guarantee terms..."></textarea>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Social Proof</div>
-          <div class="proof-grid" id="proofGrid">
-            <div class="proof-card">
-              <label>Case Study / Result</label>
-              <input type="text" placeholder="Client name or industry">
-              <textarea placeholder="Result achieved — keep it specific and quantified"></textarea>
-            </div>
-            <div class="proof-card">
-              <label>Testimonial</label>
-              <input type="text" placeholder="Client name, title">
-              <textarea placeholder="Quote from client..."></textarea>
+          <!-- PREVIEW -->
+          <div class="preview-panel">
+            <div class="preview-card">
+              <div class="preview-header">
+                <span class="preview-header-title">Live Preview</span>
+                <button class="btn btn-sm" style="background:rgba(200,168,75,0.15);border-color:rgba(200,168,75,0.3);color:var(--gold-light);font-size:11px;" onclick="saveProposal()">Save</button>
+              </div>
+              <div class="preview-body" id="preview-body">
+                <div class="doc-header">
+                  <div class="doc-logo">AMPLIFY</div>
+                  <div class="doc-title" id="prev-title">Untitled Proposal</div>
+                  <div class="doc-subtitle" id="prev-subtitle">Prepared for —</div>
+                </div>
+                <div class="doc-section">
+                  <div class="doc-section-title">Client</div>
+                  <div class="doc-info-row"><span class="doc-info-label">Name</span><span class="doc-info-value" id="prev-client">—</span></div>
+                  <div class="doc-info-row"><span class="doc-info-label">Company</span><span class="doc-info-value" id="prev-company">—</span></div>
+                  <div class="doc-info-row"><span class="doc-info-label">Industry</span><span class="doc-info-value" id="prev-industry">—</span></div>
+                </div>
+                <div class="doc-section">
+                  <div class="doc-section-title">Project</div>
+                  <div class="doc-info-row"><span class="doc-info-label">Timeline</span><span class="doc-info-value" id="prev-timeline">—</span></div>
+                  <div class="doc-info-row"><span class="doc-info-label">Valid Until</span><span class="doc-info-value" id="prev-valid">—</span></div>
+                  <div class="doc-info-row"><span class="doc-info-label">Payment</span><span class="doc-info-value" id="prev-payment">—</span></div>
+                </div>
+                <div class="doc-section">
+                  <div class="doc-section-title">Services</div>
+                  <table class="doc-line-items">
+                    <thead><tr><th>Item</th><th>Qty</th><th>Price</th></tr></thead>
+                    <tbody id="prev-services"></tbody>
+                  </table>
+                  <div class="doc-total-row">
+                    <span class="doc-total-label">Total</span>
+                    <span class="doc-total-value" id="prev-total">$0</span>
+                  </div>
+                </div>
+                <div class="doc-section" id="prev-notes-section" style="display:none;">
+                  <div class="doc-section-title">Notes</div>
+                  <div class="doc-note" id="prev-notes"></div>
+                </div>
+                <div class="doc-footer">Generated by AMPLIFY Proposal Studio</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- STEP 7: PREVIEW & EXPORT -->
-      <div class="step-panel" data-step="7">
-        <div class="step-header">
-          <div class="step-num-badge">Step 07 — Final</div>
-          <h1 class="step-title">Preview & Export</h1>
-          <p class="step-desc">Review your proposal and export it in the format that works best.</p>
+      <!-- CLIENTS -->
+      <div class="page" id="page-clients">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Clients</div>
+            <div class="section-sub">Your client roster</div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="openClientModal()">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg>
+            Add Client
+          </button>
         </div>
+        <table class="clients-table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Industry</th>
+              <th>Proposals</th>
+              <th>Total Value</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="clients-tbody"></tbody>
+        </table>
+      </div>
 
-        <div class="card">
-          <div class="card-title">Live Preview</div>
-          <div class="preview-wrap">
-            <div class="preview-toolbar">
-              <div class="preview-dots"><span></span><span></span><span></span></div>
-              <div class="preview-zoom">Preview — Actual proposal</div>
-            </div>
-            <div class="preview-body" id="previewBody">
-              <div class="pv-header">
-                <div class="pv-logo">Amplify</div>
-                <div class="pv-title" id="pv_title">New Proposal</div>
-                <div class="pv-meta" id="pv_meta">Prepared for —</div>
-              </div>
-              <div class="pv-section">
-                <div class="pv-section-label">The Challenge</div>
-                <div class="pv-body" id="pv_problem">Your problem statement will appear here.</div>
-              </div>
-              <div class="pv-section">
-                <div class="pv-section-label">Our Approach</div>
-                <div class="pv-body" id="pv_approach">Your methodology will appear here.</div>
-              </div>
-              <div class="pv-section">
-                <div class="pv-section-label">Investment</div>
-                <table class="pv-table" id="pv_table">
-                  <tr><th>Deliverable</th><th>Qty</th><th>Price</th></tr>
-                  <tr><td colspan="3" style="color:var(--text-muted);font-style:italic">Add deliverables in Step 4</td></tr>
-                </table>
-              </div>
-              <div class="pv-section" id="pv_guarantee_section">
-                <div class="pv-section-label">Our Guarantee</div>
-                <div class="pv-guarantee" id="pv_guarantee">Results Guarantee — We work until you hit your targets.</div>
-              </div>
-            </div>
+      <!-- SETTINGS -->
+      <div class="page" id="page-settings">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Settings</div>
+            <div class="section-sub">Configure your workspace</div>
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-title">Export</div>
-          <div class="export-grid">
-            <div class="export-card" onclick="showNotif('PDF export ready — feature coming soon')">
-              <div class="export-icon">📄</div>
-              <div class="export-name">PDF</div>
-              <div class="export-desc">Print-ready, professional</div>
-            </div>
-            <div class="export-card" onclick="showNotif('Google Docs export — coming soon')">
-              <div class="export-icon">📝</div>
-              <div class="export-name">Google Doc</div>
-              <div class="export-desc">Editable & collaborative</div>
-            </div>
-            <div class="export-card" onclick="showNotif('Notion export — coming soon')">
-              <div class="export-icon">◻️</div>
-              <div class="export-name">Notion</div>
-              <div class="export-desc">Share as a Notion page</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Send & Close</div>
-          <div class="field-group cols-2">
-            <div class="field">
-              <label>Send To</label>
-              <input type="email" id="f_sendTo" placeholder="client@company.com">
-            </div>
-            <div class="field">
-              <label>Subject Line</label>
-              <input type="text" id="f_subject" placeholder="Your Custom Proposal — [Project Name]">
+        <div class="settings-grid">
+          <div class="settings-card">
+            <div class="settings-card-title">Brand Identity</div>
+            <div class="settings-form">
+              <div class="form-group">
+                <label>Studio / Agency Name</label>
+                <input type="text" id="setting-name" placeholder="AMPLIFY" value="AMPLIFY">
+              </div>
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" id="setting-contact" placeholder="Your full name">
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="setting-email" placeholder="hello@yourstudio.com">
+              </div>
+              <div class="form-group">
+                <label>Website</label>
+                <input type="url" id="setting-website" placeholder="https://yourstudio.com">
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Brand settings saved')">Save</button>
             </div>
           </div>
-          <div class="field" style="margin-top:10px">
-            <label>Cover Note</label>
-            <textarea id="f_coverNote" placeholder="Brief personal message to accompany the proposal..."></textarea>
+          <div class="settings-card">
+            <div class="settings-card-title">Default Terms</div>
+            <div class="settings-form">
+              <div class="form-group">
+                <label>Default Payment Terms</label>
+                <select id="default-payment">
+                  <option>50% upfront, 50% on delivery</option>
+                  <option>100% upfront</option>
+                  <option>Net 30</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Default Currency</label>
+                <select id="default-currency">
+                  <option>USD ($)</option>
+                  <option>EUR (€)</option>
+                  <option>GBP (£)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Default Notes</label>
+                <textarea rows="3" placeholder="Your standard terms, revisions policy..."></textarea>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Terms saved')">Save</button>
+            </div>
           </div>
-          <button class="btn-primary" style="margin-top:14px;width:100%" onclick="showNotif('Proposal sent! Check your email.')">Send Proposal</button>
+          <div class="settings-card">
+            <div class="settings-card-title">Services Catalog</div>
+            <div class="settings-form">
+              <div class="form-group">
+                <label>Manage preset services</label>
+                <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">Edit your default service catalog below. Changes apply to new proposals.</div>
+              </div>
+              <div id="catalog-list" style="display:flex;flex-direction:column;gap:6px;"></div>
+            </div>
+          </div>
+          <div class="settings-card">
+            <div class="settings-card-title">Export & Branding</div>
+            <div class="settings-form">
+              <div class="form-group">
+                <label>Accent Color</label>
+                <input type="color" value="#C8A84B" style="height:36px;cursor:pointer;">
+              </div>
+              <div class="form-group">
+                <label>Footer Text</label>
+                <input type="text" placeholder="Generated by AMPLIFY Proposal Studio">
+              </div>
+              <button class="btn btn-ghost btn-sm" onclick="showToast('PDF export coming soon')">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h8M8 2v8M5 7l3 3 3-3"/></svg>
+                Export as PDF
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
     </div><!-- /content -->
-  </div><!-- /main -->
-</div><!-- /shell -->
-
-<!-- NOTIFICATION -->
-<div class="notif" id="notif">
-  <div class="notif-dot"></div>
-  <span id="notifMsg">Saved</span>
+  </main>
 </div>
 
+<!-- ADD CLIENT MODAL -->
+<div class="modal-overlay" id="client-modal">
+  <div class="modal">
+    <div class="modal-title">Add Client</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="modal-client-name" placeholder="Full name">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="modal-client-email" placeholder="Email address">
+      </div>
+      <div class="form-group">
+        <label>Company</label>
+        <input type="text" id="modal-client-company" placeholder="Company">
+      </div>
+      <div class="form-group">
+        <label>Industry</label>
+        <select id="modal-client-industry">
+          <option value="">Select</option>
+          <option>Fashion & Beauty</option>
+          <option>Health & Wellness</option>
+          <option>Food & Beverage</option>
+          <option>Technology</option>
+          <option>Finance</option>
+          <option>Entertainment</option>
+          <option>Lifestyle</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeClientModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="addClient()">Add Client</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
 <script>
-const steps = [
-  {title:'Client & Project', sub:'Foundation'},
-  {title:'Problem & Opportunity', sub:'Diagnosis'},
-  {title:'Your Approach', sub:'Methodology'},
-  {title:'Scope & Deliverables', sub:'Scope'},
-  {title:'Pricing', sub:'Investment'},
-  {title:'Timeline & Guarantee', sub:'Confidence'},
-  {title:'Preview & Export', sub:'Final'}
+// ─── DATA ────────────────────────────────────────────────────────────────────
+
+const DEFAULT_SERVICES = [
+  {id:'s1', name:'Instagram Post (x1)',         price:800,  checked:false},
+  {id:'s2', name:'Instagram Reel (x1)',          price:1200, checked:false},
+  {id:'s3', name:'TikTok Video (x1)',            price:1000, checked:false},
+  {id:'s4', name:'TikTok Video Bundle (x3)',     price:2500, checked:false},
+  {id:'s5', name:'YouTube Integration (30s)',    price:2000, checked:false},
+  {id:'s6', name:'YouTube Dedicated Video',      price:4500, checked:false},
+  {id:'s7', name:'Story Set (x5 frames)',        price:500,  checked:false},
+  {id:'s8', name:'Blog / Long-form Post',        price:600,  checked:false},
+  {id:'s9', name:'Newsletter Feature',           price:400,  checked:false},
+  {id:'s10',name:'Pinterest Board (x10 pins)',   price:350,  checked:false},
+  {id:'s11',name:'Podcast Mention (60s)',        price:700,  checked:false},
+  {id:'s12',name:'Usage Rights (6 months)',      price:500,  checked:false},
+  {id:'s13',name:'Exclusivity Fee (30 days)',    price:800,  checked:false},
+  {id:'s14',name:'Rush Delivery Fee',            price:300,  checked:false},
 ];
 
-let currentStep = 1;
-let delivRows = [];
+let services = DEFAULT_SERVICES.map(s => ({...s}));
+let proposals = [
+  {id:1, title:'Spring Campaign — Luma Skincare', client:'Luma Skincare', company:'Luma Co.', total:3800, status:'accepted', date:'2025-03-10'},
+  {id:2, title:'Q2 Launch — Velour Apparel',      client:'Mia Chen',      company:'Velour',   total:5200, status:'sent',     date:'2025-03-18'},
+  {id:3, title:'Brand Deal — NovaTech App',       client:'Nova Tech',     company:'NovaTech', total:2000, status:'draft',    date:'2025-03-22'},
+];
+let clients = [
+  {name:'Aria Moore',   email:'aria@lumaskin.com',  company:'Luma Skincare', industry:'Health & Wellness', proposals:3, total:9400,  status:'Active'},
+  {name:'Mia Chen',     email:'mia@velour.co',      company:'Velour',        industry:'Fashion & Beauty',  proposals:2, total:8200,  status:'Active'},
+  {name:'James Park',   email:'james@novatech.io',  company:'NovaTech',      industry:'Technology',        proposals:1, total:2000,  status:'Prospect'},
+  {name:'Sofia Reyes',  email:'sofia@eatswell.co',  company:'EatsWell',      industry:'Food & Beverage',   proposals:1, total:1800,  status:'Active'},
+];
+let editingProposalId = null;
 
-// BUILD SIDEBAR STEPS
-function buildSteps(){
-  const list = document.getElementById('stepList');
+// ─── NAVIGATION ──────────────────────────────────────────────────────────────
+
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const titles = {dashboard:'Dashboard', proposals:'Proposals', builder:'Proposal Builder', clients:'Clients', settings:'Settings'};
+  document.getElementById('topbar-title').textContent = titles[id] || '';
+  if (id === 'proposals') renderAllProposals();
+  if (id === 'clients')   renderClients();
+  if (id === 'settings')  renderCatalog();
+}
+
+// ─── SERVICES LIST ────────────────────────────────────────────────────────────
+
+function renderServicesList() {
+  const list = document.getElementById('services-list');
   list.innerHTML = '';
-  steps.forEach((s,i)=>{
-    const div = document.createElement('div');
-    div.className = 's-step' + (i+1===currentStep?' active':'') + (i+1<currentStep?' completed':'');
-    div.onclick = ()=>goStep(i+1);
-    div.innerHTML = `
-      <div class="s-step-num">${i+1}</div>
-      <div class="s-step-info">
-        <div class="s-step-title">${s.title}</div>
-        <div class="s-step-sub">${s.sub}</div>
-      </div>
-      <div class="s-step-check">✓</div>
+  services.forEach(s => {
+    const item = document.createElement('div');
+    item.className = 'service-item';
+    item.innerHTML = `
+      <input type="checkbox" id="svc-${s.id}" ${s.checked?'checked':''} onchange="toggleService('${s.id}')">
+      <label for="svc-${s.id}" class="service-label">${s.name}</label>
+      <span class="service-price" id="price-${s.id}">${getCurrency()}${s.price.toLocaleString()}</span>
     `;
-    list.appendChild(div);
+    list.appendChild(item);
   });
 }
 
-function goStep(n){
-  currentStep = n;
-  document.querySelectorAll('.step-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelector(`.step-panel[data-step="${n}"]`).classList.add('active');
-  buildSteps();
-  updateProgress();
-  if(n===7) updatePreview();
-  window.scrollTo({top:0,behavior:'smooth'});
+function toggleService(id) {
+  const svc = services.find(s => s.id === id);
+  if (svc) { svc.checked = !svc.checked; updatePreview(); }
 }
 
-function nextStep(){
-  if(currentStep<7) goStep(currentStep+1);
+function addCustomService() {
+  const name = document.getElementById('custom-name').value.trim();
+  const price = parseFloat(document.getElementById('custom-price').value) || 0;
+  if (!name) return;
+  const id = 'c' + Date.now();
+  services.push({id, name, price, checked:true});
+  document.getElementById('custom-name').value = '';
+  document.getElementById('custom-price').value = '';
+  renderServicesList();
+  updatePreview();
 }
 
-function updateProgress(){
-  const pct = Math.round((currentStep/7)*100);
-  document.getElementById('progFill').style.width = pct+'%';
-  document.getElementById('progText').textContent = currentStep+' of 7';
+// ─── PREVIEW ─────────────────────────────────────────────────────────────────
+
+function getCurrency() {
+  const el = document.getElementById('currency');
+  return el ? el.value : '$';
 }
 
-// TOGGLE GROUPS
-function setToggle(btn,groupId){
-  document.getElementById(groupId).querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-}
+function updatePreview() {
+  const cur = getCurrency();
+  document.getElementById('prev-title').textContent    = document.getElementById('proposal-title').value || 'Untitled Proposal';
+  document.getElementById('prev-subtitle').textContent = 'Prepared for ' + (document.getElementById('client-name').value || '—');
+  document.getElementById('prev-client').textContent   = document.getElementById('client-name').value    || '—';
+  document.getElementById('prev-company').textContent  = document.getElementById('client-company').value || '—';
+  document.getElementById('prev-industry').textContent = document.getElementById('client-industry').value|| '—';
+  document.getElementById('prev-timeline').textContent = document.getElementById('timeline').value       || '—';
+  document.getElementById('prev-payment').textContent  = document.getElementById('payment-terms').value  || '—';
 
-// SYNC SIDEBAR
-function syncSidebar(){
-  const client = document.getElementById('f_client')?.value;
-  const project = document.getElementById('f_projectTitle')?.value;
-  if(client) document.getElementById('clientName').value = client;
-  if(project) document.getElementById('projectType').value = project;
-}
+  const validEl = document.getElementById('valid-until');
+  document.getElementById('prev-valid').textContent = validEl.value ? new Date(validEl.value).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '—';
 
-function updateMeta(){
-  const client = document.getElementById('clientName').value;
-  const project = document.getElementById('projectType').value;
-  if(client) document.getElementById('f_client').value = client;
-  if(project) document.getElementById('f_projectTitle').value = project;
-}
-
-// DELIVERABLES
-function addDelivRow(){
-  const id = Date.now();
-  delivRows.push(id);
-  const list = document.getElementById('delivList');
-  const row = document.createElement('div');
-  row.className = 'deliv-row';
-  row.id = 'deliv_'+id;
-  row.innerHTML = `
-    <input type="text" placeholder="Deliverable name" class="deliv-name">
-    <input type="number" placeholder="1" class="deliv-qty" min="1" value="1" oninput="updatePricing()">
-    <input type="number" placeholder="0" class="deliv-price" oninput="updatePricing()">
-    <button class="deliv-remove" onclick="removeDeliv(${id})">×</button>
-  `;
-  list.appendChild(row);
-}
-
-function removeDeliv(id){
-  delivRows = delivRows.filter(r=>r!==id);
-  document.getElementById('deliv_'+id)?.remove();
-  updatePricing();
-}
-
-// PRICING
-function updatePricing(){
-  const base = parseFloat(document.getElementById('f_baseFee')?.value)||0;
-  const setup = parseFloat(document.getElementById('f_setupFee')?.value)||0;
-  const disc = parseFloat(document.getElementById('f_discount')?.value)||0;
-  const total = base + setup - disc;
-  document.getElementById('ps_base').textContent = '$'+base.toLocaleString();
-  document.getElementById('ps_setup').textContent = '$'+setup.toLocaleString();
-  document.getElementById('ps_disc').textContent = '–$'+disc.toLocaleString();
-  document.getElementById('ps_total').textContent = '$'+total.toLocaleString();
-}
-
-// GUARANTEE
-function selectGuarantee(el){
-  document.querySelectorAll('.g-card').forEach(c=>c.classList.remove('active'));
-  el.classList.add('active');
-}
-
-// TIMELINE SYNC
-document.addEventListener('input', e=>{
-  if(['f_p1','f_p2','f_p3'].includes(e.target?.id)){
-    document.getElementById('tp'+e.target.id.slice(-1)).textContent = e.target.value || 'Phase '+e.target.id.slice(-1);
-  }
-});
-
-// PREVIEW
-function updatePreview(){
-  const client = document.getElementById('f_client')?.value || '—';
-  const project = document.getElementById('f_projectTitle')?.value || 'New Proposal';
-  const problem = document.getElementById('f_problem')?.value || 'Your problem statement will appear here.';
-  const approach = document.getElementById('f_approach')?.value || 'Your methodology will appear here.';
-
-  document.getElementById('pv_title').textContent = project;
-  document.getElementById('pv_meta').textContent = 'Prepared for — '+client;
-  document.getElementById('pv_problem').textContent = problem;
-  document.getElementById('pv_approach').textContent = approach;
-
-  // Deliverables table
-  const rows = document.querySelectorAll('#delivList .deliv-row:not(:first-child)');
-  let tableHTML = '<tr><th>Deliverable</th><th>Qty</th><th>Price</th></tr>';
-  let grandTotal = 0;
-  rows.forEach(row=>{
-    const name = row.querySelector('.deliv-name')?.value || 'Untitled';
-    const qty = parseFloat(row.querySelector('.deliv-qty')?.value)||1;
-    const price = parseFloat(row.querySelector('.deliv-price')?.value)||0;
-    const lineTotal = qty*price;
-    grandTotal += lineTotal;
-    tableHTML += `<tr><td>${name}</td><td>${qty}</td><td>$${lineTotal.toLocaleString()}</td></tr>`;
+  const tbody = document.getElementById('prev-services');
+  tbody.innerHTML = '';
+  let total = 0;
+  services.filter(s => s.checked).forEach(s => {
+    total += s.price;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${s.name}</td><td>1</td><td>${cur}${s.price.toLocaleString()}</td>`;
+    tbody.appendChild(tr);
   });
+  document.getElementById('prev-total').textContent = cur + total.toLocaleString();
 
-  const base = parseFloat(document.getElementById('f_baseFee')?.value)||0;
-  const setup = parseFloat(document.getElementById('f_setupFee')?.value)||0;
-  const disc = parseFloat(document.getElementById('f_discount')?.value)||0;
-  const total = base + setup - disc || grandTotal;
-  if(total>0) tableHTML += `<tr class="pv-total-row"><td colspan="2">Total Investment</td><td>$${total.toLocaleString()}</td></tr>`;
+  const notes = document.getElementById('notes').value;
+  const ns = document.getElementById('prev-notes-section');
+  if (notes) { ns.style.display=''; document.getElementById('prev-notes').textContent = notes; }
+  else { ns.style.display='none'; }
 
-  document.getElementById('pv_table').innerHTML = tableHTML;
+  // Update currency symbols on service list
+  services.forEach(s => {
+    const el = document.getElementById('price-' + s.id);
+    if (el) el.textContent = cur + s.price.toLocaleString();
+  });
+}
 
-  // Guarantee
-  const activeG = document.querySelector('.g-card.active .g-name');
-  const guaranteeTerms = document.getElementById('f_guaranteeTerms')?.value;
-  if(activeG){
-    const gName = activeG.textContent;
-    document.getElementById('pv_guarantee').textContent = gName + (guaranteeTerms ? ' — '+guaranteeTerms : '');
+// ─── SAVE PROPOSAL ────────────────────────────────────────────────────────────
+
+function saveProposal() {
+  const title   = document.getElementById('proposal-title').value || 'Untitled Proposal';
+  const client  = document.getElementById('client-name').value    || 'Unknown Client';
+  const company = document.getElementById('client-company').value || '';
+  const total   = services.filter(s=>s.checked).reduce((a,s)=>a+s.price,0);
+
+  if (editingProposalId) {
+    const p = proposals.find(p => p.id === editingProposalId);
+    if (p) { p.title=title; p.client=client; p.company=company; p.total=total; p.status='draft'; }
+    editingProposalId = null;
+  } else {
+    proposals.unshift({id: Date.now(), title, client, company, total, status:'draft', date: new Date().toISOString().split('T')[0]});
   }
+
+  renderDashboardProposals();
+  showToast('Proposal saved');
 }
 
-// NOTIFICATION
-let notifTimer;
-function showNotif(msg){
-  const el = document.getElementById('notif');
-  document.getElementById('notifMsg').textContent = msg;
-  el.classList.add('show');
-  clearTimeout(notifTimer);
-  notifTimer = setTimeout(()=>el.classList.remove('show'),3000);
+// ─── RENDER PROPOSALS ─────────────────────────────────────────────────────────
+
+function renderDashboardProposals() {
+  renderProposalCards(document.getElementById('dashboard-proposals'), proposals.slice(0,4));
 }
 
-// Autosave simulation
-setInterval(()=>{
-  const el = document.getElementById('autoSave');
-  el.textContent = '● Autosaved';
-  el.style.color = 'var(--gold)';
-  setTimeout(()=>el.style.color='',2000);
-},30000);
+function renderAllProposals() {
+  renderProposalCards(document.getElementById('all-proposals'), proposals);
+}
 
-// INIT
-buildSteps();
-addDelivRow();
-addDelivRow();
+function renderProposalCards(container, list) {
+  container.innerHTML = '';
+  if (!list.length) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📄</div><div class="empty-state-title">No proposals yet</div><div class="empty-state-sub">Create your first proposal to get started</div></div>';
+    return;
+  }
+  list.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.onclick = () => editProposal(p);
+    card.innerHTML = `
+      <div class="card-header">
+        <div>
+          <div class="card-title">${p.title}</div>
+          <div class="card-meta">${p.client} ${p.company ? '· '+p.company : ''}</div>
+        </div>
+        <span class="badge badge-${p.status}">${p.status.charAt(0).toUpperCase()+p.status.slice(1)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--charcoal)">$${p.total.toLocaleString()}</span>
+        <span style="font-size:11px;color:var(--text-muted)">${p.date}</span>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function editProposal(p) {
+  editingProposalId = p.id;
+  document.getElementById('proposal-title').value  = p.title;
+  document.getElementById('client-name').value     = p.client;
+  document.getElementById('client-company').value  = p.company;
+  services.forEach(s => s.checked = false);
+  renderServicesList();
+  updatePreview();
+  showPage('builder', document.querySelectorAll('.nav-btn')[2]);
+  showToast('Editing: ' + p.title);
+}
+
+function resetBuilder() {
+  editingProposalId = null;
+  ['proposal-title','client-name','client-email','client-company','overview','notes'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('client-industry').value = '';
+  document.getElementById('timeline').value = '';
+  document.getElementById('valid-until').value = '';
+  services = DEFAULT_SERVICES.map(s => ({...s}));
+  renderServicesList();
+  updatePreview();
+}
+
+// ─── CLIENTS ─────────────────────────────────────────────────────────────────
+
+function renderClients() {
+  const tbody = document.getElementById('clients-tbody');
+  tbody.innerHTML = '';
+  clients.forEach(c => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><div class="client-name">${c.name}</div><div class="client-email">${c.email}</div></td>
+      <td>${c.industry}</td>
+      <td>${c.proposals}</td>
+      <td style="font-weight:500">$${c.total.toLocaleString()}</td>
+      <td><span class="badge badge-${c.status==='Active'?'accepted':'draft'}">${c.status}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function openClientModal()  { document.getElementById('client-modal').classList.add('open'); }
+function closeClientModal() { document.getElementById('client-modal').classList.remove('open'); }
+
+function addClient() {
+  const name    = document.getElementById('modal-client-name').value.trim();
+  const email   = document.getElementById('modal-client-email').value.trim();
+  const company = document.getElementById('modal-client-company').value.trim();
+  const industry= document.getElementById('modal-client-industry').value;
+  if (!name) return;
+  clients.push({name, email, company, industry, proposals:0, total:0, status:'Prospect'});
+  closeClientModal();
+  renderClients();
+  showToast('Client added');
+  ['modal-client-name','modal-client-email','modal-client-company'].forEach(id => document.getElementById(id).value='');
+  document.getElementById('modal-client-industry').value='';
+}
+
+// ─── SETTINGS CATALOG ────────────────────────────────────────────────────────
+
+function renderCatalog() {
+  const el = document.getElementById('catalog-list');
+  el.innerHTML = '';
+  DEFAULT_SERVICES.forEach(s => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:8px;';
+    row.innerHTML = `
+      <input type="text" value="${s.name}" style="flex:1;font-size:12px;" readonly>
+      <input type="number" value="${s.price}" style="width:80px;font-size:12px;" readonly>
+    `;
+    el.appendChild(row);
+  });
+}
+
+// ─── TOAST ───────────────────────────────────────────────────────────────────
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+
+renderServicesList();
+updatePreview();
+renderDashboardProposals();
 </script>
 </body>
 </html>
