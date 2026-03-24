@@ -45,834 +45,881 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
 
 .s-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);opacity:0.75;margin-bottom:10px;margin-top:4px;}
 
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r);cursor:pointer;transition:background 0.15s;color:rgba(255,255,255,0.55);font-size:12px;font-weight:400;letter-spacing:0.01em;border:none;background:none;width:100%;text-align:left;}
-.nav-item:hover{background:rgba(200,168,75,0.08);color:rgba(255,255,255,0.8);}
-.nav-item.active{background:rgba(200,168,75,0.14);color:var(--gold);}
-.nav-item svg{opacity:0.7;flex-shrink:0;}
-.nav-item.active svg{opacity:1;}
+.s-client{display:flex;flex-direction:column;gap:5px;margin-bottom:6px;}
+.s-client input{background:var(--charcoal-mid);border:1px solid rgba(200,168,75,0.12);border-radius:5px;padding:8px 10px;color:var(--white);font-size:12px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
+.s-client input::placeholder{color:rgba(253,250,244,0.25);}
+.s-client input:focus{border-color:rgba(200,168,75,0.4);}
 
-.s-bottom{margin-top:auto;padding-top:20px;border-top:1px solid rgba(200,168,75,0.1);}
-.s-bottom-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.35);font-size:11px;cursor:pointer;padding:6px 0;transition:color 0.15s;}
-.s-bottom-link:hover{color:rgba(255,255,255,0.6);}
+.s-step-list{display:flex;flex-direction:column;gap:3px;flex:1;}
+.s-step{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:5px;cursor:pointer;transition:background .18s;border:1px solid transparent;position:relative;}
+.s-step:hover{background:rgba(200,168,75,0.06);}
+.s-step.active{background:rgba(200,168,75,0.1);border-color:rgba(200,168,75,0.18);}
+.s-step.completed .s-step-num{background:var(--gold);color:var(--charcoal);}
+.s-step-num{width:22px;height:22px;border-radius:50%;background:var(--charcoal-soft);color:var(--text-muted);font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.s-step.active .s-step-num{background:rgba(200,168,75,0.2);color:var(--gold);}
+.s-step-info{flex:1;min-width:0;}
+.s-step-title{font-size:11.5px;color:var(--white);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.s-step.active .s-step-title{color:var(--gold-light);}
+.s-step-sub{font-size:10px;color:var(--text-muted);margin-top:1px;}
+.s-step-check{font-size:11px;color:var(--gold);opacity:0;}
+.s-step.completed .s-step-check{opacity:1;}
+
+.s-actions{margin-top:auto;padding-top:20px;display:flex;flex-direction:column;gap:8px;}
+.btn-primary{background:var(--gold);color:var(--charcoal);border:none;border-radius:5px;padding:10px 16px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:0.04em;transition:opacity .2s;}
+.btn-primary:hover{opacity:0.88;}
+.btn-ghost{background:transparent;color:var(--text-muted);border:1px solid rgba(200,168,75,0.15);border-radius:5px;padding:9px 16px;font-size:11.5px;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:0.04em;transition:all .2s;}
+.btn-ghost:hover{color:var(--gold);border-color:rgba(200,168,75,0.3);}
 
 /* MAIN */
-.main{background:var(--cream);display:flex;flex-direction:column;}
+.main{display:flex;flex-direction:column;min-height:100vh;}
 
 /* TOP BAR */
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 36px;border-bottom:1px solid var(--border-soft);background:var(--white);position:sticky;top:0;z-index:10;}
-.topbar-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--charcoal);}
-.topbar-right{display:flex;align-items:center;gap:12px;}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:var(--r);font-size:12px;font-weight:500;letter-spacing:0.03em;cursor:pointer;transition:all 0.15s;border:none;}
-.btn-ghost{background:transparent;color:var(--text-muted);border:1px solid var(--border);}
-.btn-ghost:hover{background:var(--gold-pale);color:var(--charcoal);}
-.btn-primary{background:var(--gold);color:var(--charcoal);font-weight:600;}
-.btn-primary:hover{background:var(--gold-light);}
+.tb-breadcrumb{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--text-muted);}
+.tb-breadcrumb span{color:var(--text-body);}
+.tb-right{display:flex;align-items:center;gap:12px;}
+.tb-progress{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-muted);}
+.tb-prog-bar{width:80px;height:3px;background:var(--cream-dark);border-radius:2px;overflow:hidden;}
+.tb-prog-fill{height:100%;background:var(--gold);border-radius:2px;transition:width .4s ease;}
+.tb-save{font-size:10.5px;color:var(--text-muted);display:flex;align-items:center;gap:4px;}
 
 /* CONTENT AREA */
-.content{flex:1;padding:32px 36px;display:flex;flex-direction:column;gap:28px;}
+.content{flex:1;padding:36px;max-width:860px;}
 
-/* SECTION HEADER */
-.section-header{display:flex;align-items:flex-start;justify-content:space-between;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--charcoal);line-height:1.2;}
-.section-sub{font-size:12px;color:var(--text-muted);margin-top:4px;}
+.step-panel{display:none;}
+.step-panel.active{display:block;}
 
-/* PROGRESS */
-.progress-bar-wrap{height:3px;background:var(--border-soft);border-radius:2px;overflow:hidden;margin-top:16px;}
-.progress-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;transition:width 0.4s ease;}
+.step-header{margin-bottom:28px;}
+.step-num-badge{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--charcoal);letter-spacing:-0.01em;line-height:1.2;}
+.step-desc{font-size:12.5px;color:var(--text-muted);margin-top:6px;line-height:1.6;max-width:580px;}
 
-/* STEP TABS */
-.step-tabs{display:flex;gap:0;border-bottom:1px solid var(--border-soft);}
-.step-tab{padding:10px 20px;font-size:11.5px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.15s;}
-.step-tab:hover{color:var(--charcoal);}
-.step-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
-
-/* CARDS */
-.card{background:var(--white);border:1px solid var(--border-soft);border-radius:calc(var(--r) + 2px);padding:24px;box-shadow:var(--shadow-sm);}
-.card-title{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500;}
-
-/* GRID */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+/* CARD */
+.card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:22px 24px;margin-bottom:16px;box-shadow:var(--shadow-sm);}
+.card-title{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.card-title::after{content:'';flex:1;height:1px;background:var(--border-soft);}
 
 /* FORM ELEMENTS */
+.field-group{display:grid;gap:12px;margin-bottom:4px;}
+.field-group.cols-2{grid-template-columns:1fr 1fr;}
+.field-group.cols-3{grid-template-columns:1fr 1fr 1fr;}
 .field{display:flex;flex-direction:column;gap:5px;}
-.field label{font-size:10.5px;font-weight:500;color:var(--text-muted);letter-spacing:0.05em;}
-.field input,.field select,.field textarea{background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:9px 12px;font-size:12.5px;font-family:'DM Sans',sans-serif;color:var(--charcoal);outline:none;transition:border 0.15s,box-shadow 0.15s;resize:none;}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,168,75,0.1);}
-.field textarea{min-height:72px;}
-.field input::placeholder,.field textarea::placeholder{color:var(--text-muted);opacity:0.7;}
+.field label{font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);}
+.field input,.field textarea,.field select{background:var(--cream);border:1px solid var(--border);border-radius:5px;padding:9px 11px;font-size:12.5px;color:var(--charcoal);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;width:100%;}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,168,75,0.08);}
+.field textarea{resize:vertical;min-height:80px;line-height:1.55;}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238C8278' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;}
 
-/* SELECT GRID (service cards) */
-.select-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;}
-.select-card{border:1px solid var(--border-soft);border-radius:var(--r);padding:12px 10px;cursor:pointer;transition:all 0.15s;text-align:center;background:var(--cream);}
-.select-card:hover{border-color:var(--gold);background:var(--gold-pale);}
-.select-card.selected{border-color:var(--gold);background:var(--gold-pale);box-shadow:0 0 0 1px var(--gold);}
-.select-card-icon{font-size:20px;margin-bottom:6px;}
-.select-card-label{font-size:11px;font-weight:500;color:var(--charcoal);}
-.select-card-sub{font-size:10px;color:var(--text-muted);margin-top:2px;}
+/* TOGGLE GROUP */
+.toggle-group{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px;}
+.toggle-btn{padding:6px 13px;border:1px solid var(--border);border-radius:4px;font-size:11.5px;color:var(--text-muted);cursor:pointer;background:var(--cream);transition:all .18s;font-family:'DM Sans',sans-serif;}
+.toggle-btn:hover{border-color:var(--gold);color:var(--charcoal);}
+.toggle-btn.active{background:var(--gold-pale);border-color:var(--gold);color:var(--charcoal);font-weight:500;}
 
-/* PACKAGE CARDS */
-.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.pkg-card{border:1px solid var(--border-soft);border-radius:calc(var(--r)+2px);padding:18px;cursor:pointer;transition:all 0.2s;background:var(--cream);position:relative;}
-.pkg-card:hover{border-color:var(--gold);transform:translateY(-1px);box-shadow:var(--shadow-md);}
-.pkg-card.selected{border-color:var(--gold);background:linear-gradient(135deg,var(--gold-pale),var(--white));box-shadow:0 0 0 1.5px var(--gold),var(--shadow-md);}
-.pkg-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--charcoal);font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:2px 10px;border-radius:20px;}
-.pkg-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--charcoal);margin-bottom:4px;}
-.pkg-desc{font-size:11px;color:var(--text-muted);margin-bottom:14px;line-height:1.5;}
-.pkg-price{font-size:22px;font-weight:700;color:var(--gold);font-family:'Cormorant Garamond',serif;}
-.pkg-price span{font-size:12px;font-weight:400;color:var(--text-muted);}
-.pkg-features{margin-top:12px;display:flex;flex-direction:column;gap:5px;}
-.pkg-feature{font-size:11px;color:var(--text-muted);display:flex;align-items:center;gap:5px;}
-.pkg-feature::before{content:'✓';color:var(--gold);font-weight:700;font-size:10px;}
+/* DELIVERABLE ROWS */
+.deliv-list{display:flex;flex-direction:column;gap:8px;}
+.deliv-row{display:grid;grid-template-columns:1fr 90px 90px 28px;gap:8px;align-items:center;}
+.deliv-row input{background:var(--cream);border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--charcoal);outline:none;}
+.deliv-row input:focus{border-color:var(--gold);}
+.deliv-remove{width:28px;height:28px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;border-radius:4px;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .18s;}
+.deliv-remove:hover{background:rgba(200,168,75,0.1);color:var(--charcoal);}
+.add-row-btn{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--gold);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;padding:6px 0;margin-top:4px;transition:opacity .18s;}
+.add-row-btn:hover{opacity:0.75;}
 
-/* ADD-ONS */
-.addon-list{display:flex;flex-direction:column;gap:8px;}
-.addon-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1px solid var(--border-soft);border-radius:var(--r);background:var(--cream);cursor:pointer;transition:all 0.15s;}
-.addon-item:hover{border-color:var(--gold);background:var(--gold-pale);}
-.addon-item.selected{border-color:var(--gold);background:var(--gold-pale);}
-.addon-left{display:flex;align-items:center;gap:10px;}
-.addon-check{width:16px;height:16px;border:1.5px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;flex-shrink:0;}
-.addon-item.selected .addon-check{background:var(--gold);border-color:var(--gold);}
-.addon-name{font-size:12px;font-weight:500;color:var(--charcoal);}
-.addon-sub{font-size:10.5px;color:var(--text-muted);}
-.addon-price{font-size:13px;font-weight:600;color:var(--gold);}
+/* PRICING SUMMARY */
+.price-summary{background:var(--charcoal);border-radius:var(--r);padding:20px 22px;margin-top:16px;}
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:12.5px;color:rgba(253,250,244,0.6);}
+.price-row.total{border-top:1px solid rgba(200,168,75,0.2);margin-top:8px;padding-top:12px;color:var(--gold-light);font-size:14px;font-weight:500;}
+.price-row span:last-child{font-variant-numeric:tabular-nums;}
 
 /* TIMELINE */
-.timeline-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;}
-.timeline-opt{border:1px solid var(--border-soft);border-radius:var(--r);padding:10px;text-align:center;cursor:pointer;transition:all 0.15s;background:var(--cream);}
-.timeline-opt:hover{border-color:var(--gold);}
-.timeline-opt.selected{border-color:var(--gold);background:var(--gold-pale);box-shadow:0 0 0 1px var(--gold);}
-.timeline-opt-duration{font-size:16px;font-weight:700;color:var(--charcoal);font-family:'Cormorant Garamond',serif;}
-.timeline-opt-label{font-size:10px;color:var(--text-muted);}
-.timeline-opt-price{font-size:10px;color:var(--gold);font-weight:600;margin-top:3px;}
+.timeline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:4px;}
+.timeline-phase{background:var(--cream);border:1px solid var(--border);border-radius:5px;padding:12px;text-align:center;}
+.tp-week{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;}
+.tp-name{font-size:11.5px;color:var(--charcoal);font-weight:500;}
+.tp-dur{font-size:10.5px;color:var(--gold);margin-top:3px;}
 
-/* SUMMARY SIDEBAR */
-.summary-panel{background:var(--charcoal);border-radius:calc(var(--r)+2px);padding:22px;position:sticky;top:72px;color:white;}
-.summary-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--gold);margin-bottom:16px;letter-spacing:0.05em;}
-.summary-line{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(200,168,75,0.08);}
-.summary-line:last-child{border-bottom:none;}
-.summary-key{font-size:11px;color:rgba(255,255,255,0.5);}
-.summary-val{font-size:12px;color:rgba(255,255,255,0.85);font-weight:500;text-align:right;max-width:55%;}
-.summary-total{margin-top:14px;padding-top:14px;border-top:1px solid rgba(200,168,75,0.2);display:flex;justify-content:space-between;align-items:baseline;}
-.summary-total-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
-.summary-total-val{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--gold);}
-.summary-note{font-size:10px;color:rgba(255,255,255,0.3);margin-top:10px;line-height:1.5;}
+/* GUARANTEE PICKER */
+.guarantee-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.g-card{border:1px solid var(--border);border-radius:5px;padding:14px;cursor:pointer;transition:all .2s;background:var(--cream);}
+.g-card:hover{border-color:var(--gold);}
+.g-card.active{background:var(--gold-pale);border-color:var(--gold);}
+.g-icon{font-size:18px;margin-bottom:6px;}
+.g-name{font-size:11.5px;font-weight:500;color:var(--charcoal);margin-bottom:3px;}
+.g-desc{font-size:10.5px;color:var(--text-muted);line-height:1.4;}
 
-/* PREVIEW (step 5) */
-.preview-wrap{background:var(--white);border:1px solid var(--border-soft);border-radius:calc(var(--r)+4px);overflow:hidden;box-shadow:var(--shadow-lg);}
-.preview-header{background:var(--charcoal);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;}
-.preview-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--gold);letter-spacing:0.15em;}
-.preview-body{padding:40px 48px;}
-.preview-to{font-size:11px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
-.preview-client{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--charcoal);}
-.preview-intro{font-size:13px;color:var(--text-body);line-height:1.7;margin:16px 0 28px;}
-.preview-section{margin-bottom:28px;}
-.preview-section-title{font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600;}
-.preview-scope-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-soft);}
-.preview-scope-item:last-child{border-bottom:none;}
-.preview-scope-name{font-size:13px;font-weight:500;color:var(--charcoal);flex:1;}
-.preview-scope-price{font-size:13px;color:var(--gold);font-weight:600;}
-.preview-total-box{background:var(--charcoal);border-radius:var(--r);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
-.preview-total-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
-.preview-total-val{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:600;}
-.preview-footer{background:var(--cream-dark);padding:18px 32px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-soft);}
-.preview-footer-note{font-size:11px;color:var(--text-muted);}
-.preview-sign-line{width:160px;border-top:1px solid var(--text-muted);text-align:center;padding-top:4px;font-size:10px;color:var(--text-muted);}
+/* SOCIAL PROOF */
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.proof-card{border:1px solid var(--border);border-radius:5px;padding:14px;background:var(--cream);}
+.proof-card label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:6px;}
+.proof-card input,.proof-card textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:4px 0;font-size:12px;color:var(--charcoal);font-family:'DM Sans',sans-serif;outline:none;}
+.proof-card textarea{resize:none;height:52px;line-height:1.5;}
 
-/* TOAST */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--charcoal);color:white;padding:12px 20px;border-radius:var(--r);font-size:12px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);transform:translateY(80px);opacity:0;transition:all 0.3s ease;z-index:100;border-left:3px solid var(--gold);}
-.toast.show{transform:translateY(0);opacity:1;}
+/* PREVIEW PANEL */
+.preview-wrap{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-md);}
+.preview-toolbar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--cream-dark);border-bottom:1px solid var(--border-soft);}
+.preview-dots{display:flex;gap:5px;}
+.preview-dots span{width:9px;height:9px;border-radius:50%;background:var(--border);}
+.preview-zoom{font-size:10.5px;color:var(--text-muted);}
+.preview-body{padding:32px 40px;font-size:12px;line-height:1.7;color:var(--text-body);max-height:520px;overflow-y:auto;}
+.preview-body::-webkit-scrollbar{width:3px;}
+.preview-body::-webkit-scrollbar-thumb{background:var(--border);}
 
-/* STEPPER */
-.stepper{display:flex;align-items:center;gap:0;margin-bottom:8px;}
-.stepper-step{display:flex;align-items:center;}
-.stepper-dot{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--text-muted);background:var(--white);transition:all 0.2s;cursor:pointer;}
-.stepper-dot.active{border-color:var(--gold);color:var(--gold);background:var(--gold-pale);}
-.stepper-dot.done{border-color:var(--gold);background:var(--gold);color:var(--charcoal);}
-.stepper-line{width:32px;height:1px;background:var(--border-soft);margin:0 4px;}
-.stepper-line.done{background:var(--gold);}
+/* PROPOSAL PREVIEW STYLES */
+.pv-header{border-bottom:2px solid var(--gold);padding-bottom:20px;margin-bottom:24px;}
+.pv-logo{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;}
+.pv-title{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--charcoal);line-height:1.2;margin-bottom:6px;}
+.pv-meta{font-size:11px;color:var(--text-muted);}
+.pv-section{margin-bottom:20px;}
+.pv-section-label{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.pv-body{font-size:12px;color:var(--text-body);line-height:1.65;}
+.pv-table{width:100%;border-collapse:collapse;margin-top:6px;}
+.pv-table th{text-align:left;font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--border-soft);}
+.pv-table td{padding:8px 0;font-size:12px;color:var(--text-body);border-bottom:1px solid var(--border-soft);}
+.pv-table td:last-child,.pv-table th:last-child{text-align:right;}
+.pv-total-row td{font-weight:500;color:var(--charcoal);font-size:13px;border-top:2px solid var(--gold);border-bottom:none;}
+.pv-guarantee{background:var(--gold-pale);border-left:3px solid var(--gold);padding:12px 14px;border-radius:0 4px 4px 0;font-size:11.5px;color:var(--text-body);}
 
-/* TEMPLATE PICKER */
-.template-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.template-card{border:1px solid var(--border-soft);border-radius:calc(var(--r)+2px);overflow:hidden;cursor:pointer;transition:all 0.2s;}
-.template-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:var(--shadow-md);}
-.template-card.selected{border-color:var(--gold);box-shadow:0 0 0 1.5px var(--gold);}
-.template-thumb{height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;}
-.template-info{padding:10px 12px;background:var(--white);}
-.template-name{font-size:12px;font-weight:600;color:var(--charcoal);}
-.template-desc{font-size:10.5px;color:var(--text-muted);margin-top:2px;}
+/* EXPORT OPTIONS */
+.export-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.export-card{border:1px solid var(--border);border-radius:var(--r);padding:20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--cream);}
+.export-card:hover{border-color:var(--gold);box-shadow:var(--shadow-sm);}
+.export-icon{font-size:24px;margin-bottom:8px;}
+.export-name{font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:3px;}
+.export-desc{font-size:10.5px;color:var(--text-muted);}
 
-/* ANIMATIONS */
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.fade-in{animation:fadeIn 0.3s ease forwards;}
-
-/* SCROLLBAR */
-.main::-webkit-scrollbar{width:4px;}
-.main::-webkit-scrollbar-thumb{background:var(--border);}
-
-/* PROPOSAL LIST */
-.proposal-list{display:flex;flex-direction:column;gap:10px;}
-.proposal-row{display:flex;align-items:center;padding:14px 18px;background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);cursor:pointer;transition:all 0.15s;gap:16px;}
-.proposal-row:hover{border-color:var(--gold);box-shadow:var(--shadow-sm);}
-.proposal-status{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.status-sent{background:#6EBB8A;}
-.status-draft{background:var(--gold);}
-.status-viewed{background:#7EB8D4;}
-.proposal-info{flex:1;}
-.proposal-client{font-size:13px;font-weight:500;color:var(--charcoal);}
-.proposal-meta{font-size:11px;color:var(--text-muted);margin-top:2px;}
-.proposal-amount{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--gold);}
-.proposal-actions{display:flex;gap:8px;opacity:0;transition:opacity 0.15s;}
-.proposal-row:hover .proposal-actions{opacity:1;}
-.icon-btn{width:28px;height:28px;border-radius:5px;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.15s;color:var(--text-muted);}
-.icon-btn:hover{border-color:var(--gold);color:var(--gold);}
-
-/* DASHBOARD STATS */
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-.stat-card{background:var(--white);border:1px solid var(--border-soft);border-radius:calc(var(--r)+2px);padding:18px;box-shadow:var(--shadow-sm);}
-.stat-label{font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
-.stat-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--charcoal);}
-.stat-sub{font-size:10.5px;color:var(--text-muted);margin-top:4px;}
-.stat-trend{font-size:10.5px;color:#6EBB8A;font-weight:600;}
-
-/* MAIN LAYOUT WITH SUMMARY */
-.builder-layout{display:grid;grid-template-columns:1fr 240px;gap:24px;align-items:start;}
+/* NOTIFICATION */
+.notif{position:fixed;bottom:24px;right:24px;background:var(--charcoal);color:var(--white);padding:12px 18px;border-radius:6px;font-size:12px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);transform:translateY(80px);opacity:0;transition:all .3s;z-index:100;}
+.notif.show{transform:translateY(0);opacity:1;}
+.notif-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
 
 /* RESPONSIVE */
 @media(max-width:900px){
   .shell{grid-template-columns:1fr;}
-  .sidebar{display:none;}
-  .builder-layout{grid-template-columns:1fr;}
-  .pkg-grid{grid-template-columns:1fr 1fr;}
-  .stat-grid{grid-template-columns:1fr 1fr;}
+  .sidebar{position:relative;height:auto;}
+  .field-group.cols-3{grid-template-columns:1fr 1fr;}
+  .export-grid{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
 <body>
 
 <div class="shell">
-<!-- SIDEBAR -->
-<aside class="sidebar">
-  <div class="s-logo">Amplify</div>
-  <div class="s-tagline">Proposal Studio</div>
 
-  <div class="s-label">Main</div>
-  <button class="nav-item active" onclick="showView('dashboard')">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-    Dashboard
-  </button>
-  <button class="nav-item" onclick="showView('proposals')">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-    Proposals
-  </button>
-  <button class="nav-item" onclick="showView('builder')">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-    New Proposal
-  </button>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="s-logo">Amplify</div>
+    <div class="s-tagline">Proposal Builder</div>
 
-  <div class="s-divider"></div>
-  <div class="s-label">Tools</div>
-  <button class="nav-item" onclick="showView('templates')">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
-    Templates
-  </button>
-  <button class="nav-item">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-    Activity
-  </button>
-
-  <div class="s-bottom">
-    <div class="s-bottom-link">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      Account
-    </div>
-    <div class="s-bottom-link">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-      Settings
-    </div>
-  </div>
-</aside>
-
-<!-- MAIN -->
-<main class="main" id="mainContent">
-
-<!-- ===================== DASHBOARD ===================== -->
-<div id="view-dashboard" class="fade-in">
-  <div class="topbar">
-    <div class="topbar-title">Dashboard</div>
-    <div class="topbar-right">
-      <button class="btn btn-primary" onclick="showView('builder')">+ New Proposal</button>
-    </div>
-  </div>
-  <div class="content">
-    <!-- Stats -->
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-label">Total Proposals</div>
-        <div class="stat-val">24</div>
-        <div class="stat-sub"><span class="stat-trend">↑ 12%</span> vs last month</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Revenue Pipeline</div>
-        <div class="stat-val">$48.2K</div>
-        <div class="stat-sub"><span class="stat-trend">↑ 8%</span> this quarter</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Acceptance Rate</div>
-        <div class="stat-val">71%</div>
-        <div class="stat-sub"><span class="stat-trend">↑ 3pts</span> improvement</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Avg. Proposal Value</div>
-        <div class="stat-val">$2,010</div>
-        <div class="stat-sub">Based on 24 proposals</div>
-      </div>
+    <div class="s-label">Client</div>
+    <div class="s-client">
+      <input type="text" id="clientName" placeholder="Client name" oninput="updateMeta()">
+      <input type="text" id="projectType" placeholder="Project type" oninput="updateMeta()">
     </div>
 
-    <!-- Recent Proposals -->
-    <div>
-      <div class="section-header" style="margin-bottom:14px;">
-        <div>
-          <div style="font-size:13px;font-weight:600;color:var(--charcoal);">Recent Proposals</div>
-          <div class="section-sub">Your last 5 proposals</div>
+    <div class="s-divider"></div>
+    <div class="s-label">Steps</div>
+
+    <nav class="s-step-list" id="stepList"></nav>
+
+    <div class="s-actions">
+      <button class="btn-primary" onclick="nextStep()">Continue →</button>
+      <button class="btn-ghost" onclick="showNotif('Draft saved')">Save Draft</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <div class="tb-breadcrumb">Proposals <span>/ New Proposal</span></div>
+      <div class="tb-right">
+        <div class="tb-progress">
+          <div class="tb-prog-bar"><div class="tb-prog-fill" id="progFill" style="width:14%"></div></div>
+          <span id="progText">1 of 7</span>
         </div>
-        <button class="btn btn-ghost" onclick="showView('proposals')">View All</button>
+        <div class="tb-save" id="autoSave">● Autosaved</div>
       </div>
-      <div class="proposal-list">
-        <div class="proposal-row">
-          <div class="proposal-status status-sent"></div>
-          <div class="proposal-info">
-            <div class="proposal-client">Marble & Stone Co.</div>
-            <div class="proposal-meta">Brand Strategy + Social · Sent 2 days ago</div>
+    </div>
+
+    <!-- STEP PANELS -->
+    <div class="content" id="contentArea">
+
+      <!-- STEP 1: CLIENT & PROJECT -->
+      <div class="step-panel active" data-step="1">
+        <div class="step-header">
+          <div class="step-num-badge">Step 01 — Foundation</div>
+          <h1 class="step-title">Client & Project Details</h1>
+          <p class="step-desc">Set the foundation for your proposal. These details shape the entire document.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Client Information</div>
+          <div class="field-group cols-2">
+            <div class="field">
+              <label>Client / Company Name</label>
+              <input type="text" id="f_client" placeholder="e.g. Meridian Co." oninput="syncSidebar()">
+            </div>
+            <div class="field">
+              <label>Industry</label>
+              <input type="text" id="f_industry" placeholder="e.g. SaaS, E-commerce">
+            </div>
           </div>
-          <div class="proposal-amount">$3,200</div>
-          <div class="proposal-actions">
-            <button class="icon-btn" title="Edit">✏️</button>
-            <button class="icon-btn" title="Copy">⧉</button>
+          <div class="field-group cols-2" style="margin-top:10px">
+            <div class="field">
+              <label>Contact Name</label>
+              <input type="text" id="f_contact" placeholder="Decision maker's name">
+            </div>
+            <div class="field">
+              <label>Contact Email</label>
+              <input type="email" id="f_email" placeholder="email@company.com">
+            </div>
           </div>
         </div>
-        <div class="proposal-row">
-          <div class="proposal-status status-viewed"></div>
-          <div class="proposal-info">
-            <div class="proposal-client">Nova Wellness</div>
-            <div class="proposal-meta">Website + SEO · Viewed 3 times</div>
+
+        <div class="card">
+          <div class="card-title">Project Overview</div>
+          <div class="field-group">
+            <div class="field">
+              <label>Project Title</label>
+              <input type="text" id="f_projectTitle" placeholder="e.g. Q4 Growth Campaign" oninput="syncSidebar()">
+            </div>
           </div>
-          <div class="proposal-amount">$5,800</div>
-          <div class="proposal-actions">
-            <button class="icon-btn" title="Edit">✏️</button>
-            <button class="icon-btn" title="Copy">⧉</button>
+          <div class="field-group cols-2" style="margin-top:10px">
+            <div class="field">
+              <label>Service Category</label>
+              <select id="f_serviceCategory">
+                <option value="">Select category</option>
+                <option>Brand Strategy</option>
+                <option>Content Marketing</option>
+                <option>Paid Advertising</option>
+                <option>SEO & Organic Growth</option>
+                <option>Social Media Management</option>
+                <option>Email Marketing</option>
+                <option>Web Design & Development</option>
+                <option>Video Production</option>
+                <option>Full-Service Retainer</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Engagement Type</label>
+              <div class="toggle-group" id="engType">
+                <button class="toggle-btn active" onclick="setToggle(this,'engType')">Project</button>
+                <button class="toggle-btn" onclick="setToggle(this,'engType')">Retainer</button>
+                <button class="toggle-btn" onclick="setToggle(this,'engType')">Hybrid</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="proposal-row">
-          <div class="proposal-status status-draft"></div>
-          <div class="proposal-info">
-            <div class="proposal-client">Apex Financial</div>
-            <div class="proposal-meta">Full Suite · Draft</div>
-          </div>
-          <div class="proposal-amount">$8,400</div>
-          <div class="proposal-actions">
-            <button class="icon-btn" title="Edit">✏️</button>
-            <button class="icon-btn" title="Copy">⧉</button>
+          <div class="field" style="margin-top:10px">
+            <label>Project Brief / Background</label>
+            <textarea id="f_brief" placeholder="Describe the client's situation, goals, and what you've learned from discovery..."></textarea>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- ===================== PROPOSALS LIST ===================== -->
-<div id="view-proposals" style="display:none;" class="fade-in">
-  <div class="topbar">
-    <div class="topbar-title">All Proposals</div>
-    <div class="topbar-right">
-      <button class="btn btn-primary" onclick="showView('builder')">+ New Proposal</button>
-    </div>
-  </div>
-  <div class="content">
-    <div class="proposal-list">
-      <div class="proposal-row"><div class="proposal-status status-sent"></div><div class="proposal-info"><div class="proposal-client">Marble & Stone Co.</div><div class="proposal-meta">Brand Strategy + Social · Sent 2d ago</div></div><div class="proposal-amount">$3,200</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
-      <div class="proposal-row"><div class="proposal-status status-viewed"></div><div class="proposal-info"><div class="proposal-client">Nova Wellness</div><div class="proposal-meta">Website + SEO · Viewed 3×</div></div><div class="proposal-amount">$5,800</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
-      <div class="proposal-row"><div class="proposal-status status-draft"></div><div class="proposal-info"><div class="proposal-client">Apex Financial</div><div class="proposal-meta">Full Suite · Draft</div></div><div class="proposal-amount">$8,400</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
-      <div class="proposal-row"><div class="proposal-status status-sent"></div><div class="proposal-info"><div class="proposal-client">Bloom Bakery</div><div class="proposal-meta">Social Media · Sent 1w ago</div></div><div class="proposal-amount">$1,200</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
-      <div class="proposal-row"><div class="proposal-status status-viewed"></div><div class="proposal-info"><div class="proposal-client">Zenith Tech</div><div class="proposal-meta">SEO + Content · Viewed 1×</div></div><div class="proposal-amount">$2,600</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
-      <div class="proposal-row"><div class="proposal-status status-draft"></div><div class="proposal-info"><div class="proposal-client">Goldenrod Hotels</div><div class="proposal-meta">Brand + Website + Social · Draft</div></div><div class="proposal-amount">$11,500</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ===================== BUILDER ===================== -->
-<div id="view-builder" style="display:none;" class="fade-in">
-  <div class="topbar">
-    <div class="topbar-title">Proposal Builder</div>
-    <div class="topbar-right">
-      <button class="btn btn-ghost" onclick="saveDraft()">Save Draft</button>
-      <button class="btn btn-primary" onclick="goToStep(5)">Preview →</button>
-    </div>
-  </div>
-  <div class="content">
-    <!-- Stepper -->
-    <div class="stepper" id="stepperEl"></div>
-
-    <!-- Progress -->
-    <div class="progress-bar-wrap">
-      <div class="progress-bar" id="progressBar" style="width:20%"></div>
-    </div>
-
-    <!-- Step Tabs -->
-    <div class="step-tabs">
-      <div class="step-tab active" onclick="goToStep(1)" id="tab1">1. Client</div>
-      <div class="step-tab" onclick="goToStep(2)" id="tab2">2. Services</div>
-      <div class="step-tab" onclick="goToStep(3)" id="tab3">3. Package</div>
-      <div class="step-tab" onclick="goToStep(4)" id="tab4">4. Details</div>
-      <div class="step-tab" onclick="goToStep(5)" id="tab5">5. Preview</div>
-    </div>
-
-    <!-- Builder layout with summary -->
-    <div class="builder-layout">
-      <div id="stepContent"></div>
-      <div class="summary-panel" id="summaryPanel">
-        <div class="summary-title">Proposal Summary</div>
-        <div id="summaryLines"></div>
-        <div class="summary-total">
-          <div class="summary-total-label">Estimated Total</div>
-          <div class="summary-total-val" id="summaryTotal">$0</div>
+      <!-- STEP 2: PROBLEM & OPPORTUNITY -->
+      <div class="step-panel" data-step="2">
+        <div class="step-header">
+          <div class="step-num-badge">Step 02 — Diagnosis</div>
+          <h1 class="step-title">Problem & Opportunity</h1>
+          <p class="step-desc">Frame the client's challenge in a way that makes your solution inevitable.</p>
         </div>
-        <div class="summary-note">Final pricing may vary based on scope adjustments.</div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- ===================== TEMPLATES ===================== -->
-<div id="view-templates" style="display:none;" class="fade-in">
-  <div class="topbar">
-    <div class="topbar-title">Templates</div>
-  </div>
-  <div class="content">
-    <div class="section-header" style="margin-bottom:20px;">
-      <div>
-        <div class="section-title">Proposal Templates</div>
-        <div class="section-sub">Start from a pre-built structure</div>
-      </div>
-    </div>
-    <div class="template-grid">
-      <div class="template-card selected" onclick="selectTemplate(this,'starter')">
-        <div class="template-thumb" style="background:var(--gold-pale);">📄</div>
-        <div class="template-info"><div class="template-name">Starter</div><div class="template-desc">Clean, minimal — one service, one price.</div></div>
-      </div>
-      <div class="template-card" onclick="selectTemplate(this,'growth')">
-        <div class="template-thumb" style="background:var(--cream-dark);">📊</div>
-        <div class="template-info"><div class="template-name">Growth</div><div class="template-desc">Multi-service with tiered packages.</div></div>
-      </div>
-      <div class="template-card" onclick="selectTemplate(this,'enterprise')">
-        <div class="template-thumb" style="background:var(--charcoal);">🏛</div>
-        <div class="template-info"><div class="template-name">Enterprise</div><div class="template-desc">Detailed scope, milestones & deliverables.</div></div>
-      </div>
-      <div class="template-card" onclick="selectTemplate(this,'retainer')">
-        <div class="template-thumb" style="background:#E8F4E8;">🔄</div>
-        <div class="template-info"><div class="template-name">Retainer</div><div class="template-desc">Monthly recurring services & billing.</div></div>
-      </div>
-      <div class="template-card" onclick="selectTemplate(this,'ecomm')">
-        <div class="template-thumb" style="background:#E8EAF4);">🛒</div>
-        <div class="template-info"><div class="template-name">E-Commerce</div><div class="template-desc">Product-focused digital marketing.</div></div>
-      </div>
-      <div class="template-card" onclick="selectTemplate(this,'brand')">
-        <div class="template-thumb" style="background:#F4EBE8;">🎨</div>
-        <div class="template-info"><div class="template-name">Branding</div><div class="template-desc">Identity, guidelines & creative services.</div></div>
-      </div>
-    </div>
-    <div style="margin-top:24px;">
-      <button class="btn btn-primary" onclick="useTemplate()">Use Selected Template →</button>
-    </div>
-  </div>
-</div>
+        <div class="card">
+          <div class="card-title">Current Situation</div>
+          <div class="field">
+            <label>Core Problem Statement</label>
+            <textarea id="f_problem" placeholder="What is the primary challenge the client faces? Be specific and use their language..." style="min-height:100px"></textarea>
+          </div>
+          <div class="field" style="margin-top:10px">
+            <label>Root Causes</label>
+            <textarea id="f_rootCause" placeholder="Why is this problem happening? What's driving it?"></textarea>
+          </div>
+        </div>
 
-</main>
-</div>
+        <div class="card">
+          <div class="card-title">Opportunity</div>
+          <div class="field">
+            <label>Upside / What's Possible</label>
+            <textarea id="f_opportunity" placeholder="Paint the picture of success. What becomes possible when this is solved?" style="min-height:90px"></textarea>
+          </div>
+          <div class="field-group cols-2" style="margin-top:10px">
+            <div class="field">
+              <label>Cost of Inaction</label>
+              <input type="text" id="f_coi" placeholder="e.g. $50K/mo in lost leads">
+            </div>
+            <div class="field">
+              <label>Urgency Factor</label>
+              <select id="f_urgency">
+                <option>Low — Long-term initiative</option>
+                <option>Medium — Q-end priority</option>
+                <option selected>High — Immediate need</option>
+                <option>Critical — Revenue at risk</option>
+              </select>
+            </div>
+          </div>
+        </div>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+        <div class="card">
+          <div class="card-title">Key Insights</div>
+          <div class="field">
+            <label>What you discovered in discovery that most agencies miss</label>
+            <textarea id="f_insight" placeholder="Your unique perspective on their situation — this is your authority signal..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: YOUR APPROACH -->
+      <div class="step-panel" data-step="3">
+        <div class="step-header">
+          <div class="step-num-badge">Step 03 — Methodology</div>
+          <h1 class="step-title">Your Approach</h1>
+          <p class="step-desc">Show your thinking. Clients buy the process, not just the output.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Strategic Framework</div>
+          <div class="field">
+            <label>Your Named Approach / Framework</label>
+            <input type="text" id="f_framework" placeholder='e.g. "The Amplify Growth System" or "3-Phase Authority Method"'>
+          </div>
+          <div class="field" style="margin-top:10px">
+            <label>How It Works (Overview)</label>
+            <textarea id="f_approach" placeholder="Describe your methodology in clear, confident language. Why does this approach work?" style="min-height:110px"></textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Phase Breakdown</div>
+          <div class="field-group cols-3">
+            <div class="field">
+              <label>Phase 1 Name</label>
+              <input type="text" id="f_p1" placeholder="e.g. Audit & Strategy">
+            </div>
+            <div class="field">
+              <label>Phase 2 Name</label>
+              <input type="text" id="f_p2" placeholder="e.g. Build & Launch">
+            </div>
+            <div class="field">
+              <label>Phase 3 Name</label>
+              <input type="text" id="f_p3" placeholder="e.g. Optimize & Scale">
+            </div>
+          </div>
+          <div class="field" style="margin-top:10px">
+            <label>What Makes This Different</label>
+            <textarea id="f_diff" placeholder="How is your approach distinct from what other agencies do?"></textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Tools & Platforms</div>
+          <div class="field">
+            <label>Key tools / tech stack you'll use</label>
+            <input type="text" id="f_tools" placeholder="e.g. HubSpot, Google Ads, Figma, Notion, Loom...">
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: SCOPE & DELIVERABLES -->
+      <div class="step-panel" data-step="4">
+        <div class="step-header">
+          <div class="step-num-badge">Step 04 — Scope</div>
+          <h1 class="step-title">Scope & Deliverables</h1>
+          <p class="step-desc">Define exactly what's included — clarity here prevents scope creep and builds confidence.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Deliverables</div>
+          <div class="deliv-list" id="delivList">
+            <div class="deliv-row" style="padding-bottom:6px;border-bottom:1px solid var(--border-soft)">
+              <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Deliverable</span>
+              <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Qty</span>
+              <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Unit Price</span>
+              <span></span>
+            </div>
+          </div>
+          <button class="add-row-btn" onclick="addDelivRow()">+ Add Deliverable</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Scope Boundaries</div>
+          <div class="field-group cols-2">
+            <div class="field">
+              <label>What's Included</label>
+              <textarea id="f_included" placeholder="Be explicit. List everything covered..." style="min-height:90px"></textarea>
+            </div>
+            <div class="field">
+              <label>What's Not Included</label>
+              <textarea id="f_excluded" placeholder="Ad spend, third-party tools, revisions beyond 2 rounds..." style="min-height:90px"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Assumptions & Dependencies</div>
+          <div class="field">
+            <textarea id="f_assumptions" placeholder="What do you need from the client? Access, assets, approvals, timely feedback..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5: PRICING -->
+      <div class="step-panel" data-step="5">
+        <div class="step-header">
+          <div class="step-num-badge">Step 05 — Investment</div>
+          <h1 class="step-title">Pricing & Investment</h1>
+          <p class="step-desc">Position the fee as an investment, not a cost. Structure matters.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Pricing Model</div>
+          <div class="toggle-group" id="pricingModel">
+            <button class="toggle-btn active" onclick="setToggle(this,'pricingModel');updatePricing()">Fixed Project</button>
+            <button class="toggle-btn" onclick="setToggle(this,'pricingModel');updatePricing()">Monthly Retainer</button>
+            <button class="toggle-btn" onclick="setToggle(this,'pricingModel');updatePricing()">Milestone-Based</button>
+            <button class="toggle-btn" onclick="setToggle(this,'pricingModel');updatePricing()">Performance</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Fee Structure</div>
+          <div class="field-group cols-3">
+            <div class="field">
+              <label>Base Fee ($)</label>
+              <input type="number" id="f_baseFee" placeholder="0" oninput="updatePricing()">
+            </div>
+            <div class="field">
+              <label>Setup / Onboarding ($)</label>
+              <input type="number" id="f_setupFee" placeholder="0" oninput="updatePricing()">
+            </div>
+            <div class="field">
+              <label>Discount ($)</label>
+              <input type="number" id="f_discount" placeholder="0" oninput="updatePricing()">
+            </div>
+          </div>
+
+          <div class="price-summary" id="priceSummary">
+            <div class="price-row"><span>Base Fee</span><span id="ps_base">$0</span></div>
+            <div class="price-row"><span>Setup / Onboarding</span><span id="ps_setup">$0</span></div>
+            <div class="price-row"><span>Discount</span><span id="ps_disc">–$0</span></div>
+            <div class="price-row total"><span>Total Investment</span><span id="ps_total">$0</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Payment Terms</div>
+          <div class="field-group cols-2">
+            <div class="field">
+              <label>Payment Schedule</label>
+              <select id="f_paySchedule">
+                <option>50% upfront, 50% on completion</option>
+                <option>100% upfront</option>
+                <option>Monthly invoicing</option>
+                <option>Milestone-based</option>
+                <option>Net 30</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Preferred Payment Method</label>
+              <select id="f_payMethod">
+                <option>Bank Transfer / ACH</option>
+                <option>Credit Card</option>
+                <option>Stripe Invoice</option>
+                <option>Check</option>
+              </select>
+            </div>
+          </div>
+          <div class="field" style="margin-top:10px">
+            <label>Value Framing (optional)</label>
+            <textarea id="f_valueFrame" placeholder='e.g. "Based on industry benchmarks, this campaign is projected to generate $180K in new revenue over 6 months — a 6x return on your investment."'></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6: TIMELINE & GUARANTEE -->
+      <div class="step-panel" data-step="6">
+        <div class="step-header">
+          <div class="step-num-badge">Step 06 — Confidence</div>
+          <h1 class="step-title">Timeline & Guarantee</h1>
+          <p class="step-desc">Give clients a clear picture of what happens when — and back it with a guarantee.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Project Timeline</div>
+          <div class="field-group cols-2">
+            <div class="field">
+              <label>Proposed Start Date</label>
+              <input type="date" id="f_startDate">
+            </div>
+            <div class="field">
+              <label>Estimated Completion</label>
+              <input type="date" id="f_endDate">
+            </div>
+          </div>
+          <div class="timeline-grid" style="margin-top:14px" id="timelineGrid">
+            <div class="timeline-phase">
+              <div class="tp-week">Week 1–2</div>
+              <div class="tp-name" id="tp1"><span style="color:var(--text-muted)">Phase 1</span></div>
+              <div class="tp-dur">Discovery</div>
+            </div>
+            <div class="timeline-phase">
+              <div class="tp-week">Week 3–5</div>
+              <div class="tp-name" id="tp2"><span style="color:var(--text-muted)">Phase 2</span></div>
+              <div class="tp-dur">Build</div>
+            </div>
+            <div class="timeline-phase">
+              <div class="tp-week">Week 6–8</div>
+              <div class="tp-name" id="tp3"><span style="color:var(--text-muted)">Phase 3</span></div>
+              <div class="tp-dur">Launch</div>
+            </div>
+            <div class="timeline-phase">
+              <div class="tp-week">Ongoing</div>
+              <div class="tp-name">Optimize</div>
+              <div class="tp-dur">Continuous</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Guarantee</div>
+          <div class="guarantee-grid">
+            <div class="g-card active" onclick="selectGuarantee(this)">
+              <div class="g-icon">🎯</div>
+              <div class="g-name">Results Guarantee</div>
+              <div class="g-desc">Specific metric or we work free until hit</div>
+            </div>
+            <div class="g-card" onclick="selectGuarantee(this)">
+              <div class="g-icon">💰</div>
+              <div class="g-name">Money-Back</div>
+              <div class="g-desc">Full refund if not satisfied after 30 days</div>
+            </div>
+            <div class="g-card" onclick="selectGuarantee(this)">
+              <div class="g-icon">🔄</div>
+              <div class="g-name">Revision Guarantee</div>
+              <div class="g-desc">Unlimited revisions until you love it</div>
+            </div>
+            <div class="g-card" onclick="selectGuarantee(this)">
+              <div class="g-icon">📈</div>
+              <div class="g-name">ROI Guarantee</div>
+              <div class="g-desc">3x ROI within 90 days or next month free</div>
+            </div>
+            <div class="g-card" onclick="selectGuarantee(this)">
+              <div class="g-icon">⚡</div>
+              <div class="g-name">Speed Guarantee</div>
+              <div class="g-desc">On-time delivery or discount on next invoice</div>
+            </div>
+            <div class="g-card" onclick="selectGuarantee(this)">
+              <div class="g-icon">🚫</div>
+              <div class="g-name">No Guarantee</div>
+              <div class="g-desc">Skip — let the work speak for itself</div>
+            </div>
+          </div>
+          <div class="field" style="margin-top:12px">
+            <label>Custom Guarantee Terms</label>
+            <textarea id="f_guaranteeTerms" placeholder="Describe your specific guarantee terms..."></textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Social Proof</div>
+          <div class="proof-grid" id="proofGrid">
+            <div class="proof-card">
+              <label>Case Study / Result</label>
+              <input type="text" placeholder="Client name or industry">
+              <textarea placeholder="Result achieved — keep it specific and quantified"></textarea>
+            </div>
+            <div class="proof-card">
+              <label>Testimonial</label>
+              <input type="text" placeholder="Client name, title">
+              <textarea placeholder="Quote from client..."></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 7: PREVIEW & EXPORT -->
+      <div class="step-panel" data-step="7">
+        <div class="step-header">
+          <div class="step-num-badge">Step 07 — Final</div>
+          <h1 class="step-title">Preview & Export</h1>
+          <p class="step-desc">Review your proposal and export it in the format that works best.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Live Preview</div>
+          <div class="preview-wrap">
+            <div class="preview-toolbar">
+              <div class="preview-dots"><span></span><span></span><span></span></div>
+              <div class="preview-zoom">Preview — Actual proposal</div>
+            </div>
+            <div class="preview-body" id="previewBody">
+              <div class="pv-header">
+                <div class="pv-logo">Amplify</div>
+                <div class="pv-title" id="pv_title">New Proposal</div>
+                <div class="pv-meta" id="pv_meta">Prepared for —</div>
+              </div>
+              <div class="pv-section">
+                <div class="pv-section-label">The Challenge</div>
+                <div class="pv-body" id="pv_problem">Your problem statement will appear here.</div>
+              </div>
+              <div class="pv-section">
+                <div class="pv-section-label">Our Approach</div>
+                <div class="pv-body" id="pv_approach">Your methodology will appear here.</div>
+              </div>
+              <div class="pv-section">
+                <div class="pv-section-label">Investment</div>
+                <table class="pv-table" id="pv_table">
+                  <tr><th>Deliverable</th><th>Qty</th><th>Price</th></tr>
+                  <tr><td colspan="3" style="color:var(--text-muted);font-style:italic">Add deliverables in Step 4</td></tr>
+                </table>
+              </div>
+              <div class="pv-section" id="pv_guarantee_section">
+                <div class="pv-section-label">Our Guarantee</div>
+                <div class="pv-guarantee" id="pv_guarantee">Results Guarantee — We work until you hit your targets.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Export</div>
+          <div class="export-grid">
+            <div class="export-card" onclick="showNotif('PDF export ready — feature coming soon')">
+              <div class="export-icon">📄</div>
+              <div class="export-name">PDF</div>
+              <div class="export-desc">Print-ready, professional</div>
+            </div>
+            <div class="export-card" onclick="showNotif('Google Docs export — coming soon')">
+              <div class="export-icon">📝</div>
+              <div class="export-name">Google Doc</div>
+              <div class="export-desc">Editable & collaborative</div>
+            </div>
+            <div class="export-card" onclick="showNotif('Notion export — coming soon')">
+              <div class="export-icon">◻️</div>
+              <div class="export-name">Notion</div>
+              <div class="export-desc">Share as a Notion page</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Send & Close</div>
+          <div class="field-group cols-2">
+            <div class="field">
+              <label>Send To</label>
+              <input type="email" id="f_sendTo" placeholder="client@company.com">
+            </div>
+            <div class="field">
+              <label>Subject Line</label>
+              <input type="text" id="f_subject" placeholder="Your Custom Proposal — [Project Name]">
+            </div>
+          </div>
+          <div class="field" style="margin-top:10px">
+            <label>Cover Note</label>
+            <textarea id="f_coverNote" placeholder="Brief personal message to accompany the proposal..."></textarea>
+          </div>
+          <button class="btn-primary" style="margin-top:14px;width:100%" onclick="showNotif('Proposal sent! Check your email.')">Send Proposal</button>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /shell -->
+
+<!-- NOTIFICATION -->
+<div class="notif" id="notif">
+  <div class="notif-dot"></div>
+  <span id="notifMsg">Saved</span>
+</div>
 
 <script>
-// ===== STATE =====
-const state = {
-  step: 1,
-  client: { name:'', company:'', email:'', industry:'' },
-  services: [],
-  package: null,
-  addons: [],
-  timeline: null,
-  notes: '',
-  tone: 'professional',
-  template: 'starter'
-};
-
-const PKG_PRICES = { starter:800, growth:1800, elite:3500 };
-const ADDON_PRICES = {
-  rush: 300,
-  analytics: 200,
-  copywriting: 400,
-  strategy: 600,
-  video: 800,
-  crm: 250
-};
-const TIMELINE_SURCHARGES = { '1w':500,'2w':200,'3w':0,'1m':0,'2m':-100,'3m':-200 };
-
-function calcTotal(){
-  let t = state.package ? PKG_PRICES[state.package] : 0;
-  state.addons.forEach(a => t += ADDON_PRICES[a]||0);
-  if(state.timeline) t += TIMELINE_SURCHARGES[state.timeline]||0;
-  return t;
-}
-
-function fmt(n){ return '$'+n.toLocaleString(); }
-
-// ===== VIEWS =====
-function showView(v){
-  ['dashboard','proposals','builder','templates'].forEach(id=>{
-    const el = document.getElementById('view-'+id);
-    if(el) el.style.display = id===v ? '' : 'none';
-  });
-  document.querySelectorAll('.nav-item').forEach(btn=>{
-    btn.classList.remove('active');
-  });
-  const map = {dashboard:0,proposals:1,builder:2,templates:3};
-  const btns = document.querySelectorAll('.nav-item');
-  if(btns[map[v]]) btns[map[v]].classList.add('active');
-  if(v==='builder') renderStep();
-}
-
-// ===== BUILDER STEPS =====
-function goToStep(n){
-  state.step = n;
-  renderStep();
-  document.querySelectorAll('.step-tab').forEach((t,i)=>{
-    t.classList.toggle('active', i+1===n);
-  });
-  document.getElementById('progressBar').style.width = (n/5*100)+'%';
-}
-
-function renderStep(){
-  const c = document.getElementById('stepContent');
-  const s = document.getElementById('summaryPanel');
-  if(state.step===5){ s.style.display='none'; } else { s.style.display=''; }
-  updateStepper();
-  updateSummary();
-
-  const steps = [null, step1HTML, step2HTML, step3HTML, step4HTML, step5HTML];
-  c.innerHTML = steps[state.step]();
-  c.classList.remove('fade-in');
-  void c.offsetWidth;
-  c.classList.add('fade-in');
-}
-
-// ===== STEPPER =====
-function updateStepper(){
-  const el = document.getElementById('stepperEl');
-  let h='';
-  for(let i=1;i<=5;i++){
-    const cls = i<state.step?'done':i===state.step?'active':'';
-    const label = ['Client','Services','Package','Details','Preview'][i-1];
-    h+=`<div class="stepper-step"><div class="stepper-dot ${cls}" onclick="goToStep(${i})" title="${label}">${i<state.step?'✓':i}</div></div>`;
-    if(i<5) h+=`<div class="stepper-line ${i<state.step?'done':''}"></div>`;
-  }
-  el.innerHTML=h;
-}
-
-// ===== SUMMARY =====
-function updateSummary(){
-  const lines = [];
-  if(state.client.company) lines.push({k:'Client',v:state.client.company});
-  if(state.services.length) lines.push({k:'Services',v:state.services.join(', ')});
-  if(state.package) lines.push({k:'Package',v:state.package.charAt(0).toUpperCase()+state.package.slice(1)});
-  if(state.addons.length) lines.push({k:'Add-ons',v:state.addons.length+' selected'});
-  if(state.timeline) lines.push({k:'Timeline',v:state.timeline});
-
-  const el = document.getElementById('summaryLines');
-  el.innerHTML = lines.map(l=>`<div class="summary-line"><span class="summary-key">${l.k}</span><span class="summary-val">${l.v}</span></div>`).join('');
-  document.getElementById('summaryTotal').textContent = fmt(calcTotal());
-}
-
-// ===== STEP 1: CLIENT =====
-function step1HTML(){
-  return `
-  <div class="card">
-    <div class="card-title">Client Information</div>
-    <div style="display:flex;flex-direction:column;gap:14px;">
-      <div class="grid-2">
-        <div class="field"><label>Client Name</label><input placeholder="Jane Smith" value="${state.client.name}" oninput="state.client.name=this.value;updateSummary()"></div>
-        <div class="field"><label>Company</label><input placeholder="Acme Inc." value="${state.client.company}" oninput="state.client.company=this.value;updateSummary()"></div>
-      </div>
-      <div class="grid-2">
-        <div class="field"><label>Email</label><input type="email" placeholder="jane@acme.com" value="${state.client.email}" oninput="state.client.email=this.value"></div>
-        <div class="field"><label>Industry</label>
-          <select onchange="state.client.industry=this.value">
-            <option value="">Select industry…</option>
-            ${['E-Commerce','Hospitality','Finance','Health & Wellness','Tech & SaaS','Real Estate','Food & Beverage','Fashion','Legal','Education'].map(i=>`<option ${state.client.industry===i?'selected':''}>${i}</option>`).join('')}
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div style="display:flex;justify-content:flex-end;margin-top:8px;">
-    <button class="btn btn-primary" onclick="goToStep(2)">Next: Services →</button>
-  </div>`;
-}
-
-// ===== STEP 2: SERVICES =====
-const SERVICES = [
-  {id:'social',icon:'📱',label:'Social Media',sub:'Content & management'},
-  {id:'seo',icon:'🔍',label:'SEO',sub:'Organic growth'},
-  {id:'ppc',icon:'⚡',label:'Paid Ads',sub:'Google & Meta'},
-  {id:'email',icon:'✉️',label:'Email Marketing',sub:'Campaigns & flows'},
-  {id:'brand',icon:'🎨',label:'Branding',sub:'Identity & design'},
-  {id:'web',icon:'💻',label:'Website',sub:'Design & dev'},
-  {id:'content',icon:'✍️',label:'Content',sub:'Blog & copy'},
-  {id:'video',icon:'🎬',label:'Video',sub:'Production & editing'},
-  {id:'pr',icon:'📣',label:'PR & Comms',sub:'Press & outreach'},
-  {id:'analytics',icon:'📊',label:'Analytics',sub:'Data & reporting'},
+const steps = [
+  {title:'Client & Project', sub:'Foundation'},
+  {title:'Problem & Opportunity', sub:'Diagnosis'},
+  {title:'Your Approach', sub:'Methodology'},
+  {title:'Scope & Deliverables', sub:'Scope'},
+  {title:'Pricing', sub:'Investment'},
+  {title:'Timeline & Guarantee', sub:'Confidence'},
+  {title:'Preview & Export', sub:'Final'}
 ];
 
-function step2HTML(){
-  return `
-  <div class="card">
-    <div class="card-title">Select Services</div>
-    <div class="select-grid">
-      ${SERVICES.map(s=>`
-        <div class="select-card ${state.services.includes(s.id)?'selected':''}" onclick="toggleService('${s.id}',this)">
-          <div class="select-card-icon">${s.icon}</div>
-          <div class="select-card-label">${s.label}</div>
-          <div class="select-card-sub">${s.sub}</div>
-        </div>`).join('')}
-    </div>
-  </div>
-  <div style="display:flex;justify-content:space-between;margin-top:8px;">
-    <button class="btn btn-ghost" onclick="goToStep(1)">← Back</button>
-    <button class="btn btn-primary" onclick="goToStep(3)">Next: Package →</button>
-  </div>`;
-}
+let currentStep = 1;
+let delivRows = [];
 
-function toggleService(id, el){
-  const i = state.services.indexOf(id);
-  if(i>=0){ state.services.splice(i,1); el.classList.remove('selected'); }
-  else { state.services.push(id); el.classList.add('selected'); }
-  updateSummary();
-}
-
-// ===== STEP 3: PACKAGE =====
-function step3HTML(){
-  const pkgs = [
-    {id:'starter',name:'Starter',desc:'Perfect for small businesses getting started.',price:800,badge:null,features:['2 core services','Monthly reporting','Email support','14-day delivery']},
-    {id:'growth',name:'Growth',desc:'Ideal for scaling brands with multiple channels.',price:1800,badge:'Most Popular',features:['Up to 5 services','Bi-weekly reporting','Priority support','Dedicated manager','Strategy session']},
-    {id:'elite',name:'Elite',desc:'Full-service for established brands.',price:3500,badge:null,features:['All services','Weekly reporting','24/7 support','Dedicated team','Quarterly strategy','Custom integrations']},
-  ];
-  return `
-  <div class="card">
-    <div class="card-title">Choose Package</div>
-    <div class="pkg-grid">
-      ${pkgs.map(p=>`
-        <div class="pkg-card ${state.package===p.id?'selected':''}" onclick="selectPkg('${p.id}',this)">
-          ${p.badge?`<div class="pkg-badge">${p.badge}</div>`:''}
-          <div class="pkg-name">${p.name}</div>
-          <div class="pkg-desc">${p.desc}</div>
-          <div class="pkg-price">${fmt(p.price)}<span>/project</span></div>
-          <div class="pkg-features">${p.features.map(f=>`<div class="pkg-feature">${f}</div>`).join('')}</div>
-        </div>`).join('')}
-    </div>
-  </div>
-  <div class="card" style="margin-top:16px;">
-    <div class="card-title">Add-ons</div>
-    <div class="addon-list">
-      ${[
-        {id:'rush',name:'Rush Delivery',sub:'Expedite by 50%',price:300},
-        {id:'analytics',name:'Advanced Analytics Dashboard',sub:'Custom data studio',price:200},
-        {id:'copywriting',name:'Professional Copywriting',sub:'SEO-optimized content',price:400},
-        {id:'strategy',name:'Strategy Workshop',sub:'Half-day session',price:600},
-        {id:'video',name:'Video Production',sub:'30-60 sec promo',price:800},
-        {id:'crm',name:'CRM Setup & Integration',sub:'HubSpot / Salesforce',price:250},
-      ].map(a=>`
-        <div class="addon-item ${state.addons.includes(a.id)?'selected':''}" onclick="toggleAddon('${a.id}',this)">
-          <div class="addon-left">
-            <div class="addon-check">${state.addons.includes(a.id)?'<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>':''}</div>
-            <div><div class="addon-name">${a.name}</div><div class="addon-sub">${a.sub}</div></div>
-          </div>
-          <div class="addon-price">+${fmt(a.price)}</div>
-        </div>`).join('')}
-    </div>
-  </div>
-  <div style="display:flex;justify-content:space-between;margin-top:8px;">
-    <button class="btn btn-ghost" onclick="goToStep(2)">← Back</button>
-    <button class="btn btn-primary" onclick="goToStep(4)">Next: Details →</button>
-  </div>`;
-}
-
-function selectPkg(id, el){
-  state.package = id;
-  document.querySelectorAll('.pkg-card').forEach(c=>c.classList.remove('selected'));
-  el.classList.add('selected');
-  updateSummary();
-}
-
-function toggleAddon(id, el){
-  const i = state.addons.indexOf(id);
-  if(i>=0){ state.addons.splice(i,1); el.classList.remove('selected'); }
-  else { state.addons.push(id); el.classList.add('selected'); }
-  updateSummary();
-  // Re-render to update checkboxes
-  renderStep();
-}
-
-// ===== STEP 4: DETAILS =====
-function step4HTML(){
-  const timelines = [
-    {id:'1w',label:'1 Week',price:'+$500'},
-    {id:'2w',label:'2 Weeks',price:'+$200'},
-    {id:'3w',label:'3 Weeks',price:'Standard'},
-    {id:'1m',label:'1 Month',price:'Standard'},
-    {id:'2m',label:'2 Months',price:'-$100'},
-    {id:'3m',label:'3 Months',price:'-$200'},
-  ];
-  return `
-  <div class="card">
-    <div class="card-title">Proposal Details</div>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <div class="field">
-        <label>Proposal Title</label>
-        <input placeholder="e.g. Digital Growth Strategy for Acme Inc." value="${state.notes}" oninput="state.notes=this.value">
+// BUILD SIDEBAR STEPS
+function buildSteps(){
+  const list = document.getElementById('stepList');
+  list.innerHTML = '';
+  steps.forEach((s,i)=>{
+    const div = document.createElement('div');
+    div.className = 's-step' + (i+1===currentStep?' active':'') + (i+1<currentStep?' completed':'');
+    div.onclick = ()=>goStep(i+1);
+    div.innerHTML = `
+      <div class="s-step-num">${i+1}</div>
+      <div class="s-step-info">
+        <div class="s-step-title">${s.title}</div>
+        <div class="s-step-sub">${s.sub}</div>
       </div>
-      <div class="field">
-        <label>Tone & Style</label>
-        <select onchange="state.tone=this.value">
-          <option value="professional" ${state.tone==='professional'?'selected':''}>Professional & Formal</option>
-          <option value="friendly" ${state.tone==='friendly'?'selected':''}>Friendly & Conversational</option>
-          <option value="bold" ${state.tone==='bold'?'selected':''}>Bold & Confident</option>
-          <option value="minimal" ${state.tone==='minimal'?'selected':''}>Minimal & Direct</option>
-        </select>
-      </div>
-      <div>
-        <div style="font-size:10.5px;font-weight:500;color:var(--text-muted);letter-spacing:0.05em;margin-bottom:10px;">Delivery Timeline</div>
-        <div class="timeline-grid">
-          ${timelines.map(t=>`
-            <div class="timeline-opt ${state.timeline===t.id?'selected':''}" onclick="selectTimeline('${t.id}',this)">
-              <div class="timeline-opt-duration">${t.label}</div>
-              <div class="timeline-opt-price">${t.price}</div>
-            </div>`).join('')}
-        </div>
-      </div>
-      <div class="field">
-        <label>Additional Notes</label>
-        <textarea placeholder="Any special requirements, context, or terms to include…" oninput="state.notes=this.value">${state.notes}</textarea>
-      </div>
-    </div>
-  </div>
-  <div style="display:flex;justify-content:space-between;margin-top:8px;">
-    <button class="btn btn-ghost" onclick="goToStep(3)">← Back</button>
-    <button class="btn btn-primary" onclick="goToStep(5)">Preview Proposal →</button>
-  </div>`;
-}
-
-function selectTimeline(id, el){
-  state.timeline = id;
-  document.querySelectorAll('.timeline-opt').forEach(o=>o.classList.remove('selected'));
-  el.classList.add('selected');
-  updateSummary();
-}
-
-// ===== STEP 5: PREVIEW =====
-function step5HTML(){
-  const client = state.client.name || 'Valued Client';
-  const company = state.client.company || 'Your Company';
-  const pkg = state.package ? state.package.charAt(0).toUpperCase()+state.package.slice(1)+' Package' : 'Custom Package';
-  const today = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
-  const scope = [];
-  if(state.package) scope.push({name: pkg, price: PKG_PRICES[state.package]||0});
-  state.addons.forEach(a=>{
-    const names = {rush:'Rush Delivery',analytics:'Analytics Dashboard',copywriting:'Copywriting',strategy:'Strategy Workshop',video:'Video Production',crm:'CRM Setup'};
-    scope.push({name:names[a]||a, price: ADDON_PRICES[a]||0});
+      <div class="s-step-check">✓</div>
+    `;
+    list.appendChild(div);
   });
-  if(state.timeline && TIMELINE_SURCHARGES[state.timeline]!==0){
-    scope.push({name:'Timeline Adjustment ('+state.timeline+')', price: TIMELINE_SURCHARGES[state.timeline]});
+}
+
+function goStep(n){
+  currentStep = n;
+  document.querySelectorAll('.step-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`.step-panel[data-step="${n}"]`).classList.add('active');
+  buildSteps();
+  updateProgress();
+  if(n===7) updatePreview();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function nextStep(){
+  if(currentStep<7) goStep(currentStep+1);
+}
+
+function updateProgress(){
+  const pct = Math.round((currentStep/7)*100);
+  document.getElementById('progFill').style.width = pct+'%';
+  document.getElementById('progText').textContent = currentStep+' of 7';
+}
+
+// TOGGLE GROUPS
+function setToggle(btn,groupId){
+  document.getElementById(groupId).querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// SYNC SIDEBAR
+function syncSidebar(){
+  const client = document.getElementById('f_client')?.value;
+  const project = document.getElementById('f_projectTitle')?.value;
+  if(client) document.getElementById('clientName').value = client;
+  if(project) document.getElementById('projectType').value = project;
+}
+
+function updateMeta(){
+  const client = document.getElementById('clientName').value;
+  const project = document.getElementById('projectType').value;
+  if(client) document.getElementById('f_client').value = client;
+  if(project) document.getElementById('f_projectTitle').value = project;
+}
+
+// DELIVERABLES
+function addDelivRow(){
+  const id = Date.now();
+  delivRows.push(id);
+  const list = document.getElementById('delivList');
+  const row = document.createElement('div');
+  row.className = 'deliv-row';
+  row.id = 'deliv_'+id;
+  row.innerHTML = `
+    <input type="text" placeholder="Deliverable name" class="deliv-name">
+    <input type="number" placeholder="1" class="deliv-qty" min="1" value="1" oninput="updatePricing()">
+    <input type="number" placeholder="0" class="deliv-price" oninput="updatePricing()">
+    <button class="deliv-remove" onclick="removeDeliv(${id})">×</button>
+  `;
+  list.appendChild(row);
+}
+
+function removeDeliv(id){
+  delivRows = delivRows.filter(r=>r!==id);
+  document.getElementById('deliv_'+id)?.remove();
+  updatePricing();
+}
+
+// PRICING
+function updatePricing(){
+  const base = parseFloat(document.getElementById('f_baseFee')?.value)||0;
+  const setup = parseFloat(document.getElementById('f_setupFee')?.value)||0;
+  const disc = parseFloat(document.getElementById('f_discount')?.value)||0;
+  const total = base + setup - disc;
+  document.getElementById('ps_base').textContent = '$'+base.toLocaleString();
+  document.getElementById('ps_setup').textContent = '$'+setup.toLocaleString();
+  document.getElementById('ps_disc').textContent = '–$'+disc.toLocaleString();
+  document.getElementById('ps_total').textContent = '$'+total.toLocaleString();
+}
+
+// GUARANTEE
+function selectGuarantee(el){
+  document.querySelectorAll('.g-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// TIMELINE SYNC
+document.addEventListener('input', e=>{
+  if(['f_p1','f_p2','f_p3'].includes(e.target?.id)){
+    document.getElementById('tp'+e.target.id.slice(-1)).textContent = e.target.value || 'Phase '+e.target.id.slice(-1);
   }
+});
 
-  return `
-  <div style="margin-bottom:16px;display:flex;justify-content:flex-end;gap:10px;">
-    <button class="btn btn-ghost" onclick="goToStep(4)">← Edit</button>
-    <button class="btn btn-ghost" onclick="window.print()">🖨 Print</button>
-    <button class="btn btn-primary" onclick="sendProposal()">Send Proposal ✓</button>
-  </div>
-  <div class="preview-wrap">
-    <div class="preview-header">
-      <div class="preview-logo">AMPLIFY</div>
-      <div style="color:rgba(255,255,255,0.4);font-size:11px;">${today}</div>
-    </div>
-    <div class="preview-body">
-      <div class="preview-to">Prepared for</div>
-      <div class="preview-client">${client}${company !== 'Your Company' ? ', '+company : ''}</div>
-      <div class="preview-intro">
-        Thank you for considering Amplify as your digital marketing partner. Based on our conversation, we have curated a tailored proposal that aligns with your goals, timeline, and budget. We are confident this engagement will deliver measurable results and a strong return on investment.
-      </div>
-      <div class="preview-section">
-        <div class="preview-section-title">Scope of Work</div>
-        ${scope.length ? scope.map(s=>`
-          <div class="preview-scope-item">
-            <div class="preview-scope-name">${s.name}</div>
-            <div class="preview-scope-price">${s.price>=0?fmt(s.price):'-'+fmt(Math.abs(s.price))}</div>
-          </div>`).join('') : '<div style="color:var(--text-muted);font-size:12px;">No items selected yet.</div>'}
-        <div class="preview-total-box">
-          <div class="preview-total-label">Total Investment</div>
-          <div class="preview-total-val">${fmt(calcTotal())}</div>
-        </div>
-      </div>
-      <div class="preview-section">
-        <div class="preview-section-title">Terms & Next Steps</div>
-        <div style="font-size:12.5px;color:var(--text-body);line-height:1.8;">
-          <p>• 50% deposit required to begin · balance due upon project completion</p>
-          <p>• This proposal is valid for 14 days from the date above</p>
-          <p>• Timeline begins upon receipt of deposit and required materials</p>
-          <p>• All work remains property of client upon final payment</p>
-        </div>
-      </div>
-    </div>
-    <div class="preview-footer">
-      <div class="preview-footer-note">Questions? hello@amplify.studio · (555) 000-0000</div>
-      <div style="display:flex;gap:40px;">
-        <div class="preview-sign-line">Client Signature</div>
-        <div class="preview-sign-line">Date</div>
-      </div>
-    </div>
-  </div>`;
+// PREVIEW
+function updatePreview(){
+  const client = document.getElementById('f_client')?.value || '—';
+  const project = document.getElementById('f_projectTitle')?.value || 'New Proposal';
+  const problem = document.getElementById('f_problem')?.value || 'Your problem statement will appear here.';
+  const approach = document.getElementById('f_approach')?.value || 'Your methodology will appear here.';
+
+  document.getElementById('pv_title').textContent = project;
+  document.getElementById('pv_meta').textContent = 'Prepared for — '+client;
+  document.getElementById('pv_problem').textContent = problem;
+  document.getElementById('pv_approach').textContent = approach;
+
+  // Deliverables table
+  const rows = document.querySelectorAll('#delivList .deliv-row:not(:first-child)');
+  let tableHTML = '<tr><th>Deliverable</th><th>Qty</th><th>Price</th></tr>';
+  let grandTotal = 0;
+  rows.forEach(row=>{
+    const name = row.querySelector('.deliv-name')?.value || 'Untitled';
+    const qty = parseFloat(row.querySelector('.deliv-qty')?.value)||1;
+    const price = parseFloat(row.querySelector('.deliv-price')?.value)||0;
+    const lineTotal = qty*price;
+    grandTotal += lineTotal;
+    tableHTML += `<tr><td>${name}</td><td>${qty}</td><td>$${lineTotal.toLocaleString()}</td></tr>`;
+  });
+
+  const base = parseFloat(document.getElementById('f_baseFee')?.value)||0;
+  const setup = parseFloat(document.getElementById('f_setupFee')?.value)||0;
+  const disc = parseFloat(document.getElementById('f_discount')?.value)||0;
+  const total = base + setup - disc || grandTotal;
+  if(total>0) tableHTML += `<tr class="pv-total-row"><td colspan="2">Total Investment</td><td>$${total.toLocaleString()}</td></tr>`;
+
+  document.getElementById('pv_table').innerHTML = tableHTML;
+
+  // Guarantee
+  const activeG = document.querySelector('.g-card.active .g-name');
+  const guaranteeTerms = document.getElementById('f_guaranteeTerms')?.value;
+  if(activeG){
+    const gName = activeG.textContent;
+    document.getElementById('pv_guarantee').textContent = gName + (guaranteeTerms ? ' — '+guaranteeTerms : '');
+  }
 }
 
-// ===== ACTIONS =====
-function sendProposal(){
-  showToast('✓ Proposal sent to '+(state.client.email||'client')+'!');
+// NOTIFICATION
+let notifTimer;
+function showNotif(msg){
+  const el = document.getElementById('notif');
+  document.getElementById('notifMsg').textContent = msg;
+  el.classList.add('show');
+  clearTimeout(notifTimer);
+  notifTimer = setTimeout(()=>el.classList.remove('show'),3000);
 }
 
-function saveDraft(){
-  showToast('Draft saved successfully.');
-}
+// Autosave simulation
+setInterval(()=>{
+  const el = document.getElementById('autoSave');
+  el.textContent = '● Autosaved';
+  el.style.color = 'var(--gold)';
+  setTimeout(()=>el.style.color='',2000);
+},30000);
 
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
-}
-
-function selectTemplate(el, id){
-  document.querySelectorAll('.template-card').forEach(c=>c.classList.remove('selected'));
-  el.classList.add('selected');
-  state.template = id;
-}
-
-function useTemplate(){
-  showView('builder');
-  showToast('Template applied.');
-}
-
-// ===== INIT =====
-showView('dashboard');
-renderStep();
+// INIT
+buildSteps();
+addDelivRow();
+addDelivRow();
 </script>
 </body>
 </html>
