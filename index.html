@@ -45,848 +45,834 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
 
 .s-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);opacity:0.75;margin-bottom:10px;margin-top:4px;}
 
-.cl-btn{width:100%;background:none;border:1px solid rgba(200,168,75,0.12);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:12.5px;padding:11px 13px;border-radius:var(--r);cursor:pointer;text-align:left;margin-bottom:7px;transition:all .18s;display:flex;flex-direction:column;gap:2px;}
-.cl-btn:hover{background:rgba(200,168,75,0.07);border-color:rgba(200,168,75,0.35);}
-.cl-btn.active{background:rgba(200,168,75,0.11);border-color:var(--gold);}
-.cl-btn .cn{font-weight:500;color:var(--white);font-size:13px;}
-.cl-btn .ct{font-size:10.5px;color:var(--text-muted);}
-.cl-btn .cs{font-size:9.5px;color:var(--gold);margin-top:2px;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r);cursor:pointer;transition:background 0.15s;color:rgba(255,255,255,0.55);font-size:12px;font-weight:400;letter-spacing:0.01em;border:none;background:none;width:100%;text-align:left;}
+.nav-item:hover{background:rgba(200,168,75,0.08);color:rgba(255,255,255,0.8);}
+.nav-item.active{background:rgba(200,168,75,0.14);color:var(--gold);}
+.nav-item svg{opacity:0.7;flex-shrink:0;}
+.nav-item.active svg{opacity:1;}
 
-.add-btn{width:100%;background:none;border:1px dashed rgba(200,168,75,0.3);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:9px;border-radius:var(--r);cursor:pointer;letter-spacing:0.05em;transition:all .18s;margin-top:2px;}
-.add-btn:hover{background:rgba(200,168,75,0.06);border-color:var(--gold);}
-
-.s-footer{margin-top:auto;padding-top:20px;font-size:10px;color:var(--text-muted);line-height:1.6;border-top:1px solid rgba(200,168,75,0.1);}
+.s-bottom{margin-top:auto;padding-top:20px;border-top:1px solid rgba(200,168,75,0.1);}
+.s-bottom-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.35);font-size:11px;cursor:pointer;padding:6px 0;transition:color 0.15s;}
+.s-bottom-link:hover{color:rgba(255,255,255,0.6);}
 
 /* MAIN */
-.main{padding:44px 52px;max-width:980px;}
+.main{background:var(--cream);display:flex;flex-direction:column;}
 
-.pg-head{margin-bottom:36px;padding-bottom:26px;border-bottom:1px solid var(--border);}
-.pg-head h1{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;letter-spacing:-0.01em;line-height:1.1;}
-.pg-head h1 em{color:var(--gold);font-style:italic;}
-.pg-head p{font-size:12.5px;color:var(--text-muted);margin-top:9px;max-width:500px;line-height:1.65;}
+/* TOP BAR */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 36px;border-bottom:1px solid var(--border-soft);background:var(--white);position:sticky;top:0;z-index:10;}
+.topbar-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--charcoal);}
+.topbar-right{display:flex;align-items:center;gap:12px;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:var(--r);font-size:12px;font-weight:500;letter-spacing:0.03em;cursor:pointer;transition:all 0.15s;border:none;}
+.btn-ghost{background:transparent;color:var(--text-muted);border:1px solid var(--border);}
+.btn-ghost:hover{background:var(--gold-pale);color:var(--charcoal);}
+.btn-primary{background:var(--gold);color:var(--charcoal);font-weight:600;}
+.btn-primary:hover{background:var(--gold-light);}
 
-/* TABS */
-.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:34px;gap:0;}
-.tab-btn{background:none;border:none;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .18s;}
-.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
-.tab-btn:hover:not(.active){color:var(--charcoal);}
+/* CONTENT AREA */
+.content{flex:1;padding:32px 36px;display:flex;flex-direction:column;gap:28px;}
 
-/* PANELS */
-.panel{display:none;animation:fadeIn .2s ease;}
-.panel.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+/* SECTION HEADER */
+.section-header{display:flex;align-items:flex-start;justify-content:space-between;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--charcoal);line-height:1.2;}
+.section-sub{font-size:12px;color:var(--text-muted);margin-top:4px;}
 
-/* SECTION HEADS */
-.sec-head{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:var(--charcoal);margin-bottom:15px;display:flex;align-items:center;gap:9px;}
-.sec-head::after{content:'';flex:1;height:1px;background:var(--border);}
-.sec-num{width:21px;height:21px;border-radius:50%;background:var(--gold);color:var(--charcoal);font-size:9.5px;font-family:'DM Sans',sans-serif;font-weight:500;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+/* PROGRESS */
+.progress-bar-wrap{height:3px;background:var(--border-soft);border-radius:2px;overflow:hidden;margin-top:16px;}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;transition:width 0.4s ease;}
 
-/* FORMS */
-.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:0;}
-.fg label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);font-weight:500;}
-.fg input,.fg select,.fg textarea{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--charcoal);outline:none;transition:border-color .18s;resize:vertical;}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:24px;}
-.full{grid-column:1/-1;}
-.mb24{margin-bottom:24px;}
-.mb32{margin-bottom:32px;}
+/* STEP TABS */
+.step-tabs{display:flex;gap:0;border-bottom:1px solid var(--border-soft);}
+.step-tab{padding:10px 20px;font-size:11.5px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.15s;}
+.step-tab:hover{color:var(--charcoal);}
+.step-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
 
-/* PAIN TAGS */
-.tag-cloud{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px;}
-.ptag{padding:5px 13px;border:1px solid var(--border);border-radius:20px;font-size:12px;color:var(--text-body);cursor:pointer;background:var(--white);transition:all .18s;user-select:none;}
-.ptag:hover{border-color:var(--gold-light);}
-.ptag.on{background:var(--gold);border-color:var(--gold);color:var(--charcoal);font-weight:500;}
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--border-soft);border-radius:calc(var(--r) + 2px);padding:24px;box-shadow:var(--shadow-sm);}
+.card-title{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500;}
 
-/* SERVICE CATEGORIES — MODULAR BUILDER */
-.svc-categories{display:flex;flex-direction:column;gap:26px;margin-bottom:28px;}
-.svc-cat-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.svc-cat-icon{font-size:16px;}
-.svc-cat-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em;}
-.svc-cat-desc{font-size:11px;color:var(--text-muted);margin-left:auto;}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+/* GRID */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
 
-.svc-card{border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;cursor:pointer;background:var(--white);transition:all .18s;display:flex;align-items:flex-start;gap:10px;}
-.svc-card:hover{border-color:var(--gold-light);box-shadow:var(--shadow-sm);}
-.svc-card.on{border-color:var(--gold);background:var(--gold-pale);}
+/* FORM ELEMENTS */
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:10.5px;font-weight:500;color:var(--text-muted);letter-spacing:0.05em;}
+.field input,.field select,.field textarea{background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:9px 12px;font-size:12.5px;font-family:'DM Sans',sans-serif;color:var(--charcoal);outline:none;transition:border 0.15s,box-shadow 0.15s;resize:none;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,168,75,0.1);}
+.field textarea{min-height:72px;}
+.field input::placeholder,.field textarea::placeholder{color:var(--text-muted);opacity:0.7;}
 
-.svc-chk{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s;margin-top:2px;}
-.svc-card.on .svc-chk{background:var(--gold);border-color:var(--gold);}
-.svc-card.on .svc-chk::after{content:'✓';font-size:9px;color:var(--charcoal);font-weight:700;}
+/* SELECT GRID (service cards) */
+.select-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;}
+.select-card{border:1px solid var(--border-soft);border-radius:var(--r);padding:12px 10px;cursor:pointer;transition:all 0.15s;text-align:center;background:var(--cream);}
+.select-card:hover{border-color:var(--gold);background:var(--gold-pale);}
+.select-card.selected{border-color:var(--gold);background:var(--gold-pale);box-shadow:0 0 0 1px var(--gold);}
+.select-card-icon{font-size:20px;margin-bottom:6px;}
+.select-card-label{font-size:11px;font-weight:500;color:var(--charcoal);}
+.select-card-sub{font-size:10px;color:var(--text-muted);margin-top:2px;}
 
-.svc-info{flex:1;}
-.svc-name{font-size:12.5px;font-weight:500;color:var(--charcoal);margin-bottom:2px;}
-.svc-price{display:none;}
-.svc-desc{font-size:10.5px;color:var(--text-muted);line-height:1.5;margin-top:2px;}
+/* PACKAGE CARDS */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pkg-card{border:1px solid var(--border-soft);border-radius:calc(var(--r)+2px);padding:18px;cursor:pointer;transition:all 0.2s;background:var(--cream);position:relative;}
+.pkg-card:hover{border-color:var(--gold);transform:translateY(-1px);box-shadow:var(--shadow-md);}
+.pkg-card.selected{border-color:var(--gold);background:linear-gradient(135deg,var(--gold-pale),var(--white));box-shadow:0 0 0 1.5px var(--gold),var(--shadow-md);}
+.pkg-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--charcoal);font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:2px 10px;border-radius:20px;}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--charcoal);margin-bottom:4px;}
+.pkg-desc{font-size:11px;color:var(--text-muted);margin-bottom:14px;line-height:1.5;}
+.pkg-price{font-size:22px;font-weight:700;color:var(--gold);font-family:'Cormorant Garamond',serif;}
+.pkg-price span{font-size:12px;font-weight:400;color:var(--text-muted);}
+.pkg-features{margin-top:12px;display:flex;flex-direction:column;gap:5px;}
+.pkg-feature{font-size:11px;color:var(--text-muted);display:flex;align-items:center;gap:5px;}
+.pkg-feature::before{content:'✓';color:var(--gold);font-weight:700;font-size:10px;}
 
-/* PRICE SUMMARY */
-.price-summary{background:var(--charcoal);border-radius:var(--r);padding:20px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
-.ps-left{color:var(--cream);}
-.ps-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;}
-.ps-count{font-size:13px;color:rgba(245,241,233,0.7);}
-.ps-total{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--gold);letter-spacing:-0.01em;}
-.ps-period{font-size:12px;color:var(--text-muted);}
+/* ADD-ONS */
+.addon-list{display:flex;flex-direction:column;gap:8px;}
+.addon-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1px solid var(--border-soft);border-radius:var(--r);background:var(--cream);cursor:pointer;transition:all 0.15s;}
+.addon-item:hover{border-color:var(--gold);background:var(--gold-pale);}
+.addon-item.selected{border-color:var(--gold);background:var(--gold-pale);}
+.addon-left{display:flex;align-items:center;gap:10px;}
+.addon-check{width:16px;height:16px;border:1.5px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;flex-shrink:0;}
+.addon-item.selected .addon-check{background:var(--gold);border-color:var(--gold);}
+.addon-name{font-size:12px;font-weight:500;color:var(--charcoal);}
+.addon-sub{font-size:10.5px;color:var(--text-muted);}
+.addon-price{font-size:13px;font-weight:600;color:var(--gold);}
 
-/* PROPOSAL PREVIEW */
-.prop-wrap{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--shadow-md);}
+/* TIMELINE */
+.timeline-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;}
+.timeline-opt{border:1px solid var(--border-soft);border-radius:var(--r);padding:10px;text-align:center;cursor:pointer;transition:all 0.15s;background:var(--cream);}
+.timeline-opt:hover{border-color:var(--gold);}
+.timeline-opt.selected{border-color:var(--gold);background:var(--gold-pale);box-shadow:0 0 0 1px var(--gold);}
+.timeline-opt-duration{font-size:16px;font-weight:700;color:var(--charcoal);font-family:'Cormorant Garamond',serif;}
+.timeline-opt-label{font-size:10px;color:var(--text-muted);}
+.timeline-opt-price{font-size:10px;color:var(--gold);font-weight:600;margin-top:3px;}
 
-.prop-top{background:var(--charcoal);padding:32px 40px;display:flex;justify-content:space-between;align-items:flex-end;}
-.prop-top-l h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--gold);letter-spacing:0.06em;margin-bottom:5px;}
-.prop-top-l p{font-size:11.5px;color:rgba(245,241,233,0.55);letter-spacing:0.04em;}
-.prop-top-r .agt{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;}
-.prop-top-r .ags{font-size:9.5px;color:rgba(245,241,233,0.45);letter-spacing:0.2em;text-transform:uppercase;margin-top:4px;}
+/* SUMMARY SIDEBAR */
+.summary-panel{background:var(--charcoal);border-radius:calc(var(--r)+2px);padding:22px;position:sticky;top:72px;color:white;}
+.summary-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--gold);margin-bottom:16px;letter-spacing:0.05em;}
+.summary-line{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(200,168,75,0.08);}
+.summary-line:last-child{border-bottom:none;}
+.summary-key{font-size:11px;color:rgba(255,255,255,0.5);}
+.summary-val{font-size:12px;color:rgba(255,255,255,0.85);font-weight:500;text-align:right;max-width:55%;}
+.summary-total{margin-top:14px;padding-top:14px;border-top:1px solid rgba(200,168,75,0.2);display:flex;justify-content:space-between;align-items:baseline;}
+.summary-total-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+.summary-total-val{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--gold);}
+.summary-note{font-size:10px;color:rgba(255,255,255,0.3);margin-top:10px;line-height:1.5;}
 
-.prop-body{padding:34px 40px;display:flex;flex-direction:column;gap:26px;}
+/* PREVIEW (step 5) */
+.preview-wrap{background:var(--white);border:1px solid var(--border-soft);border-radius:calc(var(--r)+4px);overflow:hidden;box-shadow:var(--shadow-lg);}
+.preview-header{background:var(--charcoal);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;}
+.preview-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--gold);letter-spacing:0.15em;}
+.preview-body{padding:40px 48px;}
+.preview-to{font-size:11px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
+.preview-client{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--charcoal);}
+.preview-intro{font-size:13px;color:var(--text-body);line-height:1.7;margin:16px 0 28px;}
+.preview-section{margin-bottom:28px;}
+.preview-section-title{font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600;}
+.preview-scope-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-soft);}
+.preview-scope-item:last-child{border-bottom:none;}
+.preview-scope-name{font-size:13px;font-weight:500;color:var(--charcoal);flex:1;}
+.preview-scope-price{font-size:13px;color:var(--gold);font-weight:600;}
+.preview-total-box{background:var(--charcoal);border-radius:var(--r);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
+.preview-total-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+.preview-total-val{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:600;}
+.preview-footer{background:var(--cream-dark);padding:18px 32px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-soft);}
+.preview-footer-note{font-size:11px;color:var(--text-muted);}
+.preview-sign-line{width:160px;border-top:1px solid var(--text-muted);text-align:center;padding-top:4px;font-size:10px;color:var(--text-muted);}
 
-.prop-sec h3{font-family:'Cormorant Garamond',serif;font-size:12.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--border);}
-.prop-sec p,.prop-sec li{font-size:12.5px;color:var(--text-body);line-height:1.75;}
-.prop-sec ul{list-style:none;display:flex;flex-direction:column;gap:3px;}
-.prop-sec ul li::before{content:'→ ';color:var(--gold);}
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--charcoal);color:white;padding:12px 20px;border-radius:var(--r);font-size:12px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);transform:translateY(80px);opacity:0;transition:all 0.3s ease;z-index:100;border-left:3px solid var(--gold);}
+.toast.show{transform:translateY(0);opacity:1;}
 
-.meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.meta-box{background:var(--cream);border-radius:5px;padding:12px 14px;}
-.meta-box .ml{font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px;}
-.meta-box .mv{font-size:13.5px;color:var(--charcoal);font-weight:500;}
-.meta-box .mv.gold{color:var(--gold);}
+/* STEPPER */
+.stepper{display:flex;align-items:center;gap:0;margin-bottom:8px;}
+.stepper-step{display:flex;align-items:center;}
+.stepper-dot{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--text-muted);background:var(--white);transition:all 0.2s;cursor:pointer;}
+.stepper-dot.active{border-color:var(--gold);color:var(--gold);background:var(--gold-pale);}
+.stepper-dot.done{border-color:var(--gold);background:var(--gold);color:var(--charcoal);}
+.stepper-line{width:32px;height:1px;background:var(--border-soft);margin:0 4px;}
+.stepper-line.done{background:var(--gold);}
 
-/* SERVICE LINE ITEMS IN PREVIEW */
-.svc-category-block{margin-bottom:10px;}
-.svc-cat-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;margin-top:10px;}
-.svc-lines{display:flex;flex-direction:column;gap:4px;}
-.svc-line{display:flex;justify-content:space-between;align-items:center;padding:7px 11px;background:var(--cream);border-radius:4px;}
-.svc-line .sl-name{font-size:12.5px;color:var(--text-body);}
-.svc-line .sl-price{font-size:12px;color:var(--gold);font-weight:500;}
+/* TEMPLATE PICKER */
+.template-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.template-card{border:1px solid var(--border-soft);border-radius:calc(var(--r)+2px);overflow:hidden;cursor:pointer;transition:all 0.2s;}
+.template-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.template-card.selected{border-color:var(--gold);box-shadow:0 0 0 1.5px var(--gold);}
+.template-thumb{height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;}
+.template-info{padding:10px 12px;background:var(--white);}
+.template-name{font-size:12px;font-weight:600;color:var(--charcoal);}
+.template-desc{font-size:10.5px;color:var(--text-muted);margin-top:2px;}
 
-.total-line{display:flex;justify-content:space-between;align-items:center;padding:12px 11px;background:var(--charcoal);border-radius:5px;margin-top:8px;}
-.total-line .tl-label{font-size:11px;color:rgba(245,241,233,0.7);letter-spacing:0.08em;text-transform:uppercase;}
-.total-line .tl-val{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold);}
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeIn 0.3s ease forwards;}
 
-.prop-footer{background:var(--cream-dark);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;}
-.prop-footer p{font-size:10.5px;color:var(--text-muted);font-style:italic;}
-.sig-row{display:flex;gap:36px;}
-.sig-item{text-align:center;}
-.sig-line{width:110px;height:1px;background:var(--charcoal-soft);margin-bottom:5px;}
-.sig-lbl{font-size:9.5px;color:var(--text-muted);letter-spacing:0.08em;}
+/* SCROLLBAR */
+.main::-webkit-scrollbar{width:4px;}
+.main::-webkit-scrollbar-thumb{background:var(--border);}
 
-/* ACTIONS */
-.action-bar{display:flex;gap:10px;margin-top:28px;}
-.btn-p{background:var(--gold);color:var(--charcoal);border:none;padding:11px 26px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .18s;}
-.btn-p:hover{background:var(--gold-light);}
-.btn-s{background:none;color:var(--charcoal);border:1px solid var(--border);padding:11px 22px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .18s;}
-.btn-s:hover{border-color:var(--gold);color:var(--gold);}
+/* PROPOSAL LIST */
+.proposal-list{display:flex;flex-direction:column;gap:10px;}
+.proposal-row{display:flex;align-items:center;padding:14px 18px;background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);cursor:pointer;transition:all 0.15s;gap:16px;}
+.proposal-row:hover{border-color:var(--gold);box-shadow:var(--shadow-sm);}
+.proposal-status{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.status-sent{background:#6EBB8A;}
+.status-draft{background:var(--gold);}
+.status-viewed{background:#7EB8D4;}
+.proposal-info{flex:1;}
+.proposal-client{font-size:13px;font-weight:500;color:var(--charcoal);}
+.proposal-meta{font-size:11px;color:var(--text-muted);margin-top:2px;}
+.proposal-amount{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--gold);}
+.proposal-actions{display:flex;gap:8px;opacity:0;transition:opacity 0.15s;}
+.proposal-row:hover .proposal-actions{opacity:1;}
+.icon-btn{width:28px;height:28px;border-radius:5px;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.15s;color:var(--text-muted);}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold);}
 
-/* MODAL */
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(24,24,26,.6);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
-.modal-bg.open{display:flex;}
-.modal{background:var(--white);border-radius:10px;padding:34px;width:500px;max-height:85vh;overflow-y:auto;box-shadow:var(--shadow-lg);}
-.modal h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:22px;}
-.modal-actions{display:flex;gap:10px;margin-top:22px;}
+/* DASHBOARD STATS */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.stat-card{background:var(--white);border:1px solid var(--border-soft);border-radius:calc(var(--r)+2px);padding:18px;box-shadow:var(--shadow-sm);}
+.stat-label{font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--charcoal);}
+.stat-sub{font-size:10.5px;color:var(--text-muted);margin-top:4px;}
+.stat-trend{font-size:10.5px;color:#6EBB8A;font-weight:600;}
 
-@media print{
-  .sidebar,.tabs,.action-bar,.modal-bg{display:none!important;}
-  .shell{display:block;}
-  .main{padding:0;max-width:100%;}
-  .pg-head{display:none;}
-  .panel{display:block!important;}
+/* MAIN LAYOUT WITH SUMMARY */
+.builder-layout{display:grid;grid-template-columns:1fr 240px;gap:24px;align-items:start;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  .builder-layout{grid-template-columns:1fr;}
+  .pkg-grid{grid-template-columns:1fr 1fr;}
+  .stat-grid{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
 <body>
+
 <div class="shell">
-
-<!-- ── SIDEBAR ── -->
+<!-- SIDEBAR -->
 <aside class="sidebar">
-  <div class="s-logo">AMPLIFY</div>
-  <div class="s-tagline">Marketing & Business Scaling</div>
+  <div class="s-logo">Amplify</div>
+  <div class="s-tagline">Proposal Studio</div>
+
+  <div class="s-label">Main</div>
+  <button class="nav-item active" onclick="showView('dashboard')">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Dashboard
+  </button>
+  <button class="nav-item" onclick="showView('proposals')">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    Proposals
+  </button>
+  <button class="nav-item" onclick="showView('builder')">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    New Proposal
+  </button>
+
   <div class="s-divider"></div>
-
-  <div class="s-label">Hot Leads</div>
-  <button class="cl-btn active" onclick="loadClient('hair')" id="btn-hair">
-    <span class="cn">Salon / Hair Dresser</span>
-    <span class="ct">Beauty & Lifestyle</span>
-    <span class="cs">● Hot Lead</span>
+  <div class="s-label">Tools</div>
+  <button class="nav-item" onclick="showView('templates')">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+    Templates
   </button>
-  <button class="cl-btn" onclick="loadClient('cleaning')" id="btn-cleaning">
-    <span class="cn">Drone Cleaning Co.</span>
-    <span class="ct">Drone Cleaning Services / B2B</span>
-    <span class="cs">● Hot Lead</span>
+  <button class="nav-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+    Activity
   </button>
 
-  <div class="s-divider"></div>
-  <div class="s-label">Templates</div>
-  <button class="cl-btn" onclick="loadClient('blank')" id="btn-blank">
-    <span class="cn">New Client</span>
-    <span class="ct">Blank Template</span>
-    <span class="cs">— Draft</span>
-  </button>
-  <button class="add-btn" onclick="openModal()">+ Add Client</button>
-
-  <div class="s-footer">Full-service modular proposals.<br>Export to PDF via Print.</div>
+  <div class="s-bottom">
+    <div class="s-bottom-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Account
+    </div>
+    <div class="s-bottom-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      Settings
+    </div>
+  </div>
 </aside>
 
-<!-- ── MAIN ── -->
-<main class="main">
-  <div class="pg-head">
-    <h1>Client <em>Proposal</em> Builder</h1>
-    <p>Full-service marketing & business scaling proposals. Select services à la carte — pricing totals automatically. Switch clients from the sidebar.</p>
-  </div>
+<!-- MAIN -->
+<main class="main" id="mainContent">
 
-  <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('intake')">01 — Client Intake</button>
-    <button class="tab-btn" onclick="switchTab('services')">02 — Services</button>
-    <button class="tab-btn" onclick="switchTab('terms')">03 — Terms & Pricing</button>
-    <button class="tab-btn" onclick="switchTab('preview')">04 — Proposal Preview</button>
-  </div>
-
-  <!-- ── TAB 1: INTAKE ── -->
-  <div class="panel active" id="intake-panel">
-
-    <div class="sec-head"><span class="sec-num">1</span> Business Information</div>
-    <div class="grid2 mb24">
-      <div class="fg"><label>Business Name</label><input id="biz-name" placeholder="e.g. Glow Studio Sugar Land"></div>
-      <div class="fg"><label>Owner / Contact Name</label><input id="contact-name" placeholder="e.g. Jessica M."></div>
-      <div class="fg"><label>Industry / Niche</label>
-        <select id="industry">
-          <option value="">Select...</option>
-          <option>Beauty & Salon</option><option>Commercial Cleaning</option>
-          <option>Restaurant / Food</option><option>Real Estate</option>
-          <option>Fitness & Wellness</option><option>Retail / eCommerce</option>
-          <option>Professional Services</option><option>Home Services</option>
-          <option>Healthcare / Med Spa</option><option>Construction / Trades</option>
-          <option>Legal / Finance</option><option>Other</option>
-        </select>
-      </div>
-      <div class="fg"><label>Business Type</label>
-        <select id="biz-type">
-          <option value="">Select...</option>
-          <option>B2C (Consumer-Facing)</option><option>B2B (Business-Facing)</option>
-          <option>Both B2B & B2C</option><option>eCommerce</option>
-        </select>
-      </div>
-      <div class="fg"><label>Email</label><input id="contact-email" type="email" placeholder="client@business.com"></div>
-      <div class="fg"><label>Phone</label><input id="contact-phone" placeholder="(832) 000-0000"></div>
-      <div class="fg"><label>Website (if any)</label><input id="website" placeholder="https://"></div>
-      <div class="fg"><label>Location / City</label><input id="location" placeholder="e.g. Sugar Land, TX"></div>
-      <div class="fg full"><label>Event Notes — What did your rep learn?</label><textarea id="biz-notes" rows="3" placeholder="Pain points, goals, what they're currently doing, any budget hints..."></textarea></div>
-    </div>
-
-    <div class="sec-head"><span class="sec-num">2</span> Current Marketing Presence</div>
-    <div class="grid3 mb24">
-      <div class="fg"><label>Instagram</label><input id="ig" placeholder="@handle or 'None'"></div>
-      <div class="fg"><label>TikTok</label><input id="tiktok" placeholder="@handle or 'None'"></div>
-      <div class="fg"><label>Facebook</label><input id="fb" placeholder="Page name or 'None'"></div>
-      <div class="fg"><label>IG Followers</label>
-        <select id="ig-size">
-          <option>None / No Account</option><option>Under 500</option>
-          <option>500 – 2,000</option><option>2,000 – 10,000</option><option>10,000+</option>
-        </select>
-      </div>
-      <div class="fg"><label>Google Reviews</label>
-        <select id="reviews">
-          <option>None / Not Listed</option><option>Under 10</option>
-          <option>10 – 50</option><option>50 – 200</option><option>200+</option>
-        </select>
-      </div>
-      <div class="fg"><label>Current Ad Spend / mo</label>
-        <select id="ad-spend">
-          <option>$0 — None</option><option>Under $500</option>
-          <option>$500 – $2,000</option><option>$2,000 – $5,000</option><option>$5,000+</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="sec-head"><span class="sec-num">3</span> Primary Goals & Pain Points</div>
-    <div class="tag-cloud" id="pain-cloud">
-      <div class="ptag" onclick="this.classList.toggle('on')">No consistent content</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Low online visibility</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Not ranking on Google</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No lead generation system</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Weak brand presence</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No time to manage marketing</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Competitors outranking them</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No UGC / video content</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Low social engagement</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No ads running</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Bad or few reviews</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No website or outdated site</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Scaling but no systems</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No financial visibility</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Disorganized operations</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">New business / just launched</div>
-    </div>
-
-    <div class="action-bar">
-      <button class="btn-p" onclick="switchTab('services')">Next: Build Service Package →</button>
+<!-- ===================== DASHBOARD ===================== -->
+<div id="view-dashboard" class="fade-in">
+  <div class="topbar">
+    <div class="topbar-title">Dashboard</div>
+    <div class="topbar-right">
+      <button class="btn btn-primary" onclick="showView('builder')">+ New Proposal</button>
     </div>
   </div>
-
-  <!-- ── TAB 2: SERVICES ── -->
-  <div class="panel" id="services-panel">
-
-    <div class="sec-head"><span class="sec-num">4</span> Select Services À La Carte</div>
-    <p style="font-size:12px;color:var(--text-muted);margin-bottom:20px;">Click any service to add it to this client's proposal. Pricing updates live below.</p>
-
-    <div class="svc-categories" id="svc-categories">
-      <!-- Built by JS -->
+  <div class="content">
+    <!-- Stats -->
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Proposals</div>
+        <div class="stat-val">24</div>
+        <div class="stat-sub"><span class="stat-trend">↑ 12%</span> vs last month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Revenue Pipeline</div>
+        <div class="stat-val">$48.2K</div>
+        <div class="stat-sub"><span class="stat-trend">↑ 8%</span> this quarter</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Acceptance Rate</div>
+        <div class="stat-val">71%</div>
+        <div class="stat-sub"><span class="stat-trend">↑ 3pts</span> improvement</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg. Proposal Value</div>
+        <div class="stat-val">$2,010</div>
+        <div class="stat-sub">Based on 24 proposals</div>
+      </div>
     </div>
 
-    <!-- SERVICE COUNT -->
-    <div style="margin-bottom:24px;padding:14px 18px;background:var(--charcoal);border-radius:var(--r);display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);">Selected Services</span>
-      <span style="font-size:13px;color:var(--gold);font-weight:500;" id="svc-count">0 services selected</span>
-    </div>
-
-    <div class="sec-head"><span class="sec-num">5</span> Custom Proposal Message</div>
-    <div class="grid2 mb24">
-      <div class="fg full"><label>Personalized Opening Statement</label><textarea id="custom-msg" rows="4" placeholder="Write a message tailored to this client's situation..."></textarea></div>
-      <div class="fg full"><label>Expected Outcomes (90 Days)</label><textarea id="outcomes" rows="3" placeholder="e.g. First page Google rankings, consistent lead flow, 3x follower growth..."></textarea></div>
-    </div>
-
-    <div class="action-bar">
-      <button class="btn-s" onclick="switchTab('intake')">← Back</button>
-      <button class="btn-p" onclick="switchTab('terms')">Next: Terms & Pricing →</button>
+    <!-- Recent Proposals -->
+    <div>
+      <div class="section-header" style="margin-bottom:14px;">
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--charcoal);">Recent Proposals</div>
+          <div class="section-sub">Your last 5 proposals</div>
+        </div>
+        <button class="btn btn-ghost" onclick="showView('proposals')">View All</button>
+      </div>
+      <div class="proposal-list">
+        <div class="proposal-row">
+          <div class="proposal-status status-sent"></div>
+          <div class="proposal-info">
+            <div class="proposal-client">Marble & Stone Co.</div>
+            <div class="proposal-meta">Brand Strategy + Social · Sent 2 days ago</div>
+          </div>
+          <div class="proposal-amount">$3,200</div>
+          <div class="proposal-actions">
+            <button class="icon-btn" title="Edit">✏️</button>
+            <button class="icon-btn" title="Copy">⧉</button>
+          </div>
+        </div>
+        <div class="proposal-row">
+          <div class="proposal-status status-viewed"></div>
+          <div class="proposal-info">
+            <div class="proposal-client">Nova Wellness</div>
+            <div class="proposal-meta">Website + SEO · Viewed 3 times</div>
+          </div>
+          <div class="proposal-amount">$5,800</div>
+          <div class="proposal-actions">
+            <button class="icon-btn" title="Edit">✏️</button>
+            <button class="icon-btn" title="Copy">⧉</button>
+          </div>
+        </div>
+        <div class="proposal-row">
+          <div class="proposal-status status-draft"></div>
+          <div class="proposal-info">
+            <div class="proposal-client">Apex Financial</div>
+            <div class="proposal-meta">Full Suite · Draft</div>
+          </div>
+          <div class="proposal-amount">$8,400</div>
+          <div class="proposal-actions">
+            <button class="icon-btn" title="Edit">✏️</button>
+            <button class="icon-btn" title="Copy">⧉</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- ── TAB 3: TERMS ── -->
-  <div class="panel" id="terms-panel">
-    <div class="sec-head"><span class="sec-num">6</span> Contract & Billing Terms</div>
-    <div class="grid2 mb24">
-      <div class="fg"><label>Contract Length</label>
-        <select id="contract">
-          <option>Month-to-Month</option>
-          <option>3 Months</option>
-          <option>6 Months (5% discount)</option>
-          <option>12 Months (10% discount)</option>
-        </select>
-      </div>
-      <div class="fg"><label>Start Date</label><input id="start-date" type="date"></div>
-      <div class="fg"><label>Onboarding / Setup Fee</label>
-        <input id="setup-fee" value="Dependent upon services selected" readonly style="background:var(--cream-dark);color:var(--text-muted);cursor:default;">
-      </div>
-      <div class="fg"><label>Billing Cycle</label>
-        <select id="billing">
-          <option>Monthly</option><option>Quarterly (upfront)</option><option>Annual (upfront)</option>
-        </select>
-      </div>
-      <div class="fg"><label>Price Override (optional)</label><input id="price-override" placeholder="Leave blank to use calculated total"></div>
-      <div class="fg"><label>Discount / Promo</label><input id="discount" placeholder="e.g. 10% networking event discount"></div>
-    </div>
-
-    <div class="sec-head"><span class="sec-num">7</span> Scope Notes & Deliverables</div>
-    <div class="grid2 mb24">
-      <div class="fg full"><label>Scope Exclusions / Notes</label><textarea id="scope-notes" rows="3" placeholder="e.g. Ad spend is not included in management fees. Client provides brand assets by Day 1."></textarea></div>
-      <div class="fg full"><label>Internal Notes (not shown in proposal)</label><textarea id="internal-notes" rows="2" placeholder="For your eyes only — budget signals, objections, referral source..."></textarea></div>
-    </div>
-
-    <div class="action-bar">
-      <button class="btn-s" onclick="switchTab('services')">← Back</button>
-      <button class="btn-p" onclick="switchTab('preview');buildPreview()">Generate Proposal →</button>
+<!-- ===================== PROPOSALS LIST ===================== -->
+<div id="view-proposals" style="display:none;" class="fade-in">
+  <div class="topbar">
+    <div class="topbar-title">All Proposals</div>
+    <div class="topbar-right">
+      <button class="btn btn-primary" onclick="showView('builder')">+ New Proposal</button>
     </div>
   </div>
-
-  <!-- ── TAB 4: PREVIEW ── -->
-  <div class="panel" id="preview-panel">
-    <div id="prop-output"></div>
-    <div class="action-bar">
-      <button class="btn-p" onclick="submitToAMPLIFY()" id="submit-btn">📤 Submit to AMPLIFY</button>
-      <button class="btn-p" onclick="window.print()">🖨 Print / Save PDF</button>
-      <button class="btn-s" onclick="switchTab('terms')">← Edit</button>
-      <button class="btn-s" onclick="copyProposal()">Copy Text</button>
+  <div class="content">
+    <div class="proposal-list">
+      <div class="proposal-row"><div class="proposal-status status-sent"></div><div class="proposal-info"><div class="proposal-client">Marble & Stone Co.</div><div class="proposal-meta">Brand Strategy + Social · Sent 2d ago</div></div><div class="proposal-amount">$3,200</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
+      <div class="proposal-row"><div class="proposal-status status-viewed"></div><div class="proposal-info"><div class="proposal-client">Nova Wellness</div><div class="proposal-meta">Website + SEO · Viewed 3×</div></div><div class="proposal-amount">$5,800</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
+      <div class="proposal-row"><div class="proposal-status status-draft"></div><div class="proposal-info"><div class="proposal-client">Apex Financial</div><div class="proposal-meta">Full Suite · Draft</div></div><div class="proposal-amount">$8,400</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
+      <div class="proposal-row"><div class="proposal-status status-sent"></div><div class="proposal-info"><div class="proposal-client">Bloom Bakery</div><div class="proposal-meta">Social Media · Sent 1w ago</div></div><div class="proposal-amount">$1,200</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
+      <div class="proposal-row"><div class="proposal-status status-viewed"></div><div class="proposal-info"><div class="proposal-client">Zenith Tech</div><div class="proposal-meta">SEO + Content · Viewed 1×</div></div><div class="proposal-amount">$2,600</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
+      <div class="proposal-row"><div class="proposal-status status-draft"></div><div class="proposal-info"><div class="proposal-client">Goldenrod Hotels</div><div class="proposal-meta">Brand + Website + Social · Draft</div></div><div class="proposal-amount">$11,500</div><div class="proposal-actions"><button class="icon-btn">✏️</button><button class="icon-btn">⧉</button></div></div>
     </div>
-    <div id="submit-status" style="display:none;margin-top:16px;padding:14px 18px;border-radius:7px;font-size:13px;font-weight:500;"></div>
   </div>
+</div>
+
+<!-- ===================== BUILDER ===================== -->
+<div id="view-builder" style="display:none;" class="fade-in">
+  <div class="topbar">
+    <div class="topbar-title">Proposal Builder</div>
+    <div class="topbar-right">
+      <button class="btn btn-ghost" onclick="saveDraft()">Save Draft</button>
+      <button class="btn btn-primary" onclick="goToStep(5)">Preview →</button>
+    </div>
+  </div>
+  <div class="content">
+    <!-- Stepper -->
+    <div class="stepper" id="stepperEl"></div>
+
+    <!-- Progress -->
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar" style="width:20%"></div>
+    </div>
+
+    <!-- Step Tabs -->
+    <div class="step-tabs">
+      <div class="step-tab active" onclick="goToStep(1)" id="tab1">1. Client</div>
+      <div class="step-tab" onclick="goToStep(2)" id="tab2">2. Services</div>
+      <div class="step-tab" onclick="goToStep(3)" id="tab3">3. Package</div>
+      <div class="step-tab" onclick="goToStep(4)" id="tab4">4. Details</div>
+      <div class="step-tab" onclick="goToStep(5)" id="tab5">5. Preview</div>
+    </div>
+
+    <!-- Builder layout with summary -->
+    <div class="builder-layout">
+      <div id="stepContent"></div>
+      <div class="summary-panel" id="summaryPanel">
+        <div class="summary-title">Proposal Summary</div>
+        <div id="summaryLines"></div>
+        <div class="summary-total">
+          <div class="summary-total-label">Estimated Total</div>
+          <div class="summary-total-val" id="summaryTotal">$0</div>
+        </div>
+        <div class="summary-note">Final pricing may vary based on scope adjustments.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TEMPLATES ===================== -->
+<div id="view-templates" style="display:none;" class="fade-in">
+  <div class="topbar">
+    <div class="topbar-title">Templates</div>
+  </div>
+  <div class="content">
+    <div class="section-header" style="margin-bottom:20px;">
+      <div>
+        <div class="section-title">Proposal Templates</div>
+        <div class="section-sub">Start from a pre-built structure</div>
+      </div>
+    </div>
+    <div class="template-grid">
+      <div class="template-card selected" onclick="selectTemplate(this,'starter')">
+        <div class="template-thumb" style="background:var(--gold-pale);">📄</div>
+        <div class="template-info"><div class="template-name">Starter</div><div class="template-desc">Clean, minimal — one service, one price.</div></div>
+      </div>
+      <div class="template-card" onclick="selectTemplate(this,'growth')">
+        <div class="template-thumb" style="background:var(--cream-dark);">📊</div>
+        <div class="template-info"><div class="template-name">Growth</div><div class="template-desc">Multi-service with tiered packages.</div></div>
+      </div>
+      <div class="template-card" onclick="selectTemplate(this,'enterprise')">
+        <div class="template-thumb" style="background:var(--charcoal);">🏛</div>
+        <div class="template-info"><div class="template-name">Enterprise</div><div class="template-desc">Detailed scope, milestones & deliverables.</div></div>
+      </div>
+      <div class="template-card" onclick="selectTemplate(this,'retainer')">
+        <div class="template-thumb" style="background:#E8F4E8;">🔄</div>
+        <div class="template-info"><div class="template-name">Retainer</div><div class="template-desc">Monthly recurring services & billing.</div></div>
+      </div>
+      <div class="template-card" onclick="selectTemplate(this,'ecomm')">
+        <div class="template-thumb" style="background:#E8EAF4);">🛒</div>
+        <div class="template-info"><div class="template-name">E-Commerce</div><div class="template-desc">Product-focused digital marketing.</div></div>
+      </div>
+      <div class="template-card" onclick="selectTemplate(this,'brand')">
+        <div class="template-thumb" style="background:#F4EBE8;">🎨</div>
+        <div class="template-info"><div class="template-name">Branding</div><div class="template-desc">Identity, guidelines & creative services.</div></div>
+      </div>
+    </div>
+    <div style="margin-top:24px;">
+      <button class="btn btn-primary" onclick="useTemplate()">Use Selected Template →</button>
+    </div>
+  </div>
+</div>
 
 </main>
 </div>
 
-<!-- MODAL -->
-<div class="modal-bg" id="modal-bg">
-  <div class="modal">
-    <h3>Add New Client</h3>
-    <div class="grid2">
-      <div class="fg full"><label>Business Name</label><input id="nc-name" placeholder="e.g. Bella's Boutique"></div>
-      <div class="fg"><label>Industry</label><input id="nc-industry" placeholder="e.g. Retail"></div>
-      <div class="fg"><label>Status</label>
-        <select id="nc-status">
-          <option>Hot Lead</option><option>Warm Lead</option><option>Cold Lead</option><option>Active Client</option>
-        </select>
-      </div>
-    </div>
-    <div class="modal-actions">
-      <button class="btn-p" onclick="addClient()">Add Client</button>
-      <button class="btn-s" onclick="closeModal()">Cancel</button>
-    </div>
-  </div>
-</div>
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
 
 <script>
-// ── SERVICE CATALOG ──
-const CATALOG = [
-  {
-    cat: 'Social Media Management',
-    icon: '📱',
-    desc: 'Content & growth',
-    services: [
-      { name: 'AI Caption & Content Generation', price: 197, desc: 'AI-crafted captions, hashtags, and post copy' },
-      { name: 'Automated Posting (IG + TikTok)', price: 197, desc: 'Scheduled posting at peak engagement times' },
-      { name: 'AI UGC Video Ads (2/mo)', price: 397, desc: 'AI-generated user-generated-style video content' },
-      { name: 'Engagement Network Boost', price: 297, desc: 'Automated engagement to grow reach organically' },
-      { name: 'Content Calendar & Strategy', price: 197, desc: 'Monthly editorial calendar with posting strategy' },
-      { name: 'Profile Optimization & Audit', price: 97, desc: 'Bios, links, highlights, and brand consistency' },
-    ]
-  },
-  {
-    cat: 'SEO & Local SEO',
-    icon: '🔍',
-    desc: 'Search visibility',
-    services: [
-      { name: 'Local SEO (Google Business Optimization)', price: 297, desc: 'GBP setup, optimization, and weekly posts' },
-      { name: 'On-Page SEO (Website)', price: 397, desc: 'Meta tags, schema, page speed, content optimization' },
-      { name: 'Citation Building & Directory Listings', price: 197, desc: 'NAP consistency across 50+ directories' },
-      { name: 'Monthly SEO Reporting', price: 97, desc: 'Keyword rankings, traffic, and backlink report' },
-      { name: 'Backlink Outreach Campaign', price: 497, desc: 'Authority building through targeted link acquisition' },
-      { name: 'Keyword Research & Strategy', price: 197, desc: 'Competitor gap analysis and target keyword mapping' },
-    ]
-  },
-  {
-    cat: 'Geo / Geofencing Ads',
-    icon: '📍',
-    desc: 'Location-based targeting',
-    services: [
-      { name: 'Geofencing Campaign Setup', price: 497, desc: 'Hyper-local ad targeting around specific locations' },
-      { name: 'Geofencing Monthly Management', price: 397, desc: 'Ongoing optimization, A/B testing, reporting' },
-      { name: 'Competitor Geofencing', price: 297, desc: 'Target customers visiting competitor locations' },
-      { name: 'Event & Trade Show Targeting', price: 297, desc: 'Capture audiences at relevant events' },
-    ]
-  },
-  {
-    cat: 'Paid Ads (Meta & Google)',
-    icon: '💰',
-    desc: 'Performance advertising',
-    services: [
-      { name: 'Meta Ads Management (Facebook/IG)', price: 597, desc: 'Campaign strategy, creative, targeting & optimization' },
-      { name: 'Google Ads Management', price: 597, desc: 'Search, display, and local service ads' },
-      { name: 'Ad Creative Production', price: 297, desc: 'Graphics, copy, and video assets for campaigns' },
-      { name: 'Retargeting Campaign Setup', price: 297, desc: 'Re-engage website visitors and past customers' },
-      { name: 'Lead Generation Funnel', price: 497, desc: 'Landing page + ad funnel built for lead capture' },
-    ]
-  },
-  {
-    cat: 'Email & SMS Marketing',
-    icon: '✉️',
-    desc: 'Direct outreach & retention',
-    services: [
-      { name: 'Email Marketing Setup & Management', price: 297, desc: 'List setup, templates, sequences, and monthly sends' },
-      { name: 'SMS Marketing Campaigns', price: 197, desc: 'Promotional and transactional SMS broadcasts' },
-      { name: 'Automated Email Sequences', price: 297, desc: 'Welcome, nurture, and re-engagement flows' },
-      { name: 'CRM Integration & List Management', price: 197, desc: 'Clean segmented lists connected to your CRM' },
-    ]
-  },
-  {
-    cat: 'Website & Landing Pages',
-    icon: '🌐',
-    desc: 'Web presence & conversion',
-    services: [
-      { name: 'Business Website (5–7 pages)', price: 1497, desc: 'Custom-designed, SEO-ready, mobile-optimized site' },
-      { name: 'Landing Page Build', price: 497, desc: 'High-converting standalone page for campaigns or offers' },
-      { name: 'Website Audit & UX Review', price: 197, desc: 'Conversion rate analysis with action recommendations' },
-      { name: 'Website Maintenance (monthly)', price: 97, desc: 'Updates, backups, speed checks, and security patches' },
-    ]
-  },
-  {
-    cat: 'Reputation Management',
-    icon: '⭐',
-    desc: 'Reviews & brand trust',
-    services: [
-      { name: 'Review Generation Campaign', price: 197, desc: 'Automated review requests via email/SMS post-service' },
-      { name: 'Review Monitoring & Response', price: 197, desc: 'Monthly monitoring and professional response management' },
-      { name: 'Reputation Audit & Strategy', price: 147, desc: 'Full audit of online mentions, reviews, and brand image' },
-      { name: 'Negative Review Suppression', price: 297, desc: 'Content and SEO strategy to push down negative results' },
-    ]
-  },
-  {
-    cat: 'Business Consulting & Operations',
-    icon: '📊',
-    desc: 'Strategy, financials & SOPs',
-    services: [
-      { name: 'Monthly Business Strategy Consultation', price: 497, desc: 'Monthly 1-on-1 with growth roadmap and accountability' },
-      { name: 'Financial Reporting & Dashboard', price: 397, desc: 'Monthly P&L, cash flow, and KPI reporting setup' },
-      { name: 'SOP Development & Documentation', price: 597, desc: 'Build standard operating procedures for key business processes' },
-      { name: 'SOP Audit & Optimization', price: 297, desc: 'Review existing SOPs and identify inefficiencies' },
-      { name: 'Business Systems Buildout (CRM/Ops)', price: 797, desc: 'GoHighLevel or equivalent CRM + workflow automation setup' },
-      { name: 'Competitor & Market Analysis', price: 297, desc: 'Deep-dive into market position and competitive gaps' },
-    ]
-  },
-];
-
-// Build service cards
-function buildCatalog() {
-  const container = document.getElementById('svc-categories');
-  container.innerHTML = '';
-  CATALOG.forEach(cat => {
-    const section = document.createElement('div');
-    section.innerHTML = `
-      <div class="svc-cat-header">
-        <span class="svc-cat-icon">${cat.icon}</span>
-        <span class="svc-cat-title">${cat.cat}</span>
-        <span class="svc-cat-desc">${cat.desc}</span>
-      </div>
-      <div class="svc-grid">
-        ${cat.services.map(svc => `
-          <div class="svc-card" onclick="toggleSvc(this, ${svc.price})">
-            <div class="svc-chk"></div>
-            <div class="svc-info">
-              <div class="svc-name">${svc.name}</div>
-              <div class="svc-price">$${svc.price.toLocaleString()}/mo</div>
-              <div class="svc-desc">${svc.desc}</div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
-    container.appendChild(section);
-  });
-}
-
-function toggleSvc(card, price) {
-  card.classList.toggle('on');
-  updateTotal();
-}
-
-function updateTotal() {
-  const cards = document.querySelectorAll('.svc-card.on');
-  const count = cards.length;
-  document.getElementById('svc-count').textContent = count + ' service' + (count !== 1 ? 's' : '') + ' selected';
-}
-
-// ── CLIENT DATA ──
-const CLIENTS = {
-  hair: {
-    bizName: 'Salon Client', contactName: '', industry: 'Beauty & Salon', bizType: 'B2C (Consumer-Facing)',
-    email: '', phone: '', website: '', location: 'Sugar Land, TX',
-    notes: 'Met at networking event. Hair dresser needing help with social media, marketing presence, and growing their local client base. No current strategy.',
-    ig: '', tiktok: '', fb: '', igSize: 'Under 500', reviews: 'Under 10', adSpend: '$0 — None',
-    pains: ['No consistent content','Low online visibility','Not ranking on Google','No time to manage marketing','Weak brand presence','Bad or few reviews'],
-    selectedSvcs: ['AI Caption & Content Generation','Automated Posting (IG + TikTok)','Local SEO (Google Business Optimization)','Profile Optimization & Audit','Review Generation Campaign','Review Monitoring & Response'],
-    customMsg: 'We know how hard it is to grow a salon while serving clients every day — marketing is the last thing you have time for. AMPLIFY handles your entire online presence end-to-end, from content to local SEO to reviews, so your chair stays full.',
-    outcomes: 'Consistent professional content across IG & TikTok, first-page Google Maps visibility, 3x growth in online reviews, and a measurable increase in new client bookings within 90 days.',
-    contract: 'Month-to-Month', startDate: '', setupFee: 'Dependent upon services selected', billing: 'Monthly',
-    discount: 'Networking event introductory rate', scopeNotes: 'Ad spend budget (if applicable) billed separately. Client to provide any existing brand photos.',
-  },
-  cleaning: {
-    bizName: 'Drone Cleaning Co.', contactName: '', industry: 'Drone Cleaning Services', bizType: 'B2B (Business-Facing)',
-    email: '', phone: '', website: '', location: 'Houston, TX Area',
-    notes: 'Met at networking event. Drone cleaning company — cleans buildings and solar panels using drone technology. Very low social and online presence. Looking for marketing to attract commercial contracts. B2B focused.',
-    ig: '', tiktok: '', fb: '', igSize: 'None / No Account', reviews: 'None / Not Listed', adSpend: '$0 — None',
-    pains: ['Low online visibility','Not ranking on Google','No lead generation system','Weak brand presence','No ads running','Bad or few reviews','Competitors outranking them'],
-    selectedSvcs: ['Local SEO (Google Business Optimization)','Citation Building & Directory Listings','Geofencing Campaign Setup','Geofencing Monthly Management','Google Ads Management','Review Generation Campaign','Monthly Business Strategy Consultation'],
-    customMsg: 'For a drone cleaning company, winning commercial contracts starts with being found and being trusted. AMPLIFY will build your entire digital footprint from scratch — Google presence, geofencing campaigns to reach property managers, and a reputation system that turns every completed job into a verified review.',
-    outcomes: 'Active Google Business Profile with consistent reviews, geofencing campaigns targeting commercial property managers and solar farm operators, first page local search rankings, and a trackable pipeline of inbound B2B leads within 90 days.',
-    contract: '3 Months', startDate: '', setupFee: 'Dependent upon services selected', billing: 'Monthly',
-    discount: 'Networking event introductory rate', scopeNotes: 'Google Ads spend budget billed directly to client account. AMPLIFY manages strategy and optimization.',
-  },
-  blank: {
-    bizName:'',contactName:'',industry:'',bizType:'',email:'',phone:'',website:'',location:'',notes:'',
-    ig:'',tiktok:'',fb:'',igSize:'None / No Account',reviews:'None / Not Listed',adSpend:'$0 — None',
-    pains:[],selectedSvcs:[],customMsg:'',outcomes:'',
-    contract:'Month-to-Month',startDate:'',setupFee:'Dependent upon services selected',billing:'Monthly',discount:'',scopeNotes:'',
-  }
+// ===== STATE =====
+const state = {
+  step: 1,
+  client: { name:'', company:'', email:'', industry:'' },
+  services: [],
+  package: null,
+  addons: [],
+  timeline: null,
+  notes: '',
+  tone: 'professional',
+  template: 'starter'
 };
 
-function loadClient(key) {
-  const c = CLIENTS[key];
-  if (!c) return;
+const PKG_PRICES = { starter:800, growth:1800, elite:3500 };
+const ADDON_PRICES = {
+  rush: 300,
+  analytics: 200,
+  copywriting: 400,
+  strategy: 600,
+  video: 800,
+  crm: 250
+};
+const TIMELINE_SURCHARGES = { '1w':500,'2w':200,'3w':0,'1m':0,'2m':-100,'3m':-200 };
 
-  const fields = [
-    ['biz-name',c.bizName],['contact-name',c.contactName],['industry',c.industry],
-    ['biz-type',c.bizType],['contact-email',c.email],['contact-phone',c.phone],
-    ['website',c.website],['location',c.location],['biz-notes',c.notes],
-    ['ig',c.ig],['tiktok',c.tiktok],['fb',c.fb],['ig-size',c.igSize],
-    ['reviews',c.reviews],['ad-spend',c.adSpend],
-    ['custom-msg',c.customMsg],['outcomes',c.outcomes],
-    ['contract',c.contract],['start-date',c.startDate],['setup-fee',c.setupFee],
-    ['billing',c.billing],['discount',c.discount],['scope-notes',c.scopeNotes],
-  ];
-  fields.forEach(([id, val]) => {
-    const el = document.getElementById(id);
-    if (el) el.value = val || '';
+function calcTotal(){
+  let t = state.package ? PKG_PRICES[state.package] : 0;
+  state.addons.forEach(a => t += ADDON_PRICES[a]||0);
+  if(state.timeline) t += TIMELINE_SURCHARGES[state.timeline]||0;
+  return t;
+}
+
+function fmt(n){ return '$'+n.toLocaleString(); }
+
+// ===== VIEWS =====
+function showView(v){
+  ['dashboard','proposals','builder','templates'].forEach(id=>{
+    const el = document.getElementById('view-'+id);
+    if(el) el.style.display = id===v ? '' : 'none';
   });
-
-  // pains
-  document.querySelectorAll('.ptag').forEach(t => {
-    t.classList.toggle('on', c.pains.includes(t.textContent.trim()));
+  document.querySelectorAll('.nav-item').forEach(btn=>{
+    btn.classList.remove('active');
   });
-
-  // services — rebuild catalog then select
-  buildCatalog();
-  setTimeout(() => {
-    document.querySelectorAll('.svc-card').forEach(card => {
-      const name = card.querySelector('.svc-name').textContent.trim();
-      if (c.selectedSvcs.includes(name)) card.classList.add('on');
-    });
-    updateTotal();
-  }, 0);
-
-  // sidebar buttons
-  document.querySelectorAll('.cl-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('btn-' + key)?.classList.add('active');
-
-  switchTab('intake');
+  const map = {dashboard:0,proposals:1,builder:2,templates:3};
+  const btns = document.querySelectorAll('.nav-item');
+  if(btns[map[v]]) btns[map[v]].classList.add('active');
+  if(v==='builder') renderStep();
 }
 
-function switchTab(tab) {
-  const tabs = ['intake','services','terms','preview'];
-  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', tabs[i] === tab));
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.getElementById(tab + '-panel').classList.add('active');
-}
-
-function buildPreview() {
-  const g = id => document.getElementById(id)?.value || '';
-  const bizName = g('biz-name') || 'Your Business';
-  const contact = g('contact-name') || 'Valued Client';
-  const industry = g('industry') || '—';
-  const bizType = g('biz-type') || '—';
-  const email = g('contact-email');
-  const phone = g('contact-phone');
-  const location = g('location');
-  const ig = g('ig'); const tiktok = g('tiktok'); const fb = g('fb');
-  const igSize = g('ig-size');
-  const reviews = g('reviews');
-  const adSpend = g('ad-spend');
-  const contract = g('contract');
-  const setupFee = g('setup-fee');
-  const billing = g('billing');
-  const discount = g('discount');
-  const scopeNotes = g('scope-notes');
-  const customMsg = g('custom-msg');
-  const outcomes = g('outcomes');
-  const startDate = g('start-date') ? new Date(g('start-date')).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : 'Upon Agreement';
-  const today = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  const priceOverride = g('price-override');
-
-  // Selected services grouped by category
-  const selectedCards = [...document.querySelectorAll('.svc-card.on')];
-  let totalMonthly = 0;
-  const groupedSvcs = {};
-
-  CATALOG.forEach(cat => {
-    cat.services.forEach(svc => {
-      const found = selectedCards.find(c => c.querySelector('.svc-name').textContent.trim() === svc.name);
-      if (found) {
-        if (!groupedSvcs[cat.cat]) groupedSvcs[cat.cat] = [];
-        groupedSvcs[cat.cat].push(svc);
-        totalMonthly += svc.price;
-      }
-    });
+// ===== BUILDER STEPS =====
+function goToStep(n){
+  state.step = n;
+  renderStep();
+  document.querySelectorAll('.step-tab').forEach((t,i)=>{
+    t.classList.toggle('active', i+1===n);
   });
-
-  const displayTotal = priceOverride || ('$' + totalMonthly.toLocaleString() + '/mo');
-  const pains = [...document.querySelectorAll('.ptag.on')].map(t => t.textContent.trim());
-  const contactLine = [email, phone, location].filter(Boolean).join(' · ');
-  const socials = [ig?`IG: ${ig}`:'', tiktok?`TikTok: ${tiktok}`:'', fb?`FB: ${fb}`:''].filter(Boolean).join(' · ') || 'No active accounts';
-
-  const svcGroupsHTML = Object.entries(groupedSvcs).map(([catName, svcs]) => `
-    <div class="svc-category-block">
-      <div class="svc-cat-label">${catName}</div>
-      <div class="svc-lines">
-        ${svcs.map(s => `
-          <div class="svc-line">
-            <span class="sl-name">${s.name}</span>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-
-  const opening = customMsg || `Thank you for the opportunity to work with ${bizName}. At AMPLIFY, we specialize in full-service marketing and business scaling — combining AI-powered content, paid media, SEO, and operational consulting to help businesses like yours grow faster and smarter.`;
-  const outcomesText = outcomes || `Measurable improvements in online visibility, lead generation, and brand authority within the first 90 days.`;
-  const painsHTML = pains.length ? pains.map(p => `<li>${p}</li>`).join('') : '<li>To be assessed during onboarding</li>';
-
-  document.getElementById('prop-output').innerHTML = `
-    <div class="prop-wrap">
-      <div class="prop-top">
-        <div class="prop-top-l">
-          <h2>Marketing & Growth Proposal</h2>
-          <p>Prepared for: ${bizName} &nbsp;·&nbsp; ${today}</p>
-        </div>
-        <div class="prop-top-r" style="text-align:right">
-          <div class="agt">AMPLIFY</div>
-          <div class="ags">Marketing & Business Scaling</div>
-        </div>
-      </div>
-      <div class="prop-body">
-
-        <div class="meta-row">
-          <div class="meta-box"><div class="ml">Client</div><div class="mv">${contact || bizName}</div></div>
-          <div class="meta-box"><div class="ml">Industry</div><div class="mv">${industry}</div></div>
-          <div class="meta-box"><div class="ml">Business Type</div><div class="mv">${bizType}</div></div>
-          <div class="meta-box"><div class="ml">Contact</div><div class="mv" style="font-size:11.5px">${contactLine || '—'}</div></div>
-        </div>
-
-        <div class="prop-sec">
-          <h3>Our Approach</h3>
-          <p>${opening}</p>
-        </div>
-
-        <div class="prop-sec">
-          <h3>Current Situation</h3>
-          <ul>
-            <li>Social media: ${socials}</li>
-            <li>Online following: ${igSize}</li>
-            <li>Google reviews: ${reviews}</li>
-            <li>Current ad investment: ${adSpend}</li>
-          </ul>
-          ${pains.length ? `<div style="margin-top:12px"><p style="font-size:11.5px;color:var(--text-muted);font-style:italic;margin-bottom:6px;">Challenges identified:</p><ul>${painsHTML}</ul></div>` : ''}
-        </div>
-
-        <div class="prop-sec">
-          <h3>Proposed Services (À La Carte)</h3>
-          ${svcGroupsHTML || '<p>No services selected yet.</p>'}
-          ${discount ? `<p style="font-size:11px;color:var(--text-muted);margin-top:8px;font-style:italic;">Discount applied: ${discount}</p>` : ''}
-        </div>
-
-        <div class="meta-row">
-          <div class="meta-box"><div class="ml">Contract</div><div class="mv">${contract}</div></div>
-          <div class="meta-box"><div class="ml">Billing</div><div class="mv">${billing}</div></div>
-          <div class="meta-box"><div class="ml">Start Date</div><div class="mv">${startDate}</div></div>
-          <div class="meta-box"><div class="ml">Onboarding Fee</div><div class="mv" style="font-size:11.5px">${setupFee}</div></div>
-        </div>
-
-        <div class="prop-sec">
-          <h3>Expected Outcomes (First 90 Days)</h3>
-          <p>${outcomesText}</p>
-        </div>
-
-        ${scopeNotes ? `<div class="prop-sec"><h3>Scope & Notes</h3><p>${scopeNotes}</p></div>` : ''}
-
-        <div class="prop-sec">
-          <h3>Next Steps</h3>
-          <ul>
-            <li>Review and sign this proposal</li>
-            <li>Complete onboarding intake questionnaire</li>
-            <li>Provide brand assets (logo, photos, credentials)</li>
-            <li>Kick-off call scheduled within 3 business days of signing</li>
-            <li>First deliverables live within 5–7 business days of kickoff</li>
-          </ul>
-        </div>
-
-      </div>
-      <div class="prop-footer">
-        <p>Proposal valid 14 days from date issued. AMPLIFY · Sugar Land, TX</p>
-        <div class="sig-row">
-          <div class="sig-item"><div class="sig-line"></div><div class="sig-lbl">Client Signature & Date</div></div>
-          <div class="sig-item"><div class="sig-line"></div><div class="sig-lbl">AMPLIFY Representative</div></div>
-        </div>
-      </div>
-    </div>
-  `;
+  document.getElementById('progressBar').style.width = (n/5*100)+'%';
 }
 
-function openModal() { document.getElementById('modal-bg').classList.add('open'); }
-function closeModal() { document.getElementById('modal-bg').classList.remove('open'); }
+function renderStep(){
+  const c = document.getElementById('stepContent');
+  const s = document.getElementById('summaryPanel');
+  if(state.step===5){ s.style.display='none'; } else { s.style.display=''; }
+  updateStepper();
+  updateSummary();
 
-function addClient() {
-  const name = document.getElementById('nc-name').value.trim();
-  const ind = document.getElementById('nc-industry').value.trim();
-  const status = document.getElementById('nc-status').value;
-  if (!name) return;
-  const key = 'c_' + Date.now();
-  CLIENTS[key] = {...CLIENTS['blank'], bizName: name, industry: ind};
-  const btn = document.createElement('button');
-  btn.className = 'cl-btn'; btn.id = 'btn-' + key;
-  btn.onclick = () => loadClient(key);
-  btn.innerHTML = `<span class="cn">${name}</span><span class="ct">${ind||'Uncategorized'}</span><span class="cs">● ${status}</span>`;
-  document.querySelector('.add-btn').before(btn);
-  closeModal();
-  loadClient(key);
+  const steps = [null, step1HTML, step2HTML, step3HTML, step4HTML, step5HTML];
+  c.innerHTML = steps[state.step]();
+  c.classList.remove('fade-in');
+  void c.offsetWidth;
+  c.classList.add('fade-in');
 }
 
-function copyProposal() {
-  const text = document.getElementById('prop-output')?.innerText || '';
-  navigator.clipboard.writeText(text).then(() => alert('Proposal copied to clipboard.'));
-}
-
-async function submitToAMPLIFY() {
-  const g = id => document.getElementById(id)?.value || '';
-  const bizName = g('biz-name') || 'Unknown Business';
-  const contact = g('contact-name') || '';
-  const industry = g('industry') || '';
-  const email = g('contact-email') || '';
-  const phone = g('contact-phone') || '';
-  const location = g('location') || '';
-  const notes = g('biz-notes') || '';
-  const customMsg = g('custom-msg') || '';
-  const outcomes = g('outcomes') || '';
-  const contract = g('contract') || '';
-  const billing = g('billing') || '';
-  const discount = g('discount') || '';
-  const scopeNotes = g('scope-notes') || '';
-
-  const selectedSvcs = [...document.querySelectorAll('.svc-card.on')]
-    .map(c => c.querySelector('.svc-name').textContent.trim())
-    .join(', ') || 'None selected';
-
-  const pains = [...document.querySelectorAll('.ptag.on')]
-    .map(t => t.textContent.trim())
-    .join(', ') || 'None selected';
-
-  const btn = document.getElementById('submit-btn');
-  const status = document.getElementById('submit-status');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-
-  const payload = {
-    _subject: `New AMPLIFY Proposal — ${bizName}`,
-    Business_Name: bizName,
-    Contact_Name: contact,
-    Industry: industry,
-    Email: email,
-    Phone: phone,
-    Location: location,
-    Event_Notes: notes,
-    Pain_Points: pains,
-    Selected_Services: selectedSvcs,
-    Contract_Term: contract,
-    Billing_Cycle: billing,
-    Discount_Promo: discount,
-    Scope_Notes: scopeNotes,
-    Custom_Message: customMsg,
-    Expected_Outcomes: outcomes,
-  };
-
-  try {
-    const res = await fetch('https://formspree.io/f/xwvweprb', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-
-    status.style.display = 'block';
-    if (res.ok) {
-      status.style.background = '#E8F5E9';
-      status.style.color = '#2E7D32';
-      status.style.border = '1px solid #A5D6A7';
-      status.textContent = '✓ Proposal submitted successfully — sent to gmoneytalents@gmail.com';
-      btn.textContent = '✓ Submitted';
-    } else {
-      throw new Error('Server error');
-    }
-  } catch(err) {
-    status.style.display = 'block';
-    status.style.background = '#FFEBEE';
-    status.style.color = '#B71C1C';
-    status.style.border = '1px solid #FFCDD2';
-    status.textContent = '✗ Submission failed. Please check your Formspree endpoint is active, then try again.';
-    btn.textContent = '📤 Submit to AMPLIFY';
-    btn.disabled = false;
+// ===== STEPPER =====
+function updateStepper(){
+  const el = document.getElementById('stepperEl');
+  let h='';
+  for(let i=1;i<=5;i++){
+    const cls = i<state.step?'done':i===state.step?'active':'';
+    const label = ['Client','Services','Package','Details','Preview'][i-1];
+    h+=`<div class="stepper-step"><div class="stepper-dot ${cls}" onclick="goToStep(${i})" title="${label}">${i<state.step?'✓':i}</div></div>`;
+    if(i<5) h+=`<div class="stepper-line ${i<state.step?'done':''}"></div>`;
   }
+  el.innerHTML=h;
 }
 
-// Init
-buildCatalog();
-loadClient('hair');
+// ===== SUMMARY =====
+function updateSummary(){
+  const lines = [];
+  if(state.client.company) lines.push({k:'Client',v:state.client.company});
+  if(state.services.length) lines.push({k:'Services',v:state.services.join(', ')});
+  if(state.package) lines.push({k:'Package',v:state.package.charAt(0).toUpperCase()+state.package.slice(1)});
+  if(state.addons.length) lines.push({k:'Add-ons',v:state.addons.length+' selected'});
+  if(state.timeline) lines.push({k:'Timeline',v:state.timeline});
+
+  const el = document.getElementById('summaryLines');
+  el.innerHTML = lines.map(l=>`<div class="summary-line"><span class="summary-key">${l.k}</span><span class="summary-val">${l.v}</span></div>`).join('');
+  document.getElementById('summaryTotal').textContent = fmt(calcTotal());
+}
+
+// ===== STEP 1: CLIENT =====
+function step1HTML(){
+  return `
+  <div class="card">
+    <div class="card-title">Client Information</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="grid-2">
+        <div class="field"><label>Client Name</label><input placeholder="Jane Smith" value="${state.client.name}" oninput="state.client.name=this.value;updateSummary()"></div>
+        <div class="field"><label>Company</label><input placeholder="Acme Inc." value="${state.client.company}" oninput="state.client.company=this.value;updateSummary()"></div>
+      </div>
+      <div class="grid-2">
+        <div class="field"><label>Email</label><input type="email" placeholder="jane@acme.com" value="${state.client.email}" oninput="state.client.email=this.value"></div>
+        <div class="field"><label>Industry</label>
+          <select onchange="state.client.industry=this.value">
+            <option value="">Select industry…</option>
+            ${['E-Commerce','Hospitality','Finance','Health & Wellness','Tech & SaaS','Real Estate','Food & Beverage','Fashion','Legal','Education'].map(i=>`<option ${state.client.industry===i?'selected':''}>${i}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:flex-end;margin-top:8px;">
+    <button class="btn btn-primary" onclick="goToStep(2)">Next: Services →</button>
+  </div>`;
+}
+
+// ===== STEP 2: SERVICES =====
+const SERVICES = [
+  {id:'social',icon:'📱',label:'Social Media',sub:'Content & management'},
+  {id:'seo',icon:'🔍',label:'SEO',sub:'Organic growth'},
+  {id:'ppc',icon:'⚡',label:'Paid Ads',sub:'Google & Meta'},
+  {id:'email',icon:'✉️',label:'Email Marketing',sub:'Campaigns & flows'},
+  {id:'brand',icon:'🎨',label:'Branding',sub:'Identity & design'},
+  {id:'web',icon:'💻',label:'Website',sub:'Design & dev'},
+  {id:'content',icon:'✍️',label:'Content',sub:'Blog & copy'},
+  {id:'video',icon:'🎬',label:'Video',sub:'Production & editing'},
+  {id:'pr',icon:'📣',label:'PR & Comms',sub:'Press & outreach'},
+  {id:'analytics',icon:'📊',label:'Analytics',sub:'Data & reporting'},
+];
+
+function step2HTML(){
+  return `
+  <div class="card">
+    <div class="card-title">Select Services</div>
+    <div class="select-grid">
+      ${SERVICES.map(s=>`
+        <div class="select-card ${state.services.includes(s.id)?'selected':''}" onclick="toggleService('${s.id}',this)">
+          <div class="select-card-icon">${s.icon}</div>
+          <div class="select-card-label">${s.label}</div>
+          <div class="select-card-sub">${s.sub}</div>
+        </div>`).join('')}
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;margin-top:8px;">
+    <button class="btn btn-ghost" onclick="goToStep(1)">← Back</button>
+    <button class="btn btn-primary" onclick="goToStep(3)">Next: Package →</button>
+  </div>`;
+}
+
+function toggleService(id, el){
+  const i = state.services.indexOf(id);
+  if(i>=0){ state.services.splice(i,1); el.classList.remove('selected'); }
+  else { state.services.push(id); el.classList.add('selected'); }
+  updateSummary();
+}
+
+// ===== STEP 3: PACKAGE =====
+function step3HTML(){
+  const pkgs = [
+    {id:'starter',name:'Starter',desc:'Perfect for small businesses getting started.',price:800,badge:null,features:['2 core services','Monthly reporting','Email support','14-day delivery']},
+    {id:'growth',name:'Growth',desc:'Ideal for scaling brands with multiple channels.',price:1800,badge:'Most Popular',features:['Up to 5 services','Bi-weekly reporting','Priority support','Dedicated manager','Strategy session']},
+    {id:'elite',name:'Elite',desc:'Full-service for established brands.',price:3500,badge:null,features:['All services','Weekly reporting','24/7 support','Dedicated team','Quarterly strategy','Custom integrations']},
+  ];
+  return `
+  <div class="card">
+    <div class="card-title">Choose Package</div>
+    <div class="pkg-grid">
+      ${pkgs.map(p=>`
+        <div class="pkg-card ${state.package===p.id?'selected':''}" onclick="selectPkg('${p.id}',this)">
+          ${p.badge?`<div class="pkg-badge">${p.badge}</div>`:''}
+          <div class="pkg-name">${p.name}</div>
+          <div class="pkg-desc">${p.desc}</div>
+          <div class="pkg-price">${fmt(p.price)}<span>/project</span></div>
+          <div class="pkg-features">${p.features.map(f=>`<div class="pkg-feature">${f}</div>`).join('')}</div>
+        </div>`).join('')}
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title">Add-ons</div>
+    <div class="addon-list">
+      ${[
+        {id:'rush',name:'Rush Delivery',sub:'Expedite by 50%',price:300},
+        {id:'analytics',name:'Advanced Analytics Dashboard',sub:'Custom data studio',price:200},
+        {id:'copywriting',name:'Professional Copywriting',sub:'SEO-optimized content',price:400},
+        {id:'strategy',name:'Strategy Workshop',sub:'Half-day session',price:600},
+        {id:'video',name:'Video Production',sub:'30-60 sec promo',price:800},
+        {id:'crm',name:'CRM Setup & Integration',sub:'HubSpot / Salesforce',price:250},
+      ].map(a=>`
+        <div class="addon-item ${state.addons.includes(a.id)?'selected':''}" onclick="toggleAddon('${a.id}',this)">
+          <div class="addon-left">
+            <div class="addon-check">${state.addons.includes(a.id)?'<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>':''}</div>
+            <div><div class="addon-name">${a.name}</div><div class="addon-sub">${a.sub}</div></div>
+          </div>
+          <div class="addon-price">+${fmt(a.price)}</div>
+        </div>`).join('')}
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;margin-top:8px;">
+    <button class="btn btn-ghost" onclick="goToStep(2)">← Back</button>
+    <button class="btn btn-primary" onclick="goToStep(4)">Next: Details →</button>
+  </div>`;
+}
+
+function selectPkg(id, el){
+  state.package = id;
+  document.querySelectorAll('.pkg-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  updateSummary();
+}
+
+function toggleAddon(id, el){
+  const i = state.addons.indexOf(id);
+  if(i>=0){ state.addons.splice(i,1); el.classList.remove('selected'); }
+  else { state.addons.push(id); el.classList.add('selected'); }
+  updateSummary();
+  // Re-render to update checkboxes
+  renderStep();
+}
+
+// ===== STEP 4: DETAILS =====
+function step4HTML(){
+  const timelines = [
+    {id:'1w',label:'1 Week',price:'+$500'},
+    {id:'2w',label:'2 Weeks',price:'+$200'},
+    {id:'3w',label:'3 Weeks',price:'Standard'},
+    {id:'1m',label:'1 Month',price:'Standard'},
+    {id:'2m',label:'2 Months',price:'-$100'},
+    {id:'3m',label:'3 Months',price:'-$200'},
+  ];
+  return `
+  <div class="card">
+    <div class="card-title">Proposal Details</div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="field">
+        <label>Proposal Title</label>
+        <input placeholder="e.g. Digital Growth Strategy for Acme Inc." value="${state.notes}" oninput="state.notes=this.value">
+      </div>
+      <div class="field">
+        <label>Tone & Style</label>
+        <select onchange="state.tone=this.value">
+          <option value="professional" ${state.tone==='professional'?'selected':''}>Professional & Formal</option>
+          <option value="friendly" ${state.tone==='friendly'?'selected':''}>Friendly & Conversational</option>
+          <option value="bold" ${state.tone==='bold'?'selected':''}>Bold & Confident</option>
+          <option value="minimal" ${state.tone==='minimal'?'selected':''}>Minimal & Direct</option>
+        </select>
+      </div>
+      <div>
+        <div style="font-size:10.5px;font-weight:500;color:var(--text-muted);letter-spacing:0.05em;margin-bottom:10px;">Delivery Timeline</div>
+        <div class="timeline-grid">
+          ${timelines.map(t=>`
+            <div class="timeline-opt ${state.timeline===t.id?'selected':''}" onclick="selectTimeline('${t.id}',this)">
+              <div class="timeline-opt-duration">${t.label}</div>
+              <div class="timeline-opt-price">${t.price}</div>
+            </div>`).join('')}
+        </div>
+      </div>
+      <div class="field">
+        <label>Additional Notes</label>
+        <textarea placeholder="Any special requirements, context, or terms to include…" oninput="state.notes=this.value">${state.notes}</textarea>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;margin-top:8px;">
+    <button class="btn btn-ghost" onclick="goToStep(3)">← Back</button>
+    <button class="btn btn-primary" onclick="goToStep(5)">Preview Proposal →</button>
+  </div>`;
+}
+
+function selectTimeline(id, el){
+  state.timeline = id;
+  document.querySelectorAll('.timeline-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  updateSummary();
+}
+
+// ===== STEP 5: PREVIEW =====
+function step5HTML(){
+  const client = state.client.name || 'Valued Client';
+  const company = state.client.company || 'Your Company';
+  const pkg = state.package ? state.package.charAt(0).toUpperCase()+state.package.slice(1)+' Package' : 'Custom Package';
+  const today = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  const scope = [];
+  if(state.package) scope.push({name: pkg, price: PKG_PRICES[state.package]||0});
+  state.addons.forEach(a=>{
+    const names = {rush:'Rush Delivery',analytics:'Analytics Dashboard',copywriting:'Copywriting',strategy:'Strategy Workshop',video:'Video Production',crm:'CRM Setup'};
+    scope.push({name:names[a]||a, price: ADDON_PRICES[a]||0});
+  });
+  if(state.timeline && TIMELINE_SURCHARGES[state.timeline]!==0){
+    scope.push({name:'Timeline Adjustment ('+state.timeline+')', price: TIMELINE_SURCHARGES[state.timeline]});
+  }
+
+  return `
+  <div style="margin-bottom:16px;display:flex;justify-content:flex-end;gap:10px;">
+    <button class="btn btn-ghost" onclick="goToStep(4)">← Edit</button>
+    <button class="btn btn-ghost" onclick="window.print()">🖨 Print</button>
+    <button class="btn btn-primary" onclick="sendProposal()">Send Proposal ✓</button>
+  </div>
+  <div class="preview-wrap">
+    <div class="preview-header">
+      <div class="preview-logo">AMPLIFY</div>
+      <div style="color:rgba(255,255,255,0.4);font-size:11px;">${today}</div>
+    </div>
+    <div class="preview-body">
+      <div class="preview-to">Prepared for</div>
+      <div class="preview-client">${client}${company !== 'Your Company' ? ', '+company : ''}</div>
+      <div class="preview-intro">
+        Thank you for considering Amplify as your digital marketing partner. Based on our conversation, we have curated a tailored proposal that aligns with your goals, timeline, and budget. We are confident this engagement will deliver measurable results and a strong return on investment.
+      </div>
+      <div class="preview-section">
+        <div class="preview-section-title">Scope of Work</div>
+        ${scope.length ? scope.map(s=>`
+          <div class="preview-scope-item">
+            <div class="preview-scope-name">${s.name}</div>
+            <div class="preview-scope-price">${s.price>=0?fmt(s.price):'-'+fmt(Math.abs(s.price))}</div>
+          </div>`).join('') : '<div style="color:var(--text-muted);font-size:12px;">No items selected yet.</div>'}
+        <div class="preview-total-box">
+          <div class="preview-total-label">Total Investment</div>
+          <div class="preview-total-val">${fmt(calcTotal())}</div>
+        </div>
+      </div>
+      <div class="preview-section">
+        <div class="preview-section-title">Terms & Next Steps</div>
+        <div style="font-size:12.5px;color:var(--text-body);line-height:1.8;">
+          <p>• 50% deposit required to begin · balance due upon project completion</p>
+          <p>• This proposal is valid for 14 days from the date above</p>
+          <p>• Timeline begins upon receipt of deposit and required materials</p>
+          <p>• All work remains property of client upon final payment</p>
+        </div>
+      </div>
+    </div>
+    <div class="preview-footer">
+      <div class="preview-footer-note">Questions? hello@amplify.studio · (555) 000-0000</div>
+      <div style="display:flex;gap:40px;">
+        <div class="preview-sign-line">Client Signature</div>
+        <div class="preview-sign-line">Date</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ===== ACTIONS =====
+function sendProposal(){
+  showToast('✓ Proposal sent to '+(state.client.email||'client')+'!');
+}
+
+function saveDraft(){
+  showToast('Draft saved successfully.');
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+function selectTemplate(el, id){
+  document.querySelectorAll('.template-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.template = id;
+}
+
+function useTemplate(){
+  showView('builder');
+  showToast('Template applied.');
+}
+
+// ===== INIT =====
+showView('dashboard');
+renderStep();
 </script>
 </body>
 </html>
